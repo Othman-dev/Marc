@@ -1,0 +1,18 @@
+@import "../../assets/_colors.scss";
+
+.body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-wrap: wrap;
+}
+
+.body-container {
+   max-width: 1250px;
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

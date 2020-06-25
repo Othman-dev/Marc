@@ -1,0 +1,39 @@
+@import "../../assets/_colors";
+
+
+.card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1.5px solid $gray;
+    height: 350px;
+    width: 250px;
+    margin: 15px;
+    border-radius: 20px ;
+}
+
+.card h4 {
+    color: $dark;
+}
+
+.card-header {
+    position: absolute;
+    top: 0;
+    display: flex;
+    max-width: 80%;
+    max-height: 200px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 5px -5px $gray ;
+    perspective: 500px;
+}

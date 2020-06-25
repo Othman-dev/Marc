@@ -1,0 +1,14 @@
+@import "../../assets/_colors.scss";
+
+
+.search-bar {
+    text-align: center;
+    margin: 100px 0;
+    width: 340px;
+    height: 50px;
+    border-radius: 40px;
+    border: 1.5px solid $green;
+    background-color: $dark;
+    color: $white;
+    font-size: 20px;
+}

@@ -1,0 +1,21 @@
+@import "../../assets/_colors.scss";
+
+.nav {
+    display: flex;
+    min-height: 70px;
+    background: transparent;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav h4 {
+    color: $white;
+    margin: 0 40px;
+    
+}
