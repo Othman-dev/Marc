@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history';
+//css
 import './index.scss';
 //components
 import App from './views/App/App';
@@ -8,14 +10,17 @@ import Page from './views/Page/Page';
 //
 import * as serviceWorker from './serviceWorker';
 
+const hist = createBrowserHistory();
+
+console.log(hist);
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router history={hist}>
       <Switch >
 
         <Route path='/' component={App} />
-        <Route path='/page' component={Page}/>
-     
+        <Route path='/page' component={Page} />
+
       </Switch>
 
     </Router>
