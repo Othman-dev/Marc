@@ -5,7 +5,7 @@ import classNames from 'classnames'
 
 const Card = props => {
 
-    const {key, header, body, blue, yellow, orange, tag} = props;
+    const {header, body, blue, yellow, orange, tag} = props;
 
     const cardClasses = classNames({
         'card': true,
@@ -15,7 +15,7 @@ const Card = props => {
     })
 
     return (
-        <div key={key} className={cardClasses}>
+        <div className={cardClasses}>
             <div className='card-header'>
                 <h4>{header}</h4>
             </div>

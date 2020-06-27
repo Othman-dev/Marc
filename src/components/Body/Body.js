@@ -7,13 +7,14 @@ import Card from '../Card/Card'
 const Body = props => {
 
     const { data } = props;
-
+    console.log(data)
     return (
         <div className='body' >
             <div className='body-container'>
                 {data.map(card =>
-
-                    <Card key={card.id} header={card.title} body={card.trailer} hashtag={card.hashtag} orange/>
+                    <div key={card.id}>
+                    <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue/>
+                    </div>
                 )}
 
             </div>

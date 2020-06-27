@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import fire from './firebase-config';
 
 
-function useCards() {
+export function useCards() {
     const [cards, setCards] = useState([])
     useEffect(() => {
       fire
@@ -19,4 +19,3 @@ function useCards() {
     return cards;
   };
 
-  export default useCards;
