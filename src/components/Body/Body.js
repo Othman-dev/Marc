@@ -7,7 +7,6 @@ import Card from '../Card/Card'
 const Body = props => {
 
     const { data } = props;
-    console.log(data)
     return (
         <div className='body' >
             <div className='body-container'>

@@ -6,18 +6,18 @@ import Hashtag from '../Hashtag/Hashtag'
 
 const NavByHashtag = props => {
 
-    const {hashtagClick} = props;
-
+    const { hashtagClick, tags } = props;
     return (
         <div className='nav-hashtag'>
-            
-            <Hashtag tag='HISTOIRE' hashtagClick={hashtagClick}/> 
-            <Hashtag tag='GEOGRAPHIE' hashtagClick={hashtagClick} /> 
-            <Hashtag tag='QCM' hashtagClick={hashtagClick} /> 
-            <Hashtag tag='SIXIEME' hashtagClick={hashtagClick} /> 
-            <Hashtag tag='CINQUIEME' hashtagClick={hashtagClick} /> 
-            <Hashtag tag='QUATRIEME' hashtagClick={hashtagClick} /> 
-            <Hashtag tag='TROISIEME' hashtagClick={hashtagClick} /> 
+
+            {
+                tags.map(tag => (
+                    <div key={tag.name} >
+                        <Hashtag hashtagClick={hashtagClick} name={tag.name} active={tag.active} /> 
+                    </div>
+                )
+                )}
+
 
         </div>
     )

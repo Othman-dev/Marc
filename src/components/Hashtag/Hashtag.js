@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import './Hashtag.scss'
 import classNames from 'classnames';
 
-const Hastag = props => {
+const Hashtag = (props) => {
 
-    const [active, setActive] = useState(false)
 
-    const { tag, hashtagClick } = props;
+    const { name, hashtagClick, active } = props;
 
-    const handleClick = () => {
-        setActive(!active);
-        hashtagClick(tag, !active);
-    }
 
     const hashtagClasses = classNames({
         'hashtag': true,
         'active-hashtag': active,
     })
-
     return (
-        <div className={hashtagClasses} onClick={handleClick} >
-            <h4>#{tag} </h4>
+        <div className={hashtagClasses} onClick={() => hashtagClick(name, active)
+        } >
+            <h4>#{name} </h4>
 
         </div>
     )
 };
 
-export default Hastag;
+export default memo(Hashtag);
+

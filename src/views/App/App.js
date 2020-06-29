@@ -10,12 +10,47 @@ import { useCards } from '../../api/useCards'
 function App() {
 
   const cards = useCards();
-  const [hashtagList, setHashtagList] = useState([]);
+  // const [globalState, setGlobalState] = useCustom();
+  const [selected, setSelected] = useState([]);
   const [data, setData] = useState(cards || []);
+  const tagList = [
+    {
+      name: 'HISTOIRE',
+      active: false
+    },
+    {
+      name: 'GEOGRAPGHIE',
+      active: false
+    },
+    {
+      name: 'QCM',
+      active: false
+    },
+    {
+      name: 'SIXIEME',
+      active: false
+    },
+    {
+      name: 'CINQUIEME',
+      active: false
+    },
+    {
+      name: 'QUATRIEME',
+      active: false
+    },
+    {
+      name: 'TROISIEME',
+      active: false
+    }
+  ]
+  const [tags, setTags] = useState(tagList);
+
+
+
 
   useEffect(() => {
     setData(cards)
-  }, [cards])
+  }, [cards, setData])
 
 
 
@@ -23,35 +58,56 @@ function App() {
     var index = arr.indexOf(value);
     if (index > -1) {
       arr.splice(index, 1);
-      setHashtagList(arr)
+      setSelected(arr)
     }
     return arr;
   }
 
-  const settingDatas = (tab, result) => {
-    if (tab !== []) {
-      setData(result)
-    } else {
-      setData(cards);
-    }
-  }
-
   const filterByHashtag = (arr, secondarray) => {
     let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
-    settingDatas(data, result);
-    console.log(result)
+    setData(result)
   }
 
 
-  const hashtagClick = (hashtag, active) => {
+  const hashtagClick = (tag, active) => {
+  
+    active = !active;
 
-    if (active) {
-      setHashtagList(oldTags => [...oldTags, hashtag])
-    } else {
-      removeItem(hashtagList, hashtag)
+    const newTag = {
+      name: tag,
+      active: active
     }
-    filterByHashtag(cards, hashtagList);
+    // const newTags = tags.map(object => object.name === tag)
+    for(let i = 0; i < tags.length; i++) {
+      if(tags[i].name === newTag.name) {
+        tags[i].active = active
+        setTags(tags)
+      
+    }}
+   
+    console.log(tags)
 
+
+
+
+    active ? 
+    setSelected(oldTags => [...oldTags, tag]) : 
+    removeItem(selected, tag)
+
+
+    console.log(active)
+
+
+
+    // if (selected === []) {
+    //   selected(oldTags => [...oldTags, tag])
+    // } else if(active) {
+    //   selected(oldTags => [...oldTags, tag])
+    // } else {
+    //   removeItem(selected, tag)
+    // };
+
+    filterByHashtag(cards, selected)
   }
 
 
@@ -60,7 +116,7 @@ function App() {
   return (
     <div className="App">
       <Navbar logo='LOGO' links={<h4>About</h4>} />
-      <Header hashtagClick={hashtagClick} />
+      <Header hashtagClick={hashtagClick} tags={tags} />
       <Body data={data} />
 
     </div>

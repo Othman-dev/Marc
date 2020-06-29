@@ -7,13 +7,13 @@ import SearchBar from '../SearchBar/SearchBar';
 
 const Header = props => {
 
-    const { hashtagClick } = props;
+    const { hashtagClick, tags } = props;
 
     return (
         <div className='header'>
             <Title />
             <SearchBar placeholder='Recherchez des cours ici' />
-            <NavByHashtag hashtagClick={hashtagClick} />
+            <NavByHashtag hashtagClick={hashtagClick} tags={tags} />
 
         </div>
     )
