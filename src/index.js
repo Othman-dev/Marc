@@ -12,7 +12,6 @@ import * as serviceWorker from './serviceWorker';
 
 const hist = createBrowserHistory();
 
-console.log(hist);
 ReactDOM.render(
   <React.StrictMode>
     <Router history={hist}>

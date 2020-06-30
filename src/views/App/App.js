@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import './App.scss';
 //components
 import Navbar from '../../components/Navbar/Navbar';
@@ -19,7 +19,7 @@ function App() {
       active: false
     },
     {
-      name: 'GEOGRAPGHIE',
+      name: 'GEOGRAPHIE',
       active: false
     },
     {
@@ -45,73 +45,73 @@ function App() {
   ]
   const [tags, setTags] = useState(tagList);
 
-
+  useEffect(() => {
+    setData(cards)
+  }, [cards])
 
 
   useEffect(() => {
-    setData(cards)
-  }, [cards, setData])
+    if (selected !== []) {
+      filterByHashtag(cards, selected, setData)
+    } 
+  }, [cards, selected])
 
 
 
-  const removeItem = (arr, value) => {
+
+
+  const removeItem = (arr, value, setState) => {
     var index = arr.indexOf(value);
     if (index > -1) {
       arr.splice(index, 1);
-      setSelected(arr)
+      setState(arr)
     }
     return arr;
   }
 
-  const filterByHashtag = (arr, secondarray) => {
-    let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
-    setData(result)
+
+  const filterByHashtag = (arr, secondarray, setState) => {
+    let result = 
+    arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
+    setState(result)
   }
 
 
   const hashtagClick = (tag, active) => {
-  
-    active = !active;
-
+    active = !active
+    console.log('is it active ' + active)
     const newTag = {
       name: tag,
       active: active
     }
     // const newTags = tags.map(object => object.name === tag)
-    for(let i = 0; i < tags.length; i++) {
-      if(tags[i].name === newTag.name) {
-        tags[i].active = active
-        setTags(tags)
-      
-    }}
-   
+    for (let i = 0; i < tags.length; i++) {
+      if (tags[i].name === newTag.name) {
+        tags[i].active = active;
+        console.log("et la cest actif connard? " + tags[i].active)
+      } 
+      setTags(tags)
+      console.log(tags)
+    }
+
     console.log(tags)
-
-
-
-
-    active ? 
-    setSelected(oldTags => [...oldTags, tag]) : 
-    removeItem(selected, tag)
-
-
     console.log(active)
 
 
 
-    // if (selected === []) {
-    //   selected(oldTags => [...oldTags, tag])
-    // } else if(active) {
-    //   selected(oldTags => [...oldTags, tag])
-    // } else {
-    //   removeItem(selected, tag)
-    // };
+    if (active) {
+      console.log(active)
+      setSelected(old => [...old, tag])
+    } else {
+      console.log(active)
+      removeItem(selected, tag, setSelected)
+    }
+    console.log(selected)
 
-    filterByHashtag(cards, selected)
   }
 
 
-
+  console.log(tags)
 
   return (
     <div className="App">
@@ -123,4 +123,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);
