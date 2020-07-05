@@ -6,24 +6,41 @@ import Card from '../Card/Card'
 
 const Body = props => {
 
-    const { data } = props
-    return (
-        <div className='body' >
-            <div className='body-container'>
-                {data.map( (card, i) => (
-                    <div key={card.id}>
-                        <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue />
-                    </div>
-                ))
-                }
+    const { data, selected, cards } = props;
 
-            </div>
+    return (
+        <div>
+
+            {
+                selected.length !==  0 ?
+                    <div className='body' >
+                        <div className='body-container'>
+                            {data.map((card, i) => (
+                                <div key={card.id}>
+                                    <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue />
+                                </div>
+                            ))
+                            }
+
+                        </div>
+                    </div>
+                    :
+                    <div className='body' >
+                        <div className='body-container'>
+                            {cards.map((card, i) => (
+                                <div key={card.id}>
+                                    <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue />
+                                </div>
+                            ))
+                            }
+
+                        </div>
+                    </div>
+
+            }
         </div>
+
     )
 };
 
 export default Body;
-
-// <div key={card.id}>
-//                     <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue/>
-//                     </div>

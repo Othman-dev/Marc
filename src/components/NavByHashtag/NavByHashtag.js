@@ -7,15 +7,12 @@ import {HashtagContext} from '../../views/App/App'
 
 
 
-const NavByHashtag = props => {
+const NavByHashtag = () => {
 
   const {tags, hashtagClick} = useContext(HashtagContext)
 
-
-
     return (
         <div className='nav-hashtag'>
-
             {
                 tags.map((tag, i) => (
                     <div key={tag.name} >
@@ -23,8 +20,6 @@ const NavByHashtag = props => {
                     </div>
                 )
                 )}
-
-
         </div>
     )
 };

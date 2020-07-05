@@ -11,106 +11,60 @@ import './App.scss';
 import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import Body from '../../components/Body/Body'
+//data
 import { tagList } from '../../data/tagList'
 //api
 import { useCards } from '../../api/useCards'
-
-
+//reducers
+import {
+hashtagReducer,
+selectionReducer
+} from '../../reducer/reducers'
 
 export const HashtagContext = createContext();
 
-const hashtagReducer = (tags, action) => {
-  switch (action.type) {
-    case 'tagSelected':
-      return [
-        ...tags.slice(0, action.index),
-        {
-          ...tags[action.index],
-          active: !tags[action.index].active
-        },
-        ...tags.slice(action.index + 1)
-      ];
-    default:
-      return tags
-  }
-}
-
-const selection = (selected, action) => {
-  switch (action.type) {
-    case 'active':
-      return [
-        ...selected, action.tag
-      ];
-    case 'noneactive':
-      return [
-        ...selected.filter(tag => tag !== action.tag)
-
-      ];
-    default:
-      return selected
-  }
-}
-
-function App() {
+const App = () => {
 
   const cards = useCards();
   const [tags, dispatchTags] = useReducer(hashtagReducer, tagList)
-  const [selected, dispatchSelected] = useReducer(selection, [])
+  const [selected, dispatchSelected] = useReducer(selectionReducer, [])
   const [data, setData] = useState([]);
 
   useEffect(() => {
-   setData(cards)
-
+    setData(cards)
   }, [cards])
 
+  useLayoutEffect(() => {
+    filterByHashtag(cards, selected, setData)
+  }, [cards, selected])
 
   const filterByHashtag = (arr, secondarray, setState) => {
     let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
     setState(result)
   }
-
-  useLayoutEffect(() => {
-    if (selected === []) {
-      setData(cards)
-    }
-    return filterByHashtag(cards, selected, setData)
-  }, [cards, selected])
-
+  //faire des categories [histoire / geo] => [3eme, 4eme, 5eme, 6eme] => [qcm, cours]
 
 
   const hashtagClick = useCallback((tag, index, active) => {
-    console.log('click');
 
     dispatchTags({ type: 'tagSelected', index: index })
-
-
     if (!active) {
       dispatchSelected({ type: 'active', tag: tag })
     }
     else {
       dispatchSelected({ type: 'noneactive', tag: tag })
     }
-
   }, [])
 
-
-  console.log('render app')
-  console.log(data)
-
-
-
   return (
-
     <div className="App">
       <Navbar logo='LOGO' links={<h4>About</h4>} />
       <HashtagContext.Provider value={{ tags, hashtagClick }}>
         <Header />
       </HashtagContext.Provider>
-      <Body data={data} />
+      <Body data={data} selected={selected} cards={cards} />
 
     </div>
-
-
   );
 }
 

@@ -19,7 +19,6 @@ const Hashtag = (props) => {
         'hashtag': true,
         'active-hashtag': active,
     })
-    console.log('render hashtag')
 
 
     return (
