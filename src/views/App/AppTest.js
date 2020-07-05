@@ -1,89 +1,85 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import './App.scss';
 //components
 import Navbar from '../../components/Navbar/Navbar';
+import Header from '../../components/Header/Header';
 import Body from '../../components/Body/Body'
-import Hashtag from '../../components/Hashtag/Hashtag'
-import Title from '../../components/Title/Title'
-import SearchBar from '../../components/SearchBar/SearchBar'
 //api
 import { useCards } from '../../api/useCards'
 
+const reducer = (state, action) => {
+  switch(action.type) {
+    case 'true': 
+    
+  }
+} 
+
 function App() {
 
-    const cards = useCards();
-    const [hashtagList, setHashtagList] = useState([]);
-    const [data, setData] = useState(cards || []);
-    const [active, setActive] = useState(false);
+  const cards = useCards();
+  const [data, setData] = useState([])
 
-    const hashtags = ['histoire', 'geography', 'sixieme', 'troisieme'];
+  useEffect(() => {
+    setData(cards)
+  }, [cards])
 
-    useEffect(() => {
-        setData(cards)
-    }, [cards])
+  const cardsFiltered = (name) => {
+    const result = cards.filter(item => item.hashtag.some(string => string === name))
+    return result
+  }
 
-    useEffect(() => {
-        
-    })
-
-
-    const removeItem = (arr, value) => {
-        var index = arr.indexOf(value);
-        if (index > -1) {
-            arr.splice(index, 1);
-            setHashtagList(arr)
-        }
-        return arr;
+  let tagList = [
+    {
+      name: 'HISTOIRE',
+      active: false,
+      dataFiltered: cardsFiltered('HISTOIRE')
+    },
+    {
+      name: 'GEOGRAPHIE',
+      active: false,
+      dataFiltered: cardsFiltered('GEOGRAPHIE')
+    },
+    {
+      name: 'QCM',
+      active: false,
+      dataFiltered: cardsFiltered('QCM')
+    },
+    {
+      name: 'SIXIEME',
+      active: false,
+      dataFiltered: cardsFiltered('SIXIEME')
+    },
+    {
+      name: 'CINQUIEME',
+      active: false,
+      dataFiltered: cardsFiltered('CINQUIEME')
+    },
+    {
+      name: 'QUATRIEME',
+      active: false,
+      dataFiltered: cardsFiltered('QUATRIEME')
+    },
+    {
+      name: 'TROISIEME',
+      active: false,
+      dataFiltered: cardsFiltered('TROISIEME')
     }
-
-    const filterByHashtag = (arr, secondarray) => {
-        let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
-        setData(result)
-    }
+  ]
 
 
-    const hashtagClick = (tag) => {
-        setActive(prevState => !prevState)
-        console.log(active)
-        if (active) {
-            setHashtagList(oldTags => [...oldTags, tag])
-        } else {
-            removeItem(hashtagList, tag)
-        };
+  const hashtagClick = (tag, active) => {
 
-        filterByHashtag(cards, hashtagList)
-    }
+    console.log()
+  }
 
+  return (
+    <div className="App">
+      <Navbar logo='LOGO' links={<h4>About</h4>} />
+      <Header hashtagClick={hashtagClick} tags={tagList} />
+      <Body data={data} />
 
-
-
-    return (
-        <div className="App">
-            <Navbar logo='LOGO' links={<h4>About</h4>} />
-
-            <div className='header'>
-                <Title />
-                <SearchBar placeholder='Recherchez des cours ici' />
-
-
-                <div className='nav-hashtag'>
-
-                {
-                    hashtags.map(hashtag => (
-                        <div key={hashtag}>
-                        <Hashtag tag={hashtag} hashtagClick={hashtagClick} active={active}/>
-                        </div>
-                    ))
-                }
-
-                </div>
-
-            </div>
-
-            <Body data={data} />
-
-        </div>
-    );
+    </div>
+  );
 }
 
 export default App;

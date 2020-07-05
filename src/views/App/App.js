@@ -1,126 +1,117 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  createContext,
+  useReducer,
+  useCallback
+} from 'react';
 import './App.scss';
 //components
 import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import Body from '../../components/Body/Body'
+import { tagList } from '../../data/tagList'
 //api
 import { useCards } from '../../api/useCards'
+
+
+
+export const HashtagContext = createContext();
+
+const hashtagReducer = (tags, action) => {
+  switch (action.type) {
+    case 'tagSelected':
+      return [
+        ...tags.slice(0, action.index),
+        {
+          ...tags[action.index],
+          active: !tags[action.index].active
+        },
+        ...tags.slice(action.index + 1)
+      ];
+    default:
+      return tags
+  }
+}
+
+const selection = (selected, action) => {
+  switch (action.type) {
+    case 'active':
+      return [
+        ...selected, action.tag
+      ];
+    case 'noneactive':
+      return [
+        ...selected.filter(tag => tag !== action.tag)
+
+      ];
+    default:
+      return selected
+  }
+}
 
 function App() {
 
   const cards = useCards();
-  // const [globalState, setGlobalState] = useCustom();
-  const [selected, setSelected] = useState([]);
-  const [data, setData] = useState(cards || []);
-  const tagList = [
-    {
-      name: 'HISTOIRE',
-      active: false
-    },
-    {
-      name: 'GEOGRAPHIE',
-      active: false
-    },
-    {
-      name: 'QCM',
-      active: false
-    },
-    {
-      name: 'SIXIEME',
-      active: false
-    },
-    {
-      name: 'CINQUIEME',
-      active: false
-    },
-    {
-      name: 'QUATRIEME',
-      active: false
-    },
-    {
-      name: 'TROISIEME',
-      active: false
-    }
-  ]
-  const [tags, setTags] = useState(tagList);
+  const [tags, dispatchTags] = useReducer(hashtagReducer, tagList)
+  const [selected, dispatchSelected] = useReducer(selection, [])
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(cards)
+   setData(cards)
+
   }, [cards])
 
 
-  useEffect(() => {
-    if (selected !== []) {
-      filterByHashtag(cards, selected, setData)
-    } 
+  const filterByHashtag = (arr, secondarray, setState) => {
+    let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
+    setState(result)
+  }
+
+  useLayoutEffect(() => {
+    if (selected === []) {
+      setData(cards)
+    }
+    return filterByHashtag(cards, selected, setData)
   }, [cards, selected])
 
 
 
+  const hashtagClick = useCallback((tag, index, active) => {
+    console.log('click');
+
+    dispatchTags({ type: 'tagSelected', index: index })
 
 
-  const removeItem = (arr, value, setState) => {
-    var index = arr.indexOf(value);
-    if (index > -1) {
-      arr.splice(index, 1);
-      setState(arr)
+    if (!active) {
+      dispatchSelected({ type: 'active', tag: tag })
     }
-    return arr;
-  }
-
-
-  const filterByHashtag = (arr, secondarray, setState) => {
-    let result = 
-    arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
-    setState(result)
-  }
-
-
-  const hashtagClick = (tag, active) => {
-    active = !active
-    console.log('is it active ' + active)
-    const newTag = {
-      name: tag,
-      active: active
-    }
-    // const newTags = tags.map(object => object.name === tag)
-    for (let i = 0; i < tags.length; i++) {
-      if (tags[i].name === newTag.name) {
-        tags[i].active = active;
-        console.log("et la cest actif connard? " + tags[i].active)
-      } 
-      setTags(tags)
-      console.log(tags)
+    else {
+      dispatchSelected({ type: 'noneactive', tag: tag })
     }
 
-    console.log(tags)
-    console.log(active)
+  }, [])
 
 
-
-    if (active) {
-      console.log(active)
-      setSelected(old => [...old, tag])
-    } else {
-      console.log(active)
-      removeItem(selected, tag, setSelected)
-    }
-    console.log(selected)
-
-  }
+  console.log('render app')
+  console.log(data)
 
 
-  console.log(tags)
 
   return (
+
     <div className="App">
       <Navbar logo='LOGO' links={<h4>About</h4>} />
-      <Header hashtagClick={hashtagClick} tags={tags} />
+      <HashtagContext.Provider value={{ tags, hashtagClick }}>
+        <Header />
+      </HashtagContext.Provider>
       <Body data={data} />
 
     </div>
+
+
   );
 }
 
-export default memo(App);
+export default App;

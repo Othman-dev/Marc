@@ -1,19 +1,25 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './NavByHashtag.scss'
 //components
-import Hashtag from '../Hashtag/Hashtag'
+import Hashtag from '../Hashtag/Hashtag';
+import {HashtagContext} from '../../views/App/App'
+
+
 
 
 const NavByHashtag = props => {
 
-    const { hashtagClick, tags } = props;
+  const {tags, hashtagClick} = useContext(HashtagContext)
+
+
+
     return (
         <div className='nav-hashtag'>
 
             {
-                tags.map(tag => (
+                tags.map((tag, i) => (
                     <div key={tag.name} >
-                        <Hashtag hashtagClick={hashtagClick} name={tag.name} active={tag.active} /> 
+                        <Hashtag name={tag.name} hashtagClick={hashtagClick} active={tag.active} index={i} /> 
                     </div>
                 )
                 )}

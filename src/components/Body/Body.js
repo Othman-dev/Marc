@@ -6,15 +6,16 @@ import Card from '../Card/Card'
 
 const Body = props => {
 
-    const { data } = props;
+    const { data } = props
     return (
         <div className='body' >
             <div className='body-container'>
-                {data.map(card =>
+                {data.map( (card, i) => (
                     <div key={card.id}>
-                    <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue/>
+                        <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue />
                     </div>
-                )}
+                ))
+                }
 
             </div>
         </div>
@@ -22,3 +23,7 @@ const Body = props => {
 };
 
 export default Body;
+
+// <div key={card.id}>
+//                     <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue/>
+//                     </div>

@@ -1,21 +1,27 @@
 import React from 'react';
 import './Hashtag.scss'
 import classNames from 'classnames';
+//hooks
 
 const Hashtag = (props) => {
 
 
-    const { name, hashtagClick, active } = props;
-    console.log(active)
+    const { name, hashtagClick, active, index } = props;
+
 
     const handleClick = () => {
-        hashtagClick(name, active)
+
+        hashtagClick(name, index, active)
+
     }
 
     const hashtagClasses = classNames({
         'hashtag': true,
         'active-hashtag': active,
     })
+    console.log('render hashtag')
+
+
     return (
         <div className={hashtagClasses} onClick={handleClick} >
             <h4>#{name} </h4>
