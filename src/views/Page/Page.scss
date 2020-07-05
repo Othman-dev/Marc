@@ -1,6 +1,7 @@
 @import "../../assets/_colors";
 
 .page {
+
     position: relative;
     width: 100%;
     display: flex;
@@ -8,7 +9,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: $orange;
+
 }
 
 .page i {

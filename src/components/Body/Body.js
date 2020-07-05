@@ -17,7 +17,7 @@ const Body = props => {
                         <div className='body-container'>
                             {data.map((card, i) => (
                                 <div key={card.id}>
-                                    <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue />
+                                    <Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id} blue />
                                 </div>
                             ))
                             }
@@ -29,7 +29,7 @@ const Body = props => {
                         <div className='body-container'>
                             {cards.map((card, i) => (
                                 <div key={card.id}>
-                                    <Card header={card.title} body={card.trailer} hashtag={card.hashtag} blue />
+                                    <Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id} blue />
                                 </div>
                             ))
                             }

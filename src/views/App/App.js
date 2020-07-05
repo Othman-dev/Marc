@@ -17,13 +17,13 @@ import { tagList } from '../../data/tagList'
 import { useCards } from '../../api/useCards'
 //reducers
 import {
-hashtagReducer,
-selectionReducer
+  hashtagReducer,
+  selectionReducer
 } from '../../reducer/reducers'
 
 export const HashtagContext = createContext();
 
-const App = () => {
+const App = (props) => {
 
   const cards = useCards();
   const [tags, dispatchTags] = useReducer(hashtagReducer, tagList)
@@ -42,7 +42,7 @@ const App = () => {
     let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
     setState(result)
   }
-  //faire des categories [histoire / geo] => [3eme, 4eme, 5eme, 6eme] => [qcm, cours]
+  //faire des categories [histoire, geo] => [3eme, 4eme, 5eme, 6eme] => [qcm, cours]
 
 
   const hashtagClick = useCallback((tag, index, active) => {
@@ -56,13 +56,17 @@ const App = () => {
     }
   }, [])
 
+  const { history } = props;
+
   return (
-    <div className="App">
-      <Navbar logo='LOGO' links={<h4>About</h4>} />
-      <HashtagContext.Provider value={{ tags, hashtagClick }}>
+    <div className="App" {...props}>
+      <HashtagContext.Provider value={{ tags, hashtagClick, history }}>
+
+        <Navbar logo='LOGO' links={<h4>About</h4>} />
         <Header />
+        <Body data={data} selected={selected} cards={cards} />
       </HashtagContext.Provider>
-      <Body data={data} selected={selected} cards={cards} />
+
 
     </div>
   );
