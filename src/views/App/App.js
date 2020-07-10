@@ -59,9 +59,8 @@ const App = (props) => {
   const { history } = props;
 
   return (
-    <div className="App" {...props}>
+    <div className="App" >
       <HashtagContext.Provider value={{ tags, hashtagClick, history }}>
-
         <Navbar logo='LOGO' links={<h4>About</h4>} />
         <Header />
         <Body data={data} selected={selected} cards={cards} />

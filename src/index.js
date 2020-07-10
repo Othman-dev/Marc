@@ -11,7 +11,6 @@ import Page from './views/Page/PageTest';
 import * as serviceWorker from './serviceWorker';
 
 var hist = createBrowserHistory();
-
 ReactDOM.render(
   <React.StrictMode>
     <Router history={hist}>
