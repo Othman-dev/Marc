@@ -1,0 +1,50 @@
+@import "../../assets/_colors";
+
+.about {
+		position: relative;
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+}
+
+.head {
+		display:flex;
+		width:100vw;
+		margin-top: 5vh;
+		justify-content: center;
+		align-items: center;
+		margin-bottom:2vh;
+}
+
+.profilContainer {
+		display:flex;
+		width:100vw;
+		justify-content: center;
+		align-items: center;
+}
+
+.profilPic{
+		height: 50vh;
+		width: auto;
+		margin-right: 50px;
+}
+
+.profilTxt{
+		height: 50vh;
+		width: 30vw;
+		color: white;
+}
+
+.contactContainer {
+		display:flex;
+		
+}
+
+.contactButton {
+		color: white;
+		margin-top: 5vh;
+		position: relative;
+		bottom: 0%;
+		left: 47%;
+}

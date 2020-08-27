@@ -3,9 +3,11 @@ import './Title.scss'
 
 const Title = props => {
 
+		const {title} = props
+
     return (
         <div className='title'> 
-            <h1> Trouvez tous les cours d'Histoire et de Geographie des sections collège </h1>
+            <h1>{title}</h1>
         </div>
     )
 };

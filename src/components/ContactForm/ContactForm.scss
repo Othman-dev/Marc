@@ -1,0 +1,20 @@
+@import "../../assets/_colors";
+
+.contactForm {
+    color: white;
+	height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	margin-top: 5vh;
+}
+
+.formSubject {
+    width: 20vw;
+}
+
+.formContent {
+    width: 35vw;
+}

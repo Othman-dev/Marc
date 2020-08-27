@@ -20,6 +20,8 @@ import {
   hashtagReducer,
   selectionReducer
 } from '../../reducer/reducers'
+import { Link } from 'react-router-dom'
+
 
 export const HashtagContext = createContext();
 
@@ -61,7 +63,7 @@ const App = (props) => {
   return (
     <div className="App" >
       <HashtagContext.Provider value={{ tags, hashtagClick, history }}>
-        <Navbar logo='LOGO' links={<h4>About</h4>} />
+        <Navbar logo='LOGO' links={<Link to='/about' style={{textDecoration: 'none', color: 'white'}}>About</Link>}/>
         <Header />
         <Body data={data} selected={selected} cards={cards} />
       </HashtagContext.Provider>

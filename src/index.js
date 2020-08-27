@@ -7,6 +7,7 @@ import './index.scss';
 //components
 import App from './views/App/App';
 import Page from './views/Page/PageTest';
+import About from './views/About/About';
 //
 import * as serviceWorker from './serviceWorker';
 
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Switch >
         <Route path='/' exact component={props => <App {...props} />}/>
         <Route path='/page/:id' component={props => <Page {...props} blue  />} />
+		<Route path='/about' component={props => <About {...props} />}/>
         < Redirect from='/' to='/'/>
       </Switch>
 

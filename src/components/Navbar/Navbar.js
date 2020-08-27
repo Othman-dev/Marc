@@ -12,7 +12,7 @@ const Navbar = props => {
         <div className='nav'>
             <div className='container'>
                 <h4>{logo} </h4>
-                {links}
+                <h4>{links} </h4>
             </div>
         </div>
     )

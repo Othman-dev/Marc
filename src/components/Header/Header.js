@@ -11,7 +11,7 @@ const Header = props => {
   
     return (
         <div className='header'>
-            <Title />
+            <Title title="Trouvez tous les cours d'Histoire et de Geographie des sections collège"/>
             <SearchBar placeholder='Recherchez des cours ici' />
             <NavByHashtag  />
 
