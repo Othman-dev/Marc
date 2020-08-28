@@ -10,7 +10,7 @@ import {HashtagContext} from '../../views/App/App'
 const NavByHashtag = () => {
 
   const {tags, hashtagClick} = useContext(HashtagContext)
-
+    console.log(tags)
     return (
         <div className='nav-hashtag'>
             {

@@ -5,13 +5,15 @@ import classNames from 'classnames'
 import './Page.scss';
 
 
+
+
 class Page extends Component {
 
     state = {
         board: {},
         key: ''
     };
-
+         
     componentDidMount() {
         const ref = fire.firestore().collection('cards').doc(this.props.match.params.id);
         ref.get().then((doc) => {
