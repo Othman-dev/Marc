@@ -1,0 +1,47 @@
+@import "../../assets/_colors";
+
+.connect {
+    display: flex;
+    height: calc(100vh - 70px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+
+
+.connect div {
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.connect div div {
+    display: flex;
+    justify-content: center;
+}
+
+.connect div div h2 {
+    text-align: center;
+    padding: 30px 30px 15px 30px;
+    color: $dark;
+}
+
+.connect form {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 30px 30px 30px;
+}
+
+.connect form div {
+    margin: 10px;
+}
+
+.connect label {
+    text-align: center;
+    padding: 5px;
+    color: $dark
+}

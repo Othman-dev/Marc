@@ -8,7 +8,6 @@ const Card = props => {
     const {history} = useContext(HashtagContext)
     const { header, body, blue, yellow, orange, tag, id } = props;
     const [zoom, setZoom] = useState(false)
-    console.log(id)
 
     const handleClick = () => {
         setZoom(true)
@@ -22,7 +21,7 @@ const Card = props => {
         'yellow': yellow,
         'zoom-in': zoom
     })
-    console.log(zoom)
+    
     return (
         <div className={cardClasses} onClick={handleClick}>
             <div className='card-header'>

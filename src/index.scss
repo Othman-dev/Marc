@@ -28,5 +28,16 @@ code {
   background-color: $yellow;
 }
 
+a {
+  color: $white
+}
+
+input {
+  padding: 20px;
+  border-radius: 15px;
+  border: solid 1.5px $blue;
+  font-size: 20px;
+  outline: none
+}
 
 

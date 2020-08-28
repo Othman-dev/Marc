@@ -1,0 +1,16 @@
+@import "../../assets/_colors";
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: calc(100vh - 200px);
+    background: $orange;
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    top: 100px
+}

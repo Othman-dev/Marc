@@ -7,24 +7,33 @@ import './index.scss';
 //components
 import App from './views/App/App';
 import Page from './views/Page/PageTest';
+import Login from './views/Login/Login'
+import Account from './views/Account/Account';
 import About from './views/About/About';
-//
+import PrivateRoute from './api/PrivateRoute'
+//context
+import {AuthContextProvider} from './context/AuthContext.js';
 import * as serviceWorker from './serviceWorker';
 
 var hist = createBrowserHistory();
+
 ReactDOM.render(
-  <React.StrictMode>
-    <Router history={hist}>
-      <Switch >
-        <Route path='/' exact component={props => <App {...props} />}/>
-        <Route path='/page/:id' component={props => <Page {...props} blue  />} />
-		<Route path='/about' component={props => <About {...props} />}/>
-        < Redirect from='/' to='/'/>
-      </Switch>
 
-    </Router>
-  </React.StrictMode>
-
+    <React.StrictMode>
+       <AuthContextProvider>
+      <Router history={hist}>
+        <Switch >
+          <Route path='/' exact component={props => <App {...props} />} />
+          <Route path='/page/:id' component={props => <Page {...props} blue />} />
+          <Route path='/login' component={props => <Login {...props} />} />
+		  <Route path='/about' component={props => <About {...props} />}/>
+          <PrivateRoute path='/account' component={props => <Account {...props} />} />
+          < Redirect from='/' to='/' />
+        </Switch>
+      </Router>
+      </AuthContextProvider>
+    </React.StrictMode>
+ 
   ,
   document.getElementById('root')
 );

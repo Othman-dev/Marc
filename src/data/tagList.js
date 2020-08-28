@@ -2,8 +2,6 @@ export const tagList = [
     {
       name: 'HISTOIRE',
       active: false,
-    
-  
     },
     {
       name: 'GEOGRAPHIE',
