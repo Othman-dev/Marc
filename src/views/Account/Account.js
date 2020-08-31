@@ -15,15 +15,12 @@ const Account = props => {
 
     return (
         <div >
-            <Navbar logo='Espace Perso' links={<SignOutBtn />} />
+            <Navbar logo='Espace Perso' links={<SignOutBtn />} white='true'/>
             <div className='account'>
                 <h1>Welcome My Friend</h1>
                 <Sidebar /> 
+                
             </div>
-           
-
-
-
         </div>
     )
 }

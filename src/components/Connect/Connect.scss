@@ -13,7 +13,7 @@
 
 
 .connect div {
-    background: $white;
+    background: $creme;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
@@ -26,7 +26,7 @@
 
 .connect div div h2 {
     text-align: center;
-    padding: 30px 30px 15px 30px;
+    // padding: 30px 30px 15px 30px;
     color: $dark;
 }
 
@@ -42,6 +42,6 @@
 
 .connect label {
     text-align: center;
-    padding: 5px;
+    // padding: 5px;
     color: $dark
 }

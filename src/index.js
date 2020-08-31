@@ -8,7 +8,7 @@ import './index.scss';
 import App from './views/App/App';
 import Page from './views/Page/PageTest';
 import Login from './views/Login/Login'
-import Account from './views/Account/Account';
+import Account from './views/Account/index';
 import About from './views/About/About';
 import PrivateRoute from './api/PrivateRoute'
 //context

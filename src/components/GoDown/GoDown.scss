@@ -1,0 +1,16 @@
+@import "../../assets/_colors";
+.go-down {
+    margin-top: 100px;
+    border: solid 2px $dark;
+    border-radius: 100px;
+    padding: 20px 24px 20px 24px;
+    font-size: 30px;
+    max-width: 30px;
+}
+
+.go-down:hover {
+    background: $orange;
+    color: $creme;
+    border: solid 2px $orange;
+
+}

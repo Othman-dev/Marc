@@ -1,5 +1,8 @@
 @import "./assets/colors";
 
+* {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -8,7 +11,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  background-color: $dark;
+  background-color: $creme;
+  
 }
 
 code {
@@ -25,19 +29,60 @@ code {
 }
 
 .yellow {
-  background-color: $yellow;
+  background-color: $orange;
 }
 
 a {
-  color: $white
+  color: $dark;
+  text-decoration: none;
 }
 
-input {
+h1, h2, h3, h4, p {
+  color: $dark
+}
+
+h1 {
+  font-family: 'Poller One', cursive;
+  font-weight: 300;
+}
+
+h2, h3, h4, p, button {
+  font-family: 'Futura';
+  font-weight: 100;
+}
+
+h2 {
+  text-align: center;
+}
+
+input, textarea {
   padding: 20px;
   border-radius: 15px;
-  border: solid 1.5px $blue;
+  border: solid 2px $dark;
   font-size: 20px;
-  outline: none
+  outline: none;
+  margin: 5px;
+  color: $dark;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px 10px 20px;
+  color: $dark;
+  border-radius: 20px;
+  border: solid 2px $creme;
+  background: $creme;
+  font-size: 20px;
+};
+
+button:hover {
+  background: $dark;
+  color: $white;
+  border: solid 2px $dark;
+}
+
+.mt-large {
+  margin-top: 100px;
 }
 
 

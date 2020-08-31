@@ -42,11 +42,11 @@ const Connect = ({history}) => {
                 <form onSubmit={handleSubmit} >
                     <div>
                         <label htmlFor='email' ><h4>Identifiant </h4> </label>
-                        <input type='text' id='email' name='email' />
+                        <input type='text' id='email' name='email' placeholder='identifiant...'/>
                     </div>
                     <div>
                         <label htmlFor='password' ><h4>Mot de Passe</h4></label>
-                        <input type='password' id='password' name='password' />
+                        <input type='password' id='password' name='password' placeholder='mot de passe...' />
                     </div>
                     <button type='submit' >Connexion</button>
                 </form>

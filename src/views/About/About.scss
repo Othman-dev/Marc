@@ -8,18 +8,24 @@
 		align-items: center;
 }
 
+.arrow { 
+	display: flex;
+	justify-content: center;
+}
+
 .head {
 		display:flex;
-		width:100vw;
+		// width:100vw;
 		margin-top: 5vh;
 		justify-content: center;
 		align-items: center;
 		margin-bottom:2vh;
 }
 
+
 .profilContainer {
 		display:flex;
-		width:100vw;
+		// width:100vw;
 		justify-content: center;
 		align-items: center;
 }
@@ -33,7 +39,7 @@
 .profilTxt{
 		height: 50vh;
 		width: 30vw;
-		color: white;
+		
 }
 
 .contactContainer {
@@ -42,9 +48,8 @@
 }
 
 .contactButton {
-		color: white;
-		margin-top: 5vh;
-		position: relative;
-		bottom: 0%;
-		left: 47%;
+		color: $dark;
+		margin: 50px 0 10px 0;
+		text-align: center;
 }
+

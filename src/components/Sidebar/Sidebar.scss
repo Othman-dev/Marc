@@ -4,13 +4,17 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 400px;
+    width: 250px;
     height: calc(100vh - 200px);
     background: $orange;
     position: fixed;
-    left: 50px;
-    bottom: 50px;
-    top: 100px
+    left: 30px;
+    bottom: 30px;
+    border-radius: 20px;
+    
+}
+
+li {
+    padding: 20px 0 20px 0;
 }
