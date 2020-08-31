@@ -14,7 +14,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import Body from '../../components/Body/Body';
 import NavByHashtag from '../../components/NavByHashtag/NavByHashtag';
-import SearchBar from '../../components/SearchBar/SearchBar';
 
 //data
 import { tagList } from '../../data/tagList'

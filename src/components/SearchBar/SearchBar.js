@@ -1,12 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './SearchBar.scss'
 
 const SearchBar = props => {
 
-    return (
-        <input className='search-bar' placeholder={props.placeholder}/>
+		const [searchTemp, setSearchTemp] = useState('');
 
-    )
+		function handleChange(event) {
+				setSearchTemp(event.target.value);
+		}
+
+		function handleAdd(event) {
+				console.log('#' + searchTemp)
+				event.preventDefault()
+		}
+
+    return (
+			<form>
+				<div className='searchBg'>
+				    <input name='search' className='search-bar' placeholder={props.placeholder} onChange={handleChange}/>
+				    <button className='searchBg' onClick={handleAdd}>
+						<i className="fas fa-plus-circle fa-lg searchAdd"></i>
+				    </button>
+				</div>
+		    </form>
+	) 
 };
 
 export default SearchBar;

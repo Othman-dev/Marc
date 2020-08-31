@@ -1,7 +1,6 @@
 import React from 'react';
 import './Navbar.scss';
 //dep
-import propTypes from 'prop-types';
 import classNames from 'classnames'
 
 

@@ -9,6 +9,14 @@ export const hashtagReducer = (tags, action) => {
           },
           ...tags.slice(action.index + 1)
         ];
+      case 'tagAdd':
+        return [
+          ...tags,{
+				name:action.name,
+				active:false,
+				custom:true
+		  }
+                  ];
       default:
         return tags
     }

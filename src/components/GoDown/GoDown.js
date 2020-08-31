@@ -6,7 +6,7 @@ const GoDown = () => {
     return (
         <div className='go-down'>
             
-                <i class="fas fa-arrow-down"></i>
+                <i className="fas fa-arrow-down"></i>
            
 
         </div>

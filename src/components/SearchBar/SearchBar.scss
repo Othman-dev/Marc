@@ -1,14 +1,23 @@
 @import "../../assets/_colors.scss";
-
+.searchBg {
+    background-color: $dark;
+    border-radius: 40px;
+    border: 1.5px solid $dark;
+}
 
 .search-bar {
     text-align: center;
     // margin: 100px 0;
     // width: 340px;
     // height: 50px;
+    background-color: $dark;
     border-radius: 40px;
     border: 1.5px solid $dark;
-    background-color: $dark;
     color: $white;
     font-size: 20px;
+}
+
+.searchAdd {
+		color: white;
+		transform: translate(0%,-15%);
 }
