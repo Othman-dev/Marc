@@ -5,10 +5,10 @@ import { createBrowserHistory } from 'history';
 //css
 import './index.scss';
 //views
-import App from './viewApp/App/App';
-import Page from './viewApp/Page/PageTest';
-import Login from './viewApp/Login/Login'
-import About from './viewApp/About/About';
+import App from './viewsApp/App/App';
+import Page from './viewsApp/Page/PageTest';
+import Login from './viewsApp/Login/Login'
+import About from './viewsApp/About/About';
 //layout
 import Account from './layout/Account';
 //Private Route
