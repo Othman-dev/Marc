@@ -7,18 +7,14 @@ import classNames from 'classnames'
 const Navbar = props => {
 
 
-    const { logo, links, white } = props
-
-    const containerClasses = classNames({
-        'container': true,
-        'white-color': white
-    })
-
+    const { logoOff,logo, links, white } = props;
     return (
         <div className='nav'>
-            <div className={containerClasses}>
-                <h4>{logo} </h4>
-                <h4>{links} </h4>
+            <div className='container'>
+                {
+                    logoOff === true || <h4>{logo} </h4>
+                }
+                <h4 className={classNames({'white-color': white})}>{links} </h4>
             </div>
         </div>
     )

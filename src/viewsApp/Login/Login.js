@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 //components
 import Navbar from '../../components/Navbar/Navbar';
 import Connect from '../../components/Connect/Connect';
@@ -7,13 +9,13 @@ import './Login.scss'
 
 
 
-const Login = props => {
+const Login = () => {
 
     return (
         
             <div className='login'>
 
-                <Navbar logo='logo' links={<a href='/'> <h4>Home</h4> </a>} />
+                <Navbar white={true} logo='logo' links={<Link to='/'>Home</Link>} />
                 <Connect />
             </div>
        

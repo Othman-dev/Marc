@@ -4,7 +4,7 @@ import './NavByHashtag.scss'
 import Hashtag from '../Hashtag/Hashtag';
 import SearchBar from '../SearchBar/SearchBar'
 //context
-import {HashtagContext} from '../../views/App/App'
+import {HashtagContext} from '../../viewsApp/App/App'
 
 
 

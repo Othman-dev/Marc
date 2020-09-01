@@ -2,7 +2,7 @@ import React, {useCallback, useContext} from 'react';
 import {withRouter, Redirect} from 'react-router';
 import './Connect.scss';
 import fire from '../../api/firebase-config'
-import {AuthContext} from '../../context/AuthContext';
+import {AuthContext} from '../../assets/context/AuthContext';
 
 
 const Connect = ({history}) => {

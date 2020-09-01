@@ -15,15 +15,17 @@ import Header from '../../components/Header/Header';
 import Body from '../../components/Body/Body';
 import NavByHashtag from '../../components/NavByHashtag/NavByHashtag';
 
+
+
 //data
-import { tagList } from '../../data/tagList'
+import { tagList } from '../../assets/data/tagList'
 //api
 import { useCards } from '../../api/useCards'
 //reducers
 import {
   hashtagReducer,
   selectionReducer
-} from '../../reducer/reducers'
+} from '../../assets/reducers/reducers'
 
 
 export const HashtagContext = createContext();

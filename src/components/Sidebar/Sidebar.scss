@@ -6,15 +6,15 @@
     flex-direction: column;
     align-items: center;
     width: 250px;
-    height: calc(100vh - 200px);
-    background: $orange;
-    position: fixed;
-    left: 30px;
-    bottom: 30px;
+    background: $orange-light;
+    margin: 80px 30px 30px 30px;
     border-radius: 20px;
-    
+    height: 100%;
 }
 
-li {
-    padding: 20px 0 20px 0;
-}
+.links {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+};
+

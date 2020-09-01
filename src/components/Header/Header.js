@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.scss'
 //components
 import Title from '../Title/Title';
-import GoDown from '../../components/GoDown/GoDown'
+import GoDown from '../GoDown/GoDown'
 
 const Header = props => {
 

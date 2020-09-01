@@ -1,28 +1,27 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 //css
 import './Sidebar.scss';
 //routes
-import routes from '../../views/Account/routes';
 
 
-const Sidebar = props => {
 
+
+
+const Sidebar = ({routes}) => {
 
     return (
         <div className='sidebar'>
-            <Switch>
-                {routes.map((prop, key) => {
-
-                    return (
-                        <Route path={prop.path} component={prop.component} key={key}>
-                            <h4>
-                                {prop.name}
-                            </h4>
-                        </Route>
+            <div className='links'>
+                {
+                    routes.map((prop, key) =>
+                        prop.layout === '/account' ?
+                            <Link className='link' to={prop.layout + prop.path} key={key}> <h4>{prop.name} </h4> </Link> :
+                            null
                     )
-                })}
-            </Switch>
+                }
+            </div>
+
 
         </div>
     )

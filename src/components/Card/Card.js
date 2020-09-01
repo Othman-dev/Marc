@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {HashtagContext} from '../../views/App/App';
+import {HashtagContext} from '../../viewsApp/App/App';
 import './Card.scss';
 import classNames from 'classnames'
 
