@@ -12,8 +12,8 @@ export const hashtagReducer = (tags, action) => {
       case 'tagAdd':
         return [
           ...tags,{
-				name:action.name,
-				active:false,
+				name:action.name.toUpperCase(),
+				active:true,
 				custom:true
 		  }
                   ];

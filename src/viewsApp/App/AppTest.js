@@ -1,82 +1,88 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  createContext,
+  useReducer,
+  useCallback
+} from 'react';
+import { Link } from 'react-router-dom'
+//css
 import './App.scss';
 //components
 import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
-import Body from '../../components/Body/Body'
+import Body from '../../components/Body/Body';
+import NavByHashtag from '../../components/NavByHashtag/NavByHashtag';
+
+
+
+//data
+import { tagList } from '../../assets/data/tagList'
 //api
 import { useCards } from '../../api/useCards'
+//reducers
+import {
+  hashtagReducer,
+  selectionReducer
+} from '../../assets/reducers/reducers'
 
-const reducer = (state, action) => {
-  switch(action.type) {
-    case 'true': 
-    
-  }
-} 
 
-function App() {
+export const HashtagContext = createContext();
+
+const App = (props) => {
 
   const cards = useCards();
-  const [data, setData] = useState([])
+  const [tags, dispatchTags] = useReducer(hashtagReducer, tagList)
+  const [selected, dispatchSelected] = useReducer(selectionReducer, [])
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     setData(cards)
   }, [cards])
 
-  const cardsFiltered = (name) => {
-    const result = cards.filter(item => item.hashtag.some(string => string === name))
-    return result
-  }
+  useLayoutEffect(() => {
+    filterByHashtag(cards, selected, setData)
+  }, [cards, selected])
 
-  let tagList = [
-    {
-      name: 'HISTOIRE',
-      active: false,
-      dataFiltered: cardsFiltered('HISTOIRE')
-    },
-    {
-      name: 'GEOGRAPHIE',
-      active: false,
-      dataFiltered: cardsFiltered('GEOGRAPHIE')
-    },
-    {
-      name: 'QCM',
-      active: false,
-      dataFiltered: cardsFiltered('QCM')
-    },
-    {
-      name: 'SIXIEME',
-      active: false,
-      dataFiltered: cardsFiltered('SIXIEME')
-    },
-    {
-      name: 'CINQUIEME',
-      active: false,
-      dataFiltered: cardsFiltered('CINQUIEME')
-    },
-    {
-      name: 'QUATRIEME',
-      active: false,
-      dataFiltered: cardsFiltered('QUATRIEME')
-    },
-    {
-      name: 'TROISIEME',
-      active: false,
-      dataFiltered: cardsFiltered('TROISIEME')
+  const filterByHashtag = (arr, secondarray, setState) => {
+    let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
+    setState(result)
+  }
+  //faire des categories [histoire, geo] => [3eme, 4eme, 5eme, 6eme] => [qcm, cours]
+
+
+
+  const hashtagClick = useCallback((tag, index, active) => {
+
+    dispatchTags({ type: 'tagSelected', index: index })
+    if (!active) {
+      dispatchSelected({ type: 'active', tag: tag })
     }
-  ]
+    else {
+      dispatchSelected({ type: 'noneactive', tag: tag })
+    }
+  }, [])
 
-
-  const hashtagClick = (tag, active) => {
-
-    console.log()
-  }
+  const { history } = props;
 
   return (
-    <div className="App">
-      <Navbar logo='LOGO' links={<h4>About</h4>} />
-      <Header hashtagClick={hashtagClick} tags={tagList} />
-      <Body data={data} />
+    <div className="App" >
+      <HashtagContext.Provider value={{ tags, hashtagClick, history }}>
+        <Navbar logo='LOGO' links={<Link to='/about'>About</Link>} />
+        <Header />
+        <div className='navigation' id='nav'>
+          <div>
+            <h2 className='mt-large'>Utilisez les #Hashtags pour faire vos recherches. Selectionnez-en un ou plusieur pour filtrer les cours. Vous pouvez également en ajouter. </h2>
+          </div>
+
+          <NavByHashtag />
+
+        </div>
+
+        <Body data={data} selected={selected} cards={cards} />
+      </HashtagContext.Provider>
+
 
     </div>
   );

@@ -17,33 +17,25 @@ import NavByHashtag from '../../components/NavByHashtag/NavByHashtag';
 
 
 
-//data
-import { tagList } from '../../assets/data/tagList'
+//contextProvider
+import HashtagProvider from '../../assets/context/HashtagContext';
 //api
 import { useCards } from '../../api/useCards'
-//reducers
-import {
-  hashtagReducer,
-  selectionReducer
-} from '../../assets/reducers/reducers'
 
 
-export const HashtagContext = createContext();
 
 const App = (props) => {
 
   const cards = useCards();
-  const [tags, dispatchTags] = useReducer(hashtagReducer, tagList)
-  const [selected, dispatchSelected] = useReducer(selectionReducer, [])
   const [data, setData] = useState([]);
 
   useEffect(() => {
     setData(cards)
   }, [cards])
 
-  useLayoutEffect(() => {
+  /*useLayoutEffect(() => {
     filterByHashtag(cards, selected, setData)
-  }, [cards, selected])
+  }, [cards, selected])*/
 
   const filterByHashtag = (arr, secondarray, setState) => {
     let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
@@ -53,7 +45,7 @@ const App = (props) => {
 
 
 
-  const hashtagClick = useCallback((tag, index, active) => {
+ /* const hashtagClick = useCallback((tag, index, active) => {
 
     dispatchTags({ type: 'tagSelected', index: index })
     if (!active) {
@@ -62,13 +54,13 @@ const App = (props) => {
     else {
       dispatchSelected({ type: 'noneactive', tag: tag })
     }
-  }, [])
+  }, [])*/
 
   const { history } = props;
 
   return (
     <div className="App" >
-      <HashtagContext.Provider value={{ tags, hashtagClick, history }}>
+      <HashtagProvider>
         <Navbar logo='LOGO' links={<Link to='/about'>About</Link>} />
         <Header />
         <div className='navigation' id='nav'>
@@ -80,8 +72,8 @@ const App = (props) => {
 
         </div>
 
-        <Body data={data} selected={selected} cards={cards} />
-      </HashtagContext.Provider>
+        <Body data={data} selected='test' cards={cards} />
+      </HashtagProvider>
 
 
     </div>

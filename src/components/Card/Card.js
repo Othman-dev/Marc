@@ -1,11 +1,10 @@
 import React, {useState, useContext} from 'react';
-import {HashtagContext} from '../../viewsApp/App/App';
 import './Card.scss';
 import classNames from 'classnames'
 
 
 const Card = props => {
-    const {history} = useContext(HashtagContext)
+    const {history} = 'test'
     const { header, body, blue, yellow, orange, tag, id } = props;
     const [zoom, setZoom] = useState(false)
 
