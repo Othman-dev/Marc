@@ -1,11 +1,4 @@
-import React, {
-  useState,
-  useEffect,
-  useLayoutEffect,
-  createContext,
-  useReducer,
-  useCallback
-} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
 //css
 import './App.scss';
@@ -14,47 +7,12 @@ import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import Body from '../../components/Body/Body';
 import NavByHashtag from '../../components/NavByHashtag/NavByHashtag';
-
-
-
 //contextProvider
 import HashtagProvider from '../../assets/context/HashtagContext';
-//api
-import { useCards } from '../../api/useCards'
 
 
 
 const App = (props) => {
-
-  const cards = useCards();
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    setData(cards)
-  }, [cards])
-
-  /*useLayoutEffect(() => {
-    filterByHashtag(cards, selected, setData)
-  }, [cards, selected])*/
-
-  const filterByHashtag = (arr, secondarray, setState) => {
-    let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
-    setState(result)
-  }
-  //faire des categories [histoire, geo] => [3eme, 4eme, 5eme, 6eme] => [qcm, cours]
-
-
-
- /* const hashtagClick = useCallback((tag, index, active) => {
-
-    dispatchTags({ type: 'tagSelected', index: index })
-    if (!active) {
-      dispatchSelected({ type: 'active', tag: tag })
-    }
-    else {
-      dispatchSelected({ type: 'noneactive', tag: tag })
-    }
-  }, [])*/
 
   const { history } = props;
 
@@ -72,7 +30,7 @@ const App = (props) => {
 
         </div>
 
-        <Body data={data} selected='test' cards={cards} />
+        <Body/>
       </HashtagProvider>
 
 

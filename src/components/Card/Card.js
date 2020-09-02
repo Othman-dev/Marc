@@ -1,22 +1,21 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import './Card.scss';
 import classNames from 'classnames'
 
 
 const Card = props => {
-    const {history} = 'test'
     const { header, body, blue, yellow, orange, tag, id } = props;
     const [zoom, setZoom] = useState(false)
 
     const handleClick = () => {
         setZoom(true)
-        setTimeout(() => history.push(`/page/${id}`), 800)
+        setTimeout(() => props.history.push(`/page/${id}`), 800)
     }
 
     const cardClasses = classNames({
         'card': true,
         'blue': blue,
-        'orange': orange,
+        'orange': true,
         'yellow': yellow,
         'zoom-in': zoom
     })

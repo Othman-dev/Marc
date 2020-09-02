@@ -8,13 +8,13 @@ import {HashtagContext} from '../../assets/context/HashtagContext';
 
 const NavByHashtag = () => {
 
-  const {tags, hashtagClick} = useContext(HashtagContext)
+  const { tags } = useContext(HashtagContext)
     return (
         <div className='nav-hashtag'>
             {
                 tags.map((tag, i) => (
                     <div key={tag.name} >
-                        <Hashtag name={tag.name} hashtagClick={hashtagClick} active={tag.active} index={i} /> 
+                        <Hashtag name={tag.name} active={tag.active} index={i} /> 
                         
                     </div>
                    
