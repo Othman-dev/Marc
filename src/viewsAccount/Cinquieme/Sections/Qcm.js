@@ -10,7 +10,7 @@ const Qcm = () => {
 
     return (
         <div className='content'>
-            <Header logoOff title='Les QCM | Section 5ème' routes={routes} />
+            <Header qcm logoOff title='Les QCM | Section 5ème' routes={routes} />
 
             
         </div>

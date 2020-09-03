@@ -30,7 +30,6 @@ let routes = [
         path: "/troisieme/geography",
         component: Troisieme,
         layout: '/account'
-
     },
 ];
 export default routes;

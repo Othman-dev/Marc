@@ -16,9 +16,9 @@ const index = () => {
     return (
       <Router history={hist}>
         <Switch >
-        <Route path='/account/quatrieme/geography' component={Geography}/>
-        <Route path='/account/quatrieme/history' component={History}/>
-        <Route path='/account/quatrieme/qcm' component={Qcm}/>
+        <Route path='/admin/account/quatrieme/geography' component={Geography}/>
+        <Route path='/admin/account/quatrieme/history' component={History}/>
+        <Route path='/admin/account/quatrieme/qcm' component={Qcm}/>
         </Switch>
       </Router>
     )

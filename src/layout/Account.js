@@ -1,7 +1,7 @@
 import React from 'react';
-import { Switch, Route,Redirect } from 'react-router-dom'
+import { Switch, Route,Redirect, Link } from 'react-router-dom'
 //css
-import './Account.scss'
+import './layout.scss'
 //fire
 import fire from '../api/firebase-config'
 //components
@@ -41,7 +41,7 @@ const Account = props => {
             </div>
             <div className='right-side'>
                 <div className='right-side-header'>
-                    <h1>Welcome My Friend</h1>
+                   <Link to='/' target='_blank'><h1>Welcome My Friend</h1></Link> 
                 </div>
 
                 <Switch>

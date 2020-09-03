@@ -1,6 +1,8 @@
 @import "../assets/colors";
 
 
+//************* Account **************//
+
 .account {
     position: relative;
     display: flex;
@@ -37,11 +39,61 @@
 .content {
     display: flex;
     width: 100%;
-    height:100%;
+    height: 100%;
     background: $orange-light;
     border-radius: 20px;
     padding-bottom: 20px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
+}
+
+
+
+//************** Board **************//
+
+.board {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.bar {
+    min-width: 100%;
+    
+};
+
+.bar button {
+    
+}
+
+.board div {
+    width: 80%;
+}
+
+.board-header {
+
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.board-body {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5px;
+}
+
+.file {
+    margin: 50px 0;
+   text-align: center;
+}
+
+.input-file {
+    border: rgba(0, 0, 0, 0.303);
+    padding: 30px;
+    
+}

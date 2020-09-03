@@ -1,0 +1,119 @@
+@import "../../assets/_colors.scss";
+
+
+.input-bar {
+    position: relative;
+    min-width: 100%;
+    display: flex;
+    background: $green;
+
+}
+
+.input-bar:hover {
+    border-right: $dark solid 1px;
+    border-bottom: rgba(0, 0, 0, 0.119) solid 1px
+}
+
+// .input-bar button {
+//     padding-right: 30px;
+// }
+
+.options-btn {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    border-radius: 0px;
+    border-left: $dark solid 1px ;
+    background: transparent;
+}
+.options-btn:hover {
+    background: transparent;
+    color: $dark;
+    border-top: none;
+    border-right: none;
+    border-bottom: rgba(0, 0, 0, 0.351) solid 2px
+}
+
+
+
+
+
+.input-bar div {
+
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    
+    outline: none;
+    
+}
+
+
+
+.input-big-title {
+    color: $dark;
+    margin-top: 60px;
+   text-transform: capitalize;
+    font-family: Raleway;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.input-sm-title {
+    color: $dark;
+    letter-spacing: 2px;
+
+    margin-top: 100px;
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
+
+.input-subtitle {
+    margin-top: 200px;
+    letter-spacing: 2px;
+
+// text-decoration: underline;
+    font-family: Roboto;
+    font-size: 40px;
+    font-weight: bold;
+    color: $orange;
+   
+
+}
+
+.input-quote {
+    
+    margin: 50px 0;
+    font-style: italic;
+    font-family: Roboto ;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 1.9px;
+    color: $green;
+    border-right: $dark 1.5px solid;
+
+}
+
+
+.input-content {
+    color: $dark;
+    margin-top: 60px;
+    letter-spacing: 1.5px;
+    font-size: 30px;
+    text-align: justify;
+    line-height: 45px;
+}
+
+
+
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text)
+}
+

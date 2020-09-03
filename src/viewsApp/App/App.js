@@ -14,9 +14,6 @@ import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import Body from '../../components/Body/Body';
 import NavByHashtag from '../../components/NavByHashtag/NavByHashtag';
-
-
-
 //data
 import { tagList } from '../../assets/data/tagList'
 //api
@@ -26,6 +23,7 @@ import {
   hashtagReducer,
   selectionReducer
 } from '../../assets/reducers/reducers'
+
 
 
 export const HashtagContext = createContext();
@@ -45,6 +43,8 @@ const App = (props) => {
     filterByHashtag(cards, selected, setData)
   }, [cards, selected])
 
+
+  
   const filterByHashtag = (arr, secondarray, setState) => {
     let result = arr.filter(item => item.hashtag.some(string => secondarray.includes(string)))
     setState(result)
@@ -63,6 +63,8 @@ const App = (props) => {
       dispatchSelected({ type: 'noneactive', tag: tag })
     }
   }, [])
+
+
 
   const { history } = props;
 

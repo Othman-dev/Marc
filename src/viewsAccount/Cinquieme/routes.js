@@ -16,7 +16,8 @@ let routes = [
         name: 'QCM',
         path: '/account/cinquieme/qcm',
         
-    }
+    },
+    
 ]
 
 export default routes

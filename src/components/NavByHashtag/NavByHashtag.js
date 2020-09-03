@@ -25,7 +25,7 @@ const NavByHashtag = () => {
                    
                 )
                 )}
-         <SearchBar placeholder='ajoute un #'/>
+         <SearchBar plusButton placeholder='ajoute un #'/>
         </div>
     )
 };

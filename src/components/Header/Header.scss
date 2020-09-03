@@ -27,3 +27,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.app-bar {
+display: flex;
+align-items: center;
+}
+
+.app-bar button {
+    margin-left: 10px;
+}
