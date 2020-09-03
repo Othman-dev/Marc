@@ -12,7 +12,6 @@ const Hashtag = (props) => {
     const { tags, dispatchTags, dispatchSelected } = useContext(HashtagContext)
 
     const hashtagClick = () => {
-
 		dispatchTags({ type: 'tagSelected', index: index })
 		if (!tags[index].active) {
 		dispatchSelected({ type: 'active', tag: tags[index].name })
@@ -22,8 +21,9 @@ const Hashtag = (props) => {
 		}
     }
 
-    function handleAdd() {
-		dispatchSelected({ type: 'noneactive' })
+    const handleRemove = () => {
+		dispatchTags({ type: 'tagRemove', index: index })
+		dispatchSelected({ type: 'noneactive', tag: tags[index].name })
 	}
 
     const hashtagClasses = classNames({
@@ -33,9 +33,9 @@ const Hashtag = (props) => {
 
     return (
 			tags[index].custom ? 
-				<div className={hashtagClasses} onClick={hashtagClick} >
-				    <h4>#{tags[index].name} </h4>
-				    <button className='custom-bg' onClick={handleAdd}>
+				<div className={hashtagClasses} >
+				    <h4 onClick={hashtagClick} >#{tags[index].name} </h4>
+				    <button className='custom-bg' onClick={handleRemove}>
 						<i className="fas fa-minus fa-lg search-minus"></i>
 				    </button>	
 			</div>

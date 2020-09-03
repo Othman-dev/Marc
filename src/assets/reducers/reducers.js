@@ -17,6 +17,11 @@ export const hashtagReducer = (tags, action) => {
 				custom:true
 		  }
                   ];
+      case 'tagRemove':
+        return [
+          ...tags.slice(0, action.index),
+          ...tags.slice(action.index + 1)
+                  ];
       default:
         return tags
     }

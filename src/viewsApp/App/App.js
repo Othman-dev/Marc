@@ -14,8 +14,6 @@ import HashtagProvider from '../../assets/context/HashtagContext';
 
 const App = (props) => {
 
-  const { history } = props;
-
   return (
     <div className="App" >
       <HashtagProvider>

@@ -4,7 +4,7 @@ import {HashtagContext} from '../../assets/context/HashtagContext';
 
 const SearchBar = props => {
 
-		const {tags, dispatchTags, dispatchSelected} = useContext(HashtagContext)
+		const {dispatchTags, dispatchSelected} = useContext(HashtagContext)
 
 		const [searchTemp, setSearchTemp] = useState('');
 

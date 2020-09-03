@@ -1,21 +1,23 @@
 import React, {useState} from 'react';
 import './Card.scss';
 import classNames from 'classnames'
+import {useHistory} from 'react-router-dom';
 
 
 const Card = props => {
     const { header, body, blue, yellow, orange, tag, id } = props;
     const [zoom, setZoom] = useState(false)
+    let history = useHistory()
 
     const handleClick = () => {
         setZoom(true)
-        setTimeout(() => props.history.push(`/page/${id}`), 800)
+        setTimeout(() => history.push(`/page/${id}`), 800)
     }
 
     const cardClasses = classNames({
         'card': true,
         'blue': blue,
-        'orange': true,
+        'orange': orange,
         'yellow': yellow,
         'zoom-in': zoom
     })

@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect, useLayoutEffect} from 'react';
+import React, {useContext, useState, useEffect, useCallback} from 'react';
 import './Body.scss'
 //components
 import Card from '../Card/Card'
@@ -13,20 +13,20 @@ const Body = props => {
     
     const [data, setData] = useState([])
 
-    function setResult (result) {
+    const setResult = useCallback((result) => {
 		    let search = cards.map(card => Object.values(card))
 			search.forEach((card, index) => {
-				let temp = []
+				let validation = []
 				selected.forEach(tag => {
 						if(card.toString().toLowerCase().replace(/,/g , ' ').indexOf(tag.toLowerCase()) >= 0)
-						{temp.push(1)}
-						else {temp.push(0)}
+						{validation.push(1)}
+						else {validation.push(0)}
 				})
-				if(temp.indexOf(0) === -1)
+				if(validation.indexOf(0) === -1)
 				{result.push(cards[index])}
 			})
 			return result
-	}
+	},[cards, selected])
 
     useEffect(() => {
 		if(selected.length < 1){
@@ -36,14 +36,17 @@ const Body = props => {
 			setResult(result)
 		    setData(result)
 		}
-	}, [cards, selected])
+	}, [cards, selected, setResult])
 
     return (
             <div className='body' >
 				<div className='body-container'>
                     {data.map((card, i) => (
                         <div key={i}>
-                            <Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id}/>
+							{selected.length >=1 ?
+							<Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id} blue/>
+                            :
+							<Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id} orange/>}
 						</div>
                     ))}
 				</div>
