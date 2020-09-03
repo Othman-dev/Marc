@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { createBrowserHistory } from 'history';
 //css
 import './index.scss';
 //views
 import App from './viewsApp/App/App';
-import Page from './viewsApp/Page/PageTest';
+import Page from './viewsApp/Page/Page';
 import Login from './viewsApp/Login/Login'
 import About from './viewsApp/About/About';
 //layout
@@ -20,19 +19,17 @@ import * as serviceWorker from './serviceWorker';
 
 import Board from './layout/Board'
 
-var hist = createBrowserHistory();
-
 ReactDOM.render(
 
   <React.StrictMode>
     <AuthContextProvider>
-      <Router history={hist}>
+      <Router>
         <Switch >
-          <Route path='/' exact component={props => <App {...props} />} />
-          <Route path='/page/:id' component={props => <Page {...props} blue />} />
-          <Route path='/login' component={props => <Login {...props} />} />
-          <Route path='/about' component={props => <About {...props} />} />
-          <PrivateRoute path='/account' component={props => <AccountLayout {...props} />} />
+          <Route path='/' exact component={App} />
+          <Route path='/page/:id' component={Page} />
+          <Route path='/login' component={Login} />
+          <Route path='/about' component={About} />
+          <PrivateRoute path='/account' component={AccountLayout} />
         </Switch>
       </Router>
     </AuthContextProvider>

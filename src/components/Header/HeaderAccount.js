@@ -5,7 +5,7 @@ import Navbar from '../Navbar/Navbar'
 import './Header.scss'
 //proptypes
 import PropTypes from 'prop-types';
-import SearchBar from '../SearchBar/SearchBar';
+//import SearchBar from '../SearchBar/SearchBar';
 
 const getLinks = routes => {
     return (
@@ -28,13 +28,13 @@ const HeaderAccount = props => {
                 <div className='app-bar'>
 
                     <button to={props.buttonOnClick} >Ajouter un Cour</button>
-                    <SearchBar placeholder='chercher un cour...'/>
+					{/*<SearchBar placeholder='chercher un cour...'/>*/}
                 </div> 
                 :
                 <div className='app-bar'>
 
                     <button onClick={props.addQcm} >Ajouter un QCM</button>
-                    <SearchBar handleChange={props.handleChange} placeholder='chercher un QCM...'/>
+					{/*<SearchBar handleChange={props.handleChange} placeholder='chercher un QCM...'/>*/}
 
                 </div> 
             }

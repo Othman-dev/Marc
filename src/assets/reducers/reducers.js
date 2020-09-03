@@ -12,10 +12,15 @@ export const hashtagReducer = (tags, action) => {
       case 'tagAdd':
         return [
           ...tags,{
-				name:action.name,
-				active:false,
+				name:action.name.toUpperCase(),
+				active:true,
 				custom:true
 		  }
+                  ];
+      case 'tagRemove':
+        return [
+          ...tags.slice(0, action.index),
+          ...tags.slice(action.index + 1)
                   ];
       default:
         return tags

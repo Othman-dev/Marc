@@ -1,5 +1,5 @@
 @import "../../assets/_colors.scss";
-.searchBg {
+.search-bg {
     background-color: $dark;
     border-radius: 40px;
     border: 1.5px solid $dark;
@@ -7,9 +7,8 @@
 
 .search-bar {
     text-align: center;
-    // margin: 100px 0;
-    // width: 340px;
-    // height: 50px;
+    width: 340px;
+    height: 50px;
     background-color: $dark;
     border-radius: 40px;
     border: 1.5px solid $dark;
@@ -17,7 +16,6 @@
     font-size: 20px;
 }
 
-.searchAdd {
+.search-add {
 		color: white;
-		transform: translate(0%,-15%);
 }

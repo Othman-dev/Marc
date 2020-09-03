@@ -1,13 +1,13 @@
-import React, {useState, useContext} from 'react';
-import {HashtagContext} from '../../viewsApp/App/App';
+import React, {useState} from 'react';
 import './Card.scss';
 import classNames from 'classnames'
+import {useHistory} from 'react-router-dom';
 
 
 const Card = props => {
-    const {history} = useContext(HashtagContext)
     const { header, body, blue, yellow, orange, tag, id } = props;
     const [zoom, setZoom] = useState(false)
+    let history = useHistory()
 
     const handleClick = () => {
         setZoom(true)

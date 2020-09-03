@@ -18,7 +18,12 @@
 
 
 .hashtag h4 {
+    display:flex;
+    justify-content: center;
+    align-items: center;
     padding: 0px 30px;
+	margin: 0;
+	height: 60px
 }
 
 .active-hashtag {
@@ -29,4 +34,27 @@
 .active-hashtag:hover {
     border: 3px solid $green;
     background-color: $orange;
+}
+
+.search-minus {
+    color: white;                                                                                                                                                                     
+    transform: translate(-50%,0%);
+}
+
+.custom-bg {
+    position: relative;
+	z-index: 10;
+	width:10px;
+	background-color: rgba(0,0,0,0);
+    border-radius: 40px;
+	border: 0px;
+	margin-right: 10px;
+}
+
+.custom-bg:hover {
+	position: relative;
+	z-index: 10;
+    background-color: rgba(0,0,0,0);
+	border:0px;
+	z-index: 10;
 }

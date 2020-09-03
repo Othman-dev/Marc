@@ -1,36 +1,34 @@
-import React, { useState } from 'react';
+import React, {useState, useContext} from 'react';
 import './SearchBar.scss'
+import {HashtagContext} from '../../assets/context/HashtagContext';
 
 const SearchBar = props => {
 
-	const [searchTemp, setSearchTemp] = useState('');
+		const {dispatchTags, dispatchSelected} = useContext(HashtagContext)
 
-	function handleChange(event) {
-		setSearchTemp(event.target.value);
-	}
+		const [searchTemp, setSearchTemp] = useState('');
 
-	function handleAdd(event) {
-		console.log('#' + searchTemp)
-		event.preventDefault()
-	}
+		function handleChange(event) {
+				setSearchTemp(event.target.value);
+		}
 
-	return (
-		<form>
-			<div className='searchBg'>
-				<input name='search' className='search-bar' placeholder={props.placeholder} onChange={handleChange} />
-				{
-					props.plusButton === true ?
-						<button className='searchBg' onClick={handleAdd}>
-							<i className="fas fa-plus-circle fa-lg searchAdd"></i>
-						</button>
-						:
-						null
+		function handleAdd(event) {
+				dispatchTags({ type: 'tagAdd', name: searchTemp.toUpperCase() })
+				dispatchSelected({ type: 'active', tag: searchTemp.toUpperCase() })
+				event.preventDefault()
+				setSearchTemp('')
+		}
 
-				}
-
-			</div>
-		</form>
-	)
+    return (
+			<form>
+				<div className='search-bg'>
+				    <input name='search' className='search-bar' placeholder={props.placeholder} value={searchTemp} onChange={handleChange}/>
+				    <button className='search-bg' onClick={handleAdd}>
+						<i className="fas fa-plus fa-lg search-add"></i>
+				    </button>
+				</div>
+		    </form>
+	) 
 };
 
 export default SearchBar;
