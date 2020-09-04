@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import './InputBar.scss'
-//classnames
-import classNames from 'classnames'
 //components
-import Coktail from '../Coktail/Coktail'
+//import Coktail from '../Coktail/Coktail'
 
 const InputBar = props => {
 
     const [mouse, setMouse] = useState(false)
 
+    const {string} = props
+
+    const type = string.slice(0, string.indexOf('='))
+
+    const content = string.slice(string.indexOf('=')+1)
 
     const enter = () => {
         setMouse(true)
@@ -18,22 +21,36 @@ const InputBar = props => {
         setMouse(false)
     }
 
+    function inputDivCreator() {
+			if(type==='title'){
+            return <div contentEditable="true" data-text='TITRE DU COURS/QCM' className='input-big-title'>
+		    {content}</div>}
+		    else if(type==='chapter'){
+            return <div contentEditable="true" data-text='Nom du chapitre' className='input-sm-title'>
+		    {content}</div>}
+		    else if(type==='subchapter'){
+            return <div contentEditable="true" data-text='Nom du sous-chapitre' className='input-subtitle'>
+		    {content}</div>}
+		    else if(type==='text'){
+            return <div contentEditable="true" data-text='Texte' className='input-content'>
+		    {content}</div>}
+	}
 
+    const inputDiv = (
+		inputDivCreator()
+	)
+
+console.log(type)
+console.log(content)
 
 
     return (
         <div className='input-bar' onMouseEnter={enter} onMouseLeave={leave} >
-            <div
-                contentEditable="true"
-                data-text={props.placeholder}
-                className={props.className}
-            >
-                {props.kids}
-            </div>
-            {
+		    {inputDiv} 
+			{
                 mouse === true ?
 
-                    <button className='options-btn' onClick={props.deleteBtn}> <i class="fas fa-times"></i> </button>  : null
+                    <button className='options-btn' onClick={props.deleteBtn}> <i className="fas fa-times"></i> </button>  : null
             }
    
             
