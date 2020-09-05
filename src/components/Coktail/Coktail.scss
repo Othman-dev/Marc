@@ -1,6 +1,9 @@
+@import "../../assets/_colors.scss";
+
+
 .coktail {
     display: flex;
-    margin: 50px 0 100px 0;
+    margin: 50px 0 0px 0;
 
 }
 
@@ -9,6 +12,7 @@
 .coktail button {
     margin: 5px;
     padding: 5px 10px;
+   
 }
 
 .display-none {
@@ -17,4 +21,11 @@
 
 .display-flex {
     display: flex;
+   
+}
+
+.dark {
+    color: white;
+    background: $dark;
+    border: $dark;
 }

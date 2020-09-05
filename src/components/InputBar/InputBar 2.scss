@@ -5,10 +5,18 @@
     position: relative;
     min-width: 100%;
     display: flex;
+    background: $green;
 
 }
 
+.input-bar:hover {
+    border-right: $dark solid 1px;
+    border-bottom: rgba(0, 0, 0, 0.119) solid 1px
+}
 
+// .input-bar button {
+//     padding-right: 30px;
+// }
 
 .options-btn {
     position: absolute;
@@ -67,7 +75,7 @@
     text-align: center;
 }
 
-.input-subchapter {
+.input-subtitle {
     margin-top: 200px;
     letter-spacing: 2px;
 
@@ -101,12 +109,6 @@
     font-size: 30px;
     text-align: justify;
     line-height: 45px;
-}
-
-.input-ppp {
-    display: flex;
-    justify-content: center;
-    margin: 50px 20px;
 }
 
 
