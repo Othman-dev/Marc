@@ -44,7 +44,7 @@ const Account = props => {
                    <Link to='/' target='_blank'><h1>Welcome My Friend</h1></Link> 
                 </div>
 
-                <Switch>
+                <Switch >
                     {getRoutes(routes)}
                     <Redirect from='/account' to='/account/sixieme/geography' />
                 </Switch>
