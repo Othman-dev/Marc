@@ -14,7 +14,7 @@ const SearchBar = props => {
 
 		function handleAdd(event) {
 				dispatchTags({ type: 'tagAdd', name: searchTemp.toUpperCase() })
-				dispatchSelected({ type: 'active', tag: searchTemp.toUpperCase() })
+				dispatchSelected({ type: 'active', tag: searchTemp.toUpperCase(), custom:true})
 				event.preventDefault()
 				setSearchTemp('')
 		}

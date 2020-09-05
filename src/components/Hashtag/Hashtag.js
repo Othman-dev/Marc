@@ -13,13 +13,17 @@ const Hashtag = (props) => {
 
     const hashtagClick = () => {
 		dispatchTags({ type: 'tagSelected', index: index })
-		if (!tags[index].active) {
-		dispatchSelected({ type: 'active', tag: tags[index].name })
-		}
-		else {
+		if (tags[index].active) {
 		dispatchSelected({ type: 'noneactive', tag: tags[index].name })
 		}
-    }
+		else { 
+		    if(tags[index].custom){
+				dispatchSelected({ type: 'active', tag: tags[index].name, custom:true })
+		    } else {
+				dispatchSelected({ type: 'active', tag: tags[index].name, custom:false })
+			}
+        }
+	}
 
     const handleRemove = () => {
 		dispatchTags({ type: 'tagRemove', index: index })

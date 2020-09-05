@@ -17,7 +17,7 @@ import { AuthContextProvider } from './assets/context/AuthContext';
 //
 import * as serviceWorker from './serviceWorker';
 
-import Board from './layout/BoardQcm';
+import Board from './layout/BoardTest';
 
 ReactDOM.render(
 

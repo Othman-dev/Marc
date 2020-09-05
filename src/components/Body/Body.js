@@ -18,9 +18,18 @@ const Body = props => {
 			search.forEach((card, index) => {
 				let validation = []
 				selected.forEach(tag => {
+				    if(tag.indexOf('$') === 0){
 						if(card.toString().toLowerCase().replace(/,/g , ' ').indexOf(tag.toLowerCase()) >= 0)
 						{validation.push(1)}
 						else {validation.push(0)}
+					} else {
+						card.forEach((course, index) => Array.isArray(course) ? card[index]='' : course)
+						if(card.toString().toLowerCase().replace(/,/g , ' ').indexOf(tag.toLowerCase()) >= 0)
+								{console.log(card)
+			console.log(selected)
+						validation.push(1)}
+						else {validation.push(0)}
+					}
 				})
 				if(validation.indexOf(0) === -1)
 				{result.push(cards[index])}

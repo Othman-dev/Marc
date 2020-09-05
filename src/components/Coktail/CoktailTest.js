@@ -6,8 +6,6 @@ const Coktail = props => {
 
     const [act, setAct] = useState(true);
 
-
-
     const handlePlus = () => {
         setAct(!act)
     }
@@ -23,13 +21,13 @@ const Coktail = props => {
                 act ?
                     <button className={props.className} onClick={handlePlus} ><i className="fas fa-plus"/></button> :
 
-                    <div className={classes}>
+                    <div className={classes} onMouseLeave={handlePlus}>
                         <button onClick={handlePlus} ><i className="fas fa-times"/></button>
-                        <button onClick={props.addChapter}>C</button>
-                        <button onClick={props.addSubchapter}>sC</button>
-                        <button onClick={props.addText}><i className="fas fa-bars"/></button>
-                        <button onClick={props.addImage} ><i className="fas fa-camera"></i></button>
-                        <button onClick={props.addSeparation} >Séparation</button>
+                        <button onClick={() => props.addChapter(props.index)}>C</button>
+                        <button onClick={() => props.addSubchapter(props.index)}>sC</button>
+                        <button onClick={() => props.addText(props.index)}><i className="fas fa-bars"/></button>
+                        <button onClick={() => props.addImage(props.index)} ><i className="fas fa-camera"></i></button>
+                        <button onClick={() => props.addSeparation(props.index)} >Séparation</button>
                         <button><i className="fas fa-level-down-alt fa-rotate-90"/></button>
                     </div>
             }

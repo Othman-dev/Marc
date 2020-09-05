@@ -30,9 +30,15 @@ export const hashtagReducer = (tags, action) => {
  export const selectionReducer = (selected, action) => {
     switch (action.type) {
       case 'active':
+		if (action.custom === true){
+        return [
+          ...selected, '$' + action.tag
+        ];
+		} else {
         return [
           ...selected, action.tag
         ];
+		}
       case 'noneactive':
         return [
           ...selected.filter(tag => tag !== action.tag)
