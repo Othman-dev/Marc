@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './InputBar.scss'
 
 const InputBar = props => {
@@ -15,7 +15,7 @@ const InputBar = props => {
     }
 
     const leave = () => {
-        setMouse(false)
+			setMouse(false)
     }
 
     function inputDivCreator() {
@@ -51,13 +51,18 @@ const InputBar = props => {
 						className='input-content'
 						onBlur={(event) => props.handleChange(event, type, props.index)}>
 				    {content}</div>}
-	}
+		    else if (type === 'question') {
+				return <div 
+						contentEditable 
+						suppressContentEditableWarning
+						data-text='Nouvelle Question'
+						className='input-content'>
+                    {content}</div>
+		    }
+}
 
-    const inputDiv = (
-		inputDivCreator()
-	)
+    const inputDiv = (inputDivCreator())
 
-		
     return (
         <div className='input-bar' onMouseEnter={enter} onMouseLeave={leave} >
 		    {inputDiv} 
@@ -70,7 +75,7 @@ const InputBar = props => {
             
 
         </div>
-    )
+)
 }
 
 export default InputBar;

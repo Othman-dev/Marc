@@ -27,7 +27,7 @@ const Hashtag = (props) => {
 
     const handleRemove = () => {
 		dispatchTags({ type: 'tagRemove', index: index })
-		dispatchSelected({ type: 'noneactive', tag: tags[index].name })
+		dispatchSelected({ type: 'noneactive', tag: '$' + tags[index].name })
 	}
 
     const hashtagClasses = classNames({
