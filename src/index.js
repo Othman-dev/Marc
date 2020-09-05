@@ -17,7 +17,6 @@ import { AuthContextProvider } from './assets/context/AuthContext';
 //
 import * as serviceWorker from './serviceWorker';
 
-import Board from './layout/BoardQcm';
 
 ReactDOM.render(
 
@@ -28,8 +27,10 @@ ReactDOM.render(
           <Route path='/' exact component={App} />
           <Route path='/page/:id' component={Page} />
           <Route path='/login' component={Login} />
-          <Route path='/about' component={Board} />
+          <Route path='/about' component={About} />
           <PrivateRoute path='/account' component={AccountLayout} />
+          {/* <Route path='/board' component={Board} /> */}
+
         </Switch>
       </Router>
     </AuthContextProvider>

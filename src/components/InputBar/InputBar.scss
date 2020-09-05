@@ -5,35 +5,33 @@
     position: relative;
     min-width: 100%;
     display: flex;
-    background: $green;
 
 }
 
-.input-bar:hover {
-    border-right: $dark solid 1px;
-    border-bottom: rgba(0, 0, 0, 0.119) solid 1px
-}
+// .input-bar:hover {
+//     border-right: $dark solid 1px;
+// }
 
 // .input-bar button {
 //     padding-right: 30px;
 // }
 
-.options-btn {
-    position: absolute;
-    right: 0px;
-    display: flex;
-    align-items: center;
-    border-radius: 0px;
-    border-left: $dark solid 1px ;
-    background: transparent;
-}
-.options-btn:hover {
-    background: transparent;
-    color: $dark;
-    border-top: none;
-    border-right: none;
-    border-bottom: rgba(0, 0, 0, 0.351) solid 2px
-}
+// .options-btn {
+//     position: absolute;
+//     right: 0px;
+//     display: flex;
+//     align-items: center;
+//     border-radius: 0px;
+//     border-left: $dark solid 1px ;
+//     background: transparent;
+// }
+// .options-btn:hover {
+//     background: transparent;
+//     color: $dark;
+//     border-top: none;
+//     border-right: none;
+//     border-bottom: rgba(0, 0, 0, 0.351) solid 2px
+// }
 
 
 
@@ -75,7 +73,7 @@
     text-align: center;
 }
 
-.input-subtitle {
+.input-subchapter {
     margin-top: 200px;
     letter-spacing: 2px;
 
@@ -111,6 +109,18 @@
     line-height: 45px;
 }
 
+.input-separation {
+    text-align: center;
+    padding: 50px 0;
+    font-size: 25px;
+    color: $dark;
+}
+
+.input-ppp {
+    display: flex;
+    justify-content: center;
+    margin: 50px 20px;
+}
 
 
 [contentEditable=true]:empty:not(:focus):before{

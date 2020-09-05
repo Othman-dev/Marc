@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './layout.scss';
-import classNames from 'classnames';
 //components
 import InputBar from '../components/InputBar/InputBar'
 import Coktail from '../components/Coktail/Coktail'

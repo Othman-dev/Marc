@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route,Redirect, Link } from 'react-router-dom'
+import { Switch, Route, Redirect, Link } from 'react-router-dom'
 //css
 import './layout.scss'
 //fire
@@ -10,15 +10,17 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import routes from './routes';
 
 
-
-
 const Account = props => {
+
+
+
 
     const getRoutes = routes => {
         return routes.map((prop, key) => {
             if (prop.layout === "/account") {
                 return (
                     <Route
+
                         path={prop.layout + prop.path}
                         component={prop.component}
                         key={key}
@@ -33,24 +35,33 @@ const Account = props => {
     const SignOutBtn = () => <button style={{ marginRight: '40px' }} onClick={() => fire.auth().signOut()}>Deconnexion</button>
 
     return (
+
         <div className='account'>
 
+
+
             <div className='left-side'>
-            <SignOutBtn />
+                <SignOutBtn />
                 <Sidebar routes={routes} />
             </div>
+
             <div className='right-side'>
                 <div className='right-side-header'>
-                   <Link to='/' target='_blank'><h1>Welcome My Friend</h1></Link> 
+                    <Link to='/' target='_blank'><h1>Welcome My Friend</h1></Link>
                 </div>
-
-                <Switch >
+               
+                <Switch>
                     {getRoutes(routes)}
                     <Redirect from='/account' to='/account/sixieme/geography' />
                 </Switch>
+               
+
             </div>
 
+
+
         </div>
+
     )
 }
 
