@@ -9,9 +9,13 @@ import PropTypes from 'prop-types';
 
 const getLinks = routes => {
     return (
-        routes.map((prop, key) =>
-            <Link to={prop.path} key={key} >{prop.name} </Link>
+        routes.map((prop, key) => 
+
+<Link to={prop.path} key={key} >{prop.name} </Link>
+            
+            
         )
+       
     )
 }
 
@@ -27,7 +31,7 @@ const HeaderAccount = props => {
             {   props.qcm === false ? 
                 <div className='app-bar'>
 
-                    <button to={props.buttonOnClick} >Ajouter un Cour</button>
+                  
 					{/*<SearchBar placeholder='chercher un cour...'/>*/}
                 </div> 
                 :

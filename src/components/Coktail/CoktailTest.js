@@ -59,7 +59,7 @@ const Coktail = props => {
 
 
 
-        setAct(true)
+        setAct(true);
     }
 
     return (

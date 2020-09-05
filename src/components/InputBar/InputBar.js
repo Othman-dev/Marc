@@ -5,7 +5,7 @@ import './InputBar.scss'
 
 const InputBar = props => {
 
-    const [mouse, setMouse] = useState(false)
+   
 
     const { string } = props
 
@@ -13,13 +13,6 @@ const InputBar = props => {
 
     const content = string.slice(string.indexOf('=') + 1)
 
-    const enter = () => {
-        setMouse(true)
-    }
-
-    const leave = () => {
-        setMouse(false)
-    }
 
     function inputDivCreator() {
         if (type === 'title') {
@@ -65,18 +58,13 @@ const inputDiv = (
     inputDivCreator()
 )
 
-console.log(type)
-console.log(content)
+
 
 
 return (
-    <div className='input-bar' onMouseEnter={enter} onMouseLeave={leave} >
+    <div className='input-bar' >
         {inputDiv}
-        {
-            mouse === true ?
-
-                <button className='options-btn' onClick={props.deleteBtn}> <i className="fas fa-plus"></i> </button> : null
-        }
+        
 
 
 

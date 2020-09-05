@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './layout.scss';
 //components
 import InputBar from '../components/InputBar/InputBar'
-import CoktailQcm from '../components/Coktail/CoktailQcm'
-import Coktail from '../components/Coktail/CoktailQcm';
+import CoktailQcm from '../components/Coktail/CoktailTest'
+import Coktail from '../components/Coktail/CoktailTest';
 
 
 const Board = props => {
@@ -18,6 +18,7 @@ const Board = props => {
 		])
 	}
 
+	
 
 
 	const boardBody = (

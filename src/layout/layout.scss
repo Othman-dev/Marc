@@ -53,11 +53,15 @@
 //************** Board **************//
 
 .board {
-    position: relative;
+    
+    width: 100%;
+    height: 100%;
+    background: $creme;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    // justify-content: center;
+    // align-items: center;
     flex-direction: column;
+    
     z-index: 100;
 }
 
@@ -67,8 +71,7 @@
 
 .hover:hover {
   
-    border-right: $dark solid 1px;
-    border-bottom: rgba(0, 0, 0, 0.119) solid 1px
+    border-right: $orange solid 5px;
 }
 
 .bar {
@@ -91,8 +94,10 @@
 .board-body {
     display: flex;
     flex-direction: column;
-    margin: 0 5px;
-    align-items: center;
+    margin: 10px 5px 200px;
+   background: white;
+   border-radius: 20px;
+   padding-left: 5px;
 }
 
 .file {

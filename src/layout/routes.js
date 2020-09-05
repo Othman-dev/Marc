@@ -2,9 +2,16 @@ import Sixieme from '../viewsAccount/Sixieme/Sections/Geography';
 import Cinquieme from '../viewsAccount/Cinquieme/Cinquieme';
 import Quatrieme from '../viewsAccount/Quatrieme/Quatrieme';
 import Troisieme from '../viewsAccount/Troisieme/Troisieme';
+import Board from './BoardTest';
 
 
 let routes = [
+    {
+        name: 'AJOUTER UN BOARD',
+        path: '/board',
+        component: Board,
+        layout: '/account'
+    },
 
     {
         name: 'Sixieme',
@@ -30,6 +37,7 @@ let routes = [
         path: "/troisieme/geography",
         component: Troisieme,
         layout: '/account'
-    },
+    }
+    
 ];
 export default routes;
