@@ -7,6 +7,7 @@ import Qcm from './Sections/Qcm'
 import Create from './Actions/Create';
 import Read from './Actions/Read'
 import Upload from './Actions/Upload'
+import Board from '../../layout/Board'
 
 //history
 import { createBrowserHistory } from "history";
@@ -24,7 +25,7 @@ const index = () => {
         <Route path='/account/cinquieme/geography' component={Geography}/>
         <Route path='/account/cinquieme/history' component={History}/>
         <Route path='/account/cinquieme/qcm' component={Qcm}/>
-      
+        <Route path="/account/board" component={Board} />
         </Switch>
       </Router>
     )

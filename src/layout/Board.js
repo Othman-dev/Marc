@@ -5,198 +5,120 @@ import InputBar from '../components/InputBar/InputBar'
 import Coktail from '../components/Coktail/Coktail'
 
 
-
 const Board = props => {
-
-    const title = {
-        placeholder: 'TITRE DU COUR',
-        className: 'input-big-title'
-    }
-
-    const [courses, setCourses] = useState([title]);
+		
+	const [course, setCourse] = useState(['title=TITRE']);
+	
 
 
+	
 
-    const handleTitleBtn = () => {
-        setCourses([...courses, {
-            placeholder: 'Titre du chapitre',
-            className: 'input-sm-title'
-        }])
+	
 
-    }
+    function handleChange(event, type ,index) {
+		setCourse([...course.slice(0,index),
+			type + '=' + event.currentTarget.textContent,
+			...course.slice(index+1)])
+			console.log(event.currentTarget.textContent)
+	}
 
-    const handleSubtitleBtn = () => {
-        setCourses([...courses, {
-            placeholder: 'Sous-Titre',
-            className: 'input-subtitle'
-        }])
-    }
+    function deleteEntry(index){
+		setCourse([...course.slice(0, index),
+				...course.slice(index+1)])
+	}
 
-    const handleContentBtn = () => {
-        setCourses([...courses, {
-            placeholder: 'Contenu du cours',
-            className: 'input-content'
-        }])
-    }
+    function addChapter(index){
+		
+		setCourse([...course.slice(0, index+1),
+				'chapter=',
+				...course.slice(index+1)])
+	}
 
-    const handleQuoteBtn = () => {
-        setCourses([...courses, {
-            placeholder: 'Citation',
-            className: 'input-quote',
-            kids: null,
+    function addSubchapter(index){
+	
+		setCourse([...course.slice(0, index+1),
+				'subchapter=',
+				...course.slice(index+1)])
+	}
 
+    function addText(index){
+		setCourse([...course.slice(0, index+1),
+				'text=',
+				...course.slice(index+1)])
+	}
 
-        }])
-    }
+    function addImage(index){
+		setCourse([...course.slice(0, index+1),
+				'image=',
+				...course.slice(index+1)])
+	}
 
-    const handlePictureBtn = () => {
-        setCourses([...courses, {
-            kids: <div className='file'>
+    function addQuestion(index){
+		setCourse([...course.slice(0, index+1),
+				'question=',
+				...course.slice(index+1)])
+	}
 
-                <input className='input-file' type='file' accept="image/*,.pdf" />
-            </div>
+    function addPowerPoint(index){
+		setCourse([...course.slice(0, index+1),
+				'ppp=',
+				...course.slice(index+1)])
+	}
 
-        }])
-    }
+    function addSeparation(index){
+		setCourse([...course.slice(0, index+1),
+				'...=',
+				...course.slice(index+1)])
+	}
 
-    const handlePpBtn = () => {
-        setCourses([...courses, {
-            kids: <div className='file'>
-                <input type='file' />
-            </div>
-        }])
+    function addQuotes(index){
+		setCourse([...course.slice(0, index+1),
+				'""=',
+				...course.slice(index+1)])
+	}
 
-    }
-
-    const handleSeparation = () => {
-        setCourses([...courses, {
-            kids: <h1 style={{ textAlign: 'center' }}> - - - </h1>
-        }])
-    }
-
-    //************************ */
-
-    const nextHandleTitleBtn = () => {
-        setCourses([...courses, {
-            placeholder: 'Titre du chapitre',
-            className: 'input-sm-title'
-        }])
-
-    }
-
-    const nextHandleSubtitleBtn = () => {
-        setCourses([...courses, {
-            placeholder: 'Sous-Titre',
-            className: 'input-subtitle'
-        }])
-    }
-
-    const nextHandleContentBtn = () => {
-        setCourses([...courses, {
-            placeholder: 'Contenu du cours',
-            className: 'input-content'
-        }])
-    }
-
-    const nextHandleQuoteBtn = () => {
-        setCourses([...courses, {
-            placeholder: 'Citation',
-            className: 'input-quote',
-            kids: null,
-        }])
-    }
-
-    const nextHandlePictureBtn = () => {
-        setCourses([...courses, {
-            kids: <div className='file'>
-
-                <input className='input-file' type='file' accept="image/*,.pdf" />
-            </div>
-
-        }])
-    }
-
-    const nextHandlePpBtn = () => {
-        setCourses([...courses, {
-            kids: <div className='file'>
-                <input type='file' />
-            </div>
-        }])
-
-    }
-
-    const nextHandleSeparation = () => {
-        setCourses([...courses, {
-            kids: <h1 style={{ textAlign: 'center' }}> - - - </h1>
-        }])
-    }
+	
 
 
-
-    const deleteBtn = key => {
-        setCourses([
-            ...courses.slice(0, key),
-            ...courses.slice(key + 1)
-
-        ])
-    }
-
-
-    console.log(courses)
+    const boardBody = (
+        course.map((string, index) => (		
+		    <div key={index}>
+                <div className='bar'>
+				    <InputBar 
+						string={string} 
+						index={index}
+						deleteEntry={deleteEntry}
+						handleChange={handleChange}
+						
+						/>
+						
+				</div>
+				<div className='bar' >
+				    <Coktail 
+						addChapter={addChapter}
+						addSubchapter={addSubchapter}
+						addQuotes={addQuotes}
+						addImage={addImage}
+						addPowerPoint={addPowerPoint}
+						addSeparation={addSeparation}
+						addQuestion={addQuestion}
+						addText={addText}
+						delete={deleteEntry}
+						index={index}/>
+				</div>
+		    </div>
+		))
+	)
 
     return (
         <div className='board'>
             <div className='board-header'>
-                <button>Publier le Cour</button>
-                <button>Ajouter aux Brouillon</button>
+                <button>Publier</button>
+                <button>Sauvegarder</button>
             </div>
             <div className='board-body'>
-                {
-                    courses.map((course, key) =>
-
-                        <div className='bar' key={key}>
-                            <InputBar
-                                className={course.className}
-                                placeholder={course.placeholder}
-                                kids={course.kids} key={key}
-                                deleteBtn={() => deleteBtn(key)}
-
-
-                            />
-                            <div className='bar'>
-
-                                <Coktail 
-                                handleTitleBtn={()=>nextHandleTitleBtn(key)}
-                                handleContentBtn={()=>nextHandleContentBtn(key)}
-                                handlePictureBtn={()=>handlePictureBtn(key)}
-                                handleQuoteBtn={()=>nextHandleQuoteBtn(key)}
-                                handlePpBtn={()=>nextHandlePpBtn(key)}
-                                handleSubtitleBtn={()=>nextHandleSubtitleBtn(key)}
-                                handleSeparation={()=>nextHandleSeparation(key)}
-        
-                                />
-
-                            </div>
-                        </div>
-
-                    )
-                }
-                <div className='bar' >
-                    <Coktail
-                        handleTitleBtn={handleTitleBtn}
-                        handleContentBtn={handleContentBtn}
-                        handlePictureBtn={handlePictureBtn}
-                        handleQuoteBtn={handleQuoteBtn}
-                        handlePpBtn={handlePpBtn}
-                        handleSubtitleBtn={handleSubtitleBtn}
-                        handleSeparation={handleSeparation}
-
-                    />
-                </div>
-
-
+				{boardBody}
             </div>
-
         </div>
     )
 };

@@ -6,8 +6,6 @@ const Coktail = props => {
 
     const [act, setAct] = useState(true);
 
-
-
     const handlePlus = () => {
         setAct(!act)
     }
@@ -17,29 +15,30 @@ const Coktail = props => {
         'display-flex': act === false
     })
 
-    console.log(act)
-    console.log(classes)
+    console.log(props.index)
+
     return (
         <div className='coktail'>
             {
                 act ?
-                    <button className={props.className} onClick={handlePlus} ><i class="fas fa-plus"></i></button> :
+                    <button className={props.className} onClick={handlePlus} ><i className="fas fa-plus" /></button> :
 
-                    <div className={classes}>
-                        <button className={props.className} onClick={handlePlus} ><i class="fas fa-times"></i></button>
-                        <button onClick={props.handleTitleBtn} >T</button>
-                        <button onClick={props.handleSubtitleBtn} >ST</button>
-                        <button onClick={props.handleContentBtn} ><i class="fas fa-bars"></i></button>
-                        <button onClick={props.handleQuoteBtn} ><i class="fas fa-quote-right"></i></button>
-                        <button onClick={props.handlePictureBtn} ><i class="fas fa-camera"></i></button>
-                        <button onClick={props.handlePpBtn} ><i class="fas fa-play"></i></button>
+                    <div className={classes} onMouseLeave={handlePlus}>
+                        <button onClick={handlePlus} ><i className="fas fa-times" /></button>
+                        <button onClick={() => props.addChapter(props.index)}>C</button>
+                        <button onClick={() => props.addSubchapter(props.index)}>sC</button>
+                        <button onClick={() => props.addText(props.index)}><i className="fas fa-bars" /></button>
+                        <button onClick={() => props.addQuotes(props.index)}>Citation</button>
 
-
-                        <button onClick={props.handleSeparation} >Séparation
-                </button>
-
-                        <button><i class="fas fa-level-down-alt fa-rotate-90"></i></button>
-
+                        <button onClick={() => props.addImage(props.index)} ><i className="fas fa-camera"></i></button>
+                        <button onClick={() => props.addPowerPoint(props.index)} ><i className="fas fa-file"></i></button>
+                        <button onClick={() => props.addSeparation(props.index)} >Séparation</button>
+                        <button onClick={() => props.addQuestion(props.index)} >Question</button>
+                        {
+                            props.index !== 0 &&
+                            <button onClick={() => props.delete(props.index)} >Supprimer</button>
+                        }
+                      
                     </div>
             }
 

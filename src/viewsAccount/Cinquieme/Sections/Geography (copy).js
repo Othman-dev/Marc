@@ -1,9 +1,9 @@
-import React, {useState, useContext} from 'react';
+import React from 'react';
 //routes
 import routes from  '../routes'
 //components
 import Header from '../../../components/Header/HeaderAccount'
-import Board from '../../../layout/BoardTest'
+import Board from '../../../layout/Board'
 import { Link } from 'react-router-dom';
 
 

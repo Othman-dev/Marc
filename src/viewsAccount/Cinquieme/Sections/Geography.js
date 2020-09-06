@@ -3,7 +3,7 @@ import React, {useState, useEffect, useCallback} from 'react';
 import routes from  '../routes'
 //components
 import Header from '../../../components/Header/HeaderAccount'
-import Board from '../../../layout/BoardTest'
+import Board from '../../../layout/Board'
 import {useCards} from '../../../api/useCards'
 import {Link} from 'react-router-dom'
 

@@ -2,7 +2,7 @@ import Sixieme from '../viewsAccount/Sixieme/Sections/Geography';
 import Cinquieme from '../viewsAccount/Cinquieme/Cinquieme';
 import Quatrieme from '../viewsAccount/Quatrieme/Quatrieme';
 import Troisieme from '../viewsAccount/Troisieme/Troisieme';
-import Board from './BoardTest';
+import Board from './Board';
 
 
 let routes = [
