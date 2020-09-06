@@ -1,4 +1,4 @@
-import Sixieme from '../viewsAccount/Sixieme/Sections/Geography';
+import Sixieme from '../viewsAccount/Sixieme/Sixieme';
 import Cinquieme from '../viewsAccount/Cinquieme/Cinquieme';
 import Quatrieme from '../viewsAccount/Quatrieme/Quatrieme';
 import Troisieme from '../viewsAccount/Troisieme/Troisieme';

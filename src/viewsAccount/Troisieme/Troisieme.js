@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Geography from './Sections/Geography'
 import History from './Sections/History'
 import Qcm from './Sections/Qcm'
+import Board from '../../layout/Board'
+
+//history
 import { createBrowserHistory } from "history";
 //css
 import './Troisieme.scss'
@@ -19,6 +22,7 @@ const index = () => {
         <Route path='/account/troisieme/geography' component={Geography}/>
         <Route path='/account/troisieme/history' component={History}/>
         <Route path='/account/troisieme/qcm' component={Qcm}/>
+        <Route path="/account/board" component={Board} />
         </Switch>
       </Router>
     )

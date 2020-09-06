@@ -4,9 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Geography from './Sections/Geography'
 import History from './Sections/History'
 import Qcm from './Sections/Qcm'
-import Create from './Actions/Create';
-import Read from './Actions/Read'
-import Upload from './Actions/Upload'
 import Board from '../../layout/Board'
 
 //history

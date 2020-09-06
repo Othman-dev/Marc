@@ -3,7 +3,6 @@ import React, {useState, useEffect, useCallback} from 'react';
 import routes from  '../routes'
 //components
 import Header from '../../../components/Header/HeaderAccount'
-import Board from '../../../layout/Board'
 import {useCards} from '../../../api/useCards'
 import {Link} from 'react-router-dom'
 
@@ -25,7 +24,9 @@ const Geography = (props) => {
 		    card.forEach((course, index) => Array.isArray(course) 
 				? card[index]='' : course)
 		    if((card.toString().toLowerCase().replace(/,/g , ' ').indexOf('geographie') >= 0)
-		    && (card.toString().toLowerCase().replace(/,/g , ' ').indexOf('cinquieme') >= 0))
+		    && (card.toString().toLowerCase().replace(/,/g , ' ').indexOf('cinquieme') >= 0)
+		    && (card.toString().toLowerCase().replace(/,/g , ' ').indexOf('qcm') < 0))
+			
 				{validation.push(1)}
 			else {validation.push(0)}
 		
