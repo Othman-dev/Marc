@@ -7,7 +7,13 @@ import Coktail from '../components/Coktail/CoktailTest'
 
 const Board = props => {
 		
-    const [course, setCourse] = useState(['title=TITRE']);
+	const [course, setCourse] = useState(['title=TITRE']);
+	
+
+
+	
+
+	
 
     function handleChange(event, type ,index) {
 		setCourse([...course.slice(0,index),
@@ -22,12 +28,14 @@ const Board = props => {
 	}
 
     function addChapter(index){
+		
 		setCourse([...course.slice(0, index+1),
 				'chapter=',
 				...course.slice(index+1)])
 	}
 
     function addSubchapter(index){
+	
 		setCourse([...course.slice(0, index+1),
 				'subchapter=',
 				...course.slice(index+1)])
@@ -69,6 +77,9 @@ const Board = props => {
 				...course.slice(index+1)])
 	}
 
+	
+
+
     const boardBody = (
         course.map((string, index) => (		
 		    <div key={index}>
@@ -77,20 +88,28 @@ const Board = props => {
 						string={string} 
 						index={index}
 						deleteEntry={deleteEntry}
-						handleChange={handleChange}/>
+						handleChange={handleChange}
+						
+						/>
+						
 				</div>
 				<div className='bar' >
 				    <Coktail 
 						addChapter={addChapter}
 						addSubchapter={addSubchapter}
+						addQuotes={addQuotes}
+						addImage={addImage}
+						addPowerPoint={addPowerPoint}
+						addSeparation={addSeparation}
+						addQuestion={addQuestion}
 						addText={addText}
+						delete={deleteEntry}
 						index={index}/>
 				</div>
 		    </div>
 		))
 	)
 
-		console.log(course)
     return (
         <div className='board'>
             <div className='board-header'>

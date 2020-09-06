@@ -3,78 +3,102 @@ import './InputBar.scss'
 
 const InputBar = props => {
 
-    const [mouse, setMouse] = useState(false)
-   
-    const type = props.string.slice(0, props.string.indexOf('='))
 
-    const content = props.string.slice(props.string.indexOf('=')+1)
+	const type = props.string.slice(0, props.string.indexOf('='))
 
-    const enter = () => {
-			if(type === 'title'){}
-			else {setMouse(true)}
-    }
+	const content = props.string.slice(props.string.indexOf('=') + 1)
 
-    const leave = () => {
-			setMouse(false)
-    }
 
-    function inputDivCreator() {
-			if(type==='title'){
-				return <div 
-						contentEditable 
-						suppressContentEditableWarning
-						data-text='TITRE DU COURS/QCM'
-						className='input-big-title'
-						onBlur={(event) => props.handleChange(event, type, props.index)}>
-		            {content}</div>}
-		    else if(type==='chapter'){
-                return <div 
-						contentEditable
-						suppressContentEditableWarning
-						data-text='Nom du chapitre'
-						className='input-sm-title'
-						onBlur={(event) => props.handleChange(event, type, props.index)}>
-		            {content}</div>}
-		    else if(type==='subchapter'){
-				return <div
-						contentEditable
-						suppressContentEditableWarning
-						data-text='Nom du sous-chapitre'
-						className='input-subtitle'
-						onBlur={(event) => props.handleChange(event, type, props.index)}>
-				    {content}</div>}
-		    else if(type==='text'){
-				return <div 
-						contentEditable
-						suppressContentEditableWarning
-						data-text='Texte'
-						className='input-content'
-						onBlur={(event) => props.handleChange(event, type, props.index)}>
-				    {content}</div>}
-		    else if (type === 'question') {
-				return <div 
-						contentEditable 
-						suppressContentEditableWarning
-						data-text='Nouvelle Question'
-						className='input-content'>
-                    {content}</div>
-		    }
+
+
+	function inputDivCreator() {
+		if (type === 'title') {
+			return <div
+				contentEditable
+				suppressContentEditableWarning
+				data-text='TITRE DU COURS/QCM'
+				className='input-big-title'
+				onBlur={(event) => props.handleChange(event, type, props.index)}>
+				{content}</div>
+		}
+		else if (type === 'chapter') {
+			return <div
+				contentEditable
+				suppressContentEditableWarning
+				data-text='Nom du chapitre'
+				className='input-sm-title'
+				
+				onBlur={(event) => props.handleChange(event, type, props.index)}>
+				 {content}</div>
+		}
+		else if (type === 'subchapter') {
+			return <div
+				contentEditable
+				suppressContentEditableWarning
+				data-text='Nom du sous-chapitre'
+				className='input-subchapter'
+				onBlur={(event) => props.handleChange(event, type, props.index)}>
+				
+				 {content}</div>
+		}
+		else if (type === 'text') {
+			return <div
+				contentEditable
+				suppressContentEditableWarning
+				data-text='Texte'
+				className='input-content'
+				onBlur={(event) => props.handleChange(event, type, props.index)}>
+				{content}</div>
+		}
+		else if (type === 'question') {
+			return <div
+				contentEditable
+				suppressContentEditableWarning
+				data-text='Nouvelle Question'
+				className='input-question'>
+				{content}</div>
+		}
+		else if (type === '""') {
+			return <div
+				contentEditable
+				suppressContentEditableWarning
+				data-text='Citation'
+				className='input-quote'>
+				{content}</div>
+		}
+		else if (type === '...') {
+			return <div
+
+				className='input-separation'>
+				* * * </div>
+		}
+		else if (type === 'image') {
+			return <div
+				
+				className='input-image'>
+				<input type='file'/> </div>
+		}
+		else if (type === 'ppp') {
+			return <div
+				
+				className='input-ppp'>
+				<input type='file'/> </div>
+		}
+	
 }
 
-    const inputDiv = (inputDivCreator())
+const inputDiv = (
+	inputDivCreator()
+)
 
-    return (
-        <div className='input-bar' onMouseEnter={enter} onMouseLeave={leave} >
-		    {inputDiv} 
-			{
-                mouse === true ?
 
-                    <button className='options-btn' onClick={() => props.deleteEntry(props.index)}> <i className="fas fa-times"></i> </button>  : null
-            }
-   
-            
+	
+	
 
-        </div>
+return (
+	<div className='input-bar' >
+		{inputDiv}
+	</div>
 )
 }
 

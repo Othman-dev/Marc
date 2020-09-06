@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, Redirect, Link } from 'react-router-dom'
+import { Switch, Route, Redirect, Link, useHistory } from 'react-router-dom'
 //css
 import './layout.scss'
 //fire
@@ -8,6 +8,33 @@ import fire from '../api/firebase-config'
 import Sidebar from '../components/Sidebar/Sidebar';
 //routes
 import routes from './routes';
+
+
+const routesBoard = [
+    {
+        name: 'chapitre 1',
+        path: '#chapitre',
+        layout: '/account'
+    },
+    {
+        name: 'chapitre 1',
+        path: '#chapitre',
+        layout: '/account'
+
+    },
+    {
+        name: 'chapitre 1',
+        path: '#chapitre',
+        layout: '/account'
+
+    },
+    {
+        name: 'chapitre 1',
+        path: '#chapitre',
+        layout: '/account'
+
+    }
+]
 
 
 const Account = props => {
@@ -34,6 +61,8 @@ const Account = props => {
 
     const SignOutBtn = () => <button style={{ marginRight: '40px' }} onClick={() => fire.auth().signOut()}>Deconnexion</button>
 
+    const hist = useHistory()
+    console.log(hist.location.pathname)
     return (
 
         <div className='account'>
@@ -42,19 +71,26 @@ const Account = props => {
 
             <div className='left-side'>
                 <SignOutBtn />
-                <Sidebar routes={routes} />
+
+                {
+                    hist.location.pathname === '/account/board' ?
+                        <Sidebar routes={routesBoard} /> :
+                        <Sidebar routes={routes} />
+                }
+
+
             </div>
 
             <div className='right-side'>
                 <div className='right-side-header'>
                     <Link to='/' target='_blank'><h1>Welcome My Friend</h1></Link>
                 </div>
-               
+
                 <Switch>
                     {getRoutes(routes)}
                     <Redirect from='/account' to='/account/sixieme/geography' />
                 </Switch>
-               
+
 
             </div>
 
