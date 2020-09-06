@@ -7,7 +7,6 @@ import {AuthContext} from '../../assets/context/AuthContext';
 
 const Connect = ({history}) => {
 
-    console.log(history)
    
 
     const handleSubmit = useCallback(
@@ -31,7 +30,6 @@ const Connect = ({history}) => {
       if (currentUser) {
         return <Redirect to="/account" />;
       }
-    console.log(currentUser)
 
     return (
         <div className='connect'>

@@ -14,7 +14,11 @@ const Hashtag = (props) => {
     const hashtagClick = () => {
 		dispatchTags({ type: 'tagSelected', index: index })
 		if (tags[index].active) {
-		dispatchSelected({ type: 'noneactive', tag: tags[index].name })
+				if(tags[index].custom){
+		            dispatchSelected({ type: 'noneactive', tag: '$' + tags[index].name })
+				} else {
+				    dispatchSelected({ type: 'noneactive', tag: tags[index].name })
+				}
 		}
 		else { 
 		    if(tags[index].custom){

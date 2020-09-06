@@ -42,6 +42,7 @@ const Body = props => {
 		    let result = []
 			setResult(result)
 		    setData(result)
+				console.log(data)
 		}
 	}, [cards, selected, setResult])
 
