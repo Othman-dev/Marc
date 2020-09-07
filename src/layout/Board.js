@@ -9,10 +9,6 @@ const Board = props => {
 		
 	const [course, setCourse] = useState(['title=TITRE']);
 	
-
-
-	
-
 	
 
     function handleChange(event, type ,index) {
