@@ -71,19 +71,19 @@ const Board = props => {
 
     function addPowerPoint(index){
 		setCourse([...course.slice(0, index+1),
-				'ppp=',
+				'powerpoint=',
 				...course.slice(index+1)])
 	}
 
     function addSeparation(index){
 		setCourse([...course.slice(0, index+1),
-				'...=',
+				'separation=',
 				...course.slice(index+1)])
 	}
 
     function addQuotes(index){
 		setCourse([...course.slice(0, index+1),
-				'""=',
+				'quotes=',
 				...course.slice(index+1)])
 	}
 
@@ -128,7 +128,7 @@ const Board = props => {
 		    </div>
 		))
 	)
-console.log(data)
+
     return (
         <div className='board'>
             <div className='board-header'>

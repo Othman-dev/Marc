@@ -7,9 +7,13 @@ const InputBar = props => {
 	const type = props.string.slice(0, props.string.indexOf('='))
 
 	const content = props.string.slice(props.string.indexOf('=') + 1)
+	const [imagePreviewUrl, setImagePreviewUrl] = useState('')
+	
+	const imageChange = e => {
+		setImagePreviewUrl(URL.createObjectURL(e.target.files[0]))
+	}
 
-
-
+	console.log(imagePreviewUrl)
 
 	function inputDivCreator() {
 		if (type === 'title') {
@@ -76,14 +80,19 @@ const InputBar = props => {
 			return <div
 				
 				className='input-image'>
-				<input type='file'/> </div>
+				<input type='file' onChange={e => imageChange(e)}/>
+				<img src={imagePreviewUrl}/>
+				 </div>
 		}
 		else if (type === 'ppp') {
 			return <div
-				
+				contentEditable
+				suppressContentEditableWarning
+				data-text='Inserer un <iframe>'
 				className='input-ppp'>
-				<input type='file'/> </div>
+				{content}</div>
 		}
+		
 	
 }
 
@@ -98,6 +107,7 @@ const inputDiv = (
 return (
 	<div className='input-bar' >
 		{inputDiv}
+
 	</div>
 )
 }
