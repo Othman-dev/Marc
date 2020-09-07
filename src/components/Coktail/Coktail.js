@@ -15,8 +15,6 @@ const Coktail = props => {
         'display-flex': act === false
     })
 
-    console.log(props.index)
-
     return (
         <div className='coktail'>
             {

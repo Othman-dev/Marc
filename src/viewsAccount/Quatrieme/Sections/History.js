@@ -41,7 +41,6 @@ const History = (props) => {
 		setResult(result)
 		setData(result)
 	}, [cards, setResult])
-		console.log(data)
     return (
 
         <div className='content'>
@@ -50,7 +49,7 @@ const History = (props) => {
 			    {
 					data.map((item, index) =>
 						<li key={index}>
-							<Link className='link' to='/account/board'>
+							<Link className='link' to={{ pathname:'/account/board', state:item}}>
 							{item.course[0].slice(item.course[0].indexOf('=')+1)} 
 							</Link>
 						</li>

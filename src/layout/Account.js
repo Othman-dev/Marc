@@ -62,7 +62,6 @@ const Account = props => {
     const SignOutBtn = () => <button style={{ marginRight: '40px' }} onClick={() => fire.auth().signOut()}>Deconnexion</button>
 
     const hist = useHistory()
-    console.log(hist.location.pathname)
     return (
 
         <div className='account'>

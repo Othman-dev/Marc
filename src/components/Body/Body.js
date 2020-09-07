@@ -42,20 +42,22 @@ const Body = props => {
 		    let result = []
 			setResult(result)
 		    setData(result)
-				console.log(data)
 		}
 	}, [cards, selected, setResult])
-
+console.log(data)
     return (
             <div className='body' >
 				<div className='body-container'>
                     {data.map((card, i) => (
+						card.publier ?
                         <div key={i}>
 							{selected.length >=1 ?
 							<Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id} blue/>
                             :
 							<Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id} orange/>}
 						</div>
+						:
+						<div key={i}/>
                     ))}
 				</div>
 		    </div>
