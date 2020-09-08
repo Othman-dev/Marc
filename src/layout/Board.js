@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import {useHistory} from 'react-router-dom'
+
 import './layout.scss';
 //components
 import InputBar from '../components/InputBar/InputBar'
@@ -7,7 +9,7 @@ import firebase from '../api/firebase-config';
 
 
 const Board = props => {
-	
+	const history = useHistory();
     const [data, setData] =useState({id:generateId(), matiere:'', section:'', publier:false, type:'', trailer:''})
 
 	const [course, setCourse] = useState(['title=','chapter=','subchapter=','text=']);
@@ -90,6 +92,7 @@ const Board = props => {
     function handleSubmit(event) {
 		data.course = course
 		firebase.firestore().collection('cards').doc(data.id).set(data)
+		history.goBack();
 		event.preventDefault()
 	}
 
@@ -101,7 +104,7 @@ const Board = props => {
     
     const boardBody = (
         course.map((string, index) => (		
-		    <div key={index}>
+		    <div className='hover' key={index}>
                 <div className='bar'>
 				    <InputBar 
 						string={string} 

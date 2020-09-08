@@ -62,7 +62,7 @@ const InputBar = props => {
 				className='input-question'>
 				{content}</div>
 		}
-		else if (type === '""') {
+		else if (type === 'quotes') {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
@@ -70,7 +70,7 @@ const InputBar = props => {
 				className='input-quote'>
 				{content}</div>
 		}
-		else if (type === '...') {
+		else if (type === 'separation') {
 			return <div
 
 				className='input-separation'>
@@ -81,10 +81,10 @@ const InputBar = props => {
 				
 				className='input-image'>
 				<input type='file' onChange={e => imageChange(e)}/>
-				<img src={imagePreviewUrl}/>
+				<img src={imagePreviewUrl} alt="cours d'histoire et de geographie"/>
 				 </div>
 		}
-		else if (type === 'ppp') {
+		else if (type === 'powerpoint') {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
