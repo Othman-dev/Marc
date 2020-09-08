@@ -13,7 +13,6 @@ const InputBar = props => {
 		setImagePreviewUrl(URL.createObjectURL(e.target.files[0]))
 	}
 
-	console.log(imagePreviewUrl)
 
 	function inputDivCreator() {
 		if (type === 'title') {

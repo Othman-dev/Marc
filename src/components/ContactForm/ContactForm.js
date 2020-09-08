@@ -40,14 +40,14 @@ const ContactForm = (props) => {
 				<div id='contact' className='contactForm'>
 						<h1>Contact</h1>
 						<form onSubmit={handleSubmit}>
-								<input type='text' name='name' placeHolder='name' onChange={handleChange} required/>
+								<input type='text' name='name' placeholder='name' onChange={handleChange} required/>
 								<br/>
-								<input type='email' name='email' placeHolder='email@ddress' onChange={handleChange} required/>
+								<input type='email' name='email' placeholder='email@ddress' onChange={handleChange} required/>
 								<br/>
 								<br/>
-								<input type='text' className='formSubject' name='subject' placeHolder='Subject' onChange={handleChange} required/>
+								<input type='text' className='formSubject' name='subject' placeholder='Subject' onChange={handleChange} required/>
 								<br/>
-								<textarea className='formContent'rows='15' name='content' placeHolder='Your message' onChange={handleChange} required/>
+								<textarea className='formContent'rows='15' name='content' placeholder='Your message' onChange={handleChange} required/>
 								<br/>
 								<br/>
 								<button type='submit' disabled={message.disabled}>Submit</button>

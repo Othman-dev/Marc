@@ -5,13 +5,13 @@ import {useHistory} from 'react-router-dom';
 
 
 const Card = props => {
-    const { header, body, blue, yellow, orange, tag, id } = props;
+    const { blue, yellow, orange, card } = props;
     const [zoom, setZoom] = useState(false)
     let history = useHistory()
 
     const handleClick = () => {
         setZoom(true)
-        setTimeout(() => history.push(`/page/${id}`), 800)
+        setTimeout(() => history.push({pathname: `/page/${card.id}`, state:{card}}), 800)
     }
 
     const cardClasses = classNames({
@@ -25,12 +25,11 @@ const Card = props => {
     return (
         <div className={cardClasses} onClick={handleClick}>
             <div className='card-header'>
-                <h4>{header}</h4>
+                <h4>{card.course[0].slice(card.course[0].indexOf('=')+1)}</h4>
             </div>
 
             <div className='card-body'>
-                <h4>{body} </h4>
-                <h4 style={{ display: 'none' }} >{tag} </h4>
+                <h4>{card.trailer} </h4>
             </div>
         </div>
     )

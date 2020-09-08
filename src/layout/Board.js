@@ -90,10 +90,15 @@ const Board = props => {
 	}
 
     function handleSubmit(event) {
-		data.course = course
-		firebase.firestore().collection('cards').doc(data.id).set(data)
-		history.goBack();
-		event.preventDefault()
+		if(data.section === '' || data.matiere === ''){
+		    alert('You MUST pick a section and a matière')
+		    event.preventDefault()
+		} else {
+		    data.course = course
+		    firebase.firestore().collection('cards').doc(data.id).set(data)
+		    history.goBack();
+		    event.preventDefault()
+		}
 	}
 
 	useEffect(() => {

@@ -44,7 +44,7 @@ const Body = props => {
 		    setData(result)
 		}
 	}, [cards, selected, setResult])
-console.log(data)
+
     return (
             <div className='body' >
 				<div className='body-container'>
@@ -52,9 +52,9 @@ console.log(data)
 						card.publier ?
                         <div key={i}>
 							{selected.length >=1 ?
-							<Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id} blue/>
+							<Card card={card} blue/>
                             :
-							<Card header={card.title} body={card.trailer} hashtag={card.hashtag} id={card.id} orange/>}
+							<Card card={card} orange/>}
 						</div>
 						:
 						<div key={i}/>

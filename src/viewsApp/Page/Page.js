@@ -2,19 +2,14 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import './Page.scss';
 import classNames from 'classnames';
-//api
-import {useCards} from '../../api/useCards';
+import Reader from '../../components/Reader/Reader';
+import Chapter from '../../components/Reader/Chapter';
 
 const Page = props => {
-    const cards = useCards();
     
-    const [card, setCard] = useState({})
+    const [page, setPage] = useState(props.location.state.card)
 
-    useEffect(() => { 
-		setCard(cards.filter(item => item.id === props.match.params.id).pop());
-	}, [props.match.params.id, cards])
 
-		console.log(card)
     const pageClasses = classNames({
         'page': true,
         'blue': true
@@ -23,6 +18,8 @@ const Page = props => {
     return (
         <div className={pageClasses}>
             <Link to='/'> <i className="fas fa-times"></i> </Link>
+			<ul className='reader' >{page.course.map((string, i) => <Reader key={i} string={string}/>)}</ul>
+			<ul className='chapter'>{page.course.map((string, i) => <Chapter key={i} string={string}/>)}</ul>
         </div>
     )
 };
