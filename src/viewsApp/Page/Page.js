@@ -28,7 +28,7 @@ const PhoneBar = props => {
         {
           open && <div className='page-bar-body'>
                <h1 style={{textAlign: 'center'}}>Les Chapitres</h1>
-           <ul className='chapter'>{props.page.course.map((string, i) => <Chapter key={i} string={string}/>)}</ul>
+           <ul className='chapter'>{props.page.course.map((string, i) => <Chapter key={i} string={string} page={props.page}/>)}</ul>
           </div>
         }
       </div>

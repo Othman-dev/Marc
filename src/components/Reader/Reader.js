@@ -13,14 +13,16 @@ const Reader = (props) => {
 
 	const content = props.string.slice(props.string.indexOf('=') + 1)
 
+	const link = content.replace(/\s/g, '')
+
 
 	function customDivCreator() {
 		if (type === 'title') {
-			return <div className='input-big-title' id={content}>
+			return <div className='input-big-title' id={link}>
 				{content}</div>
 		}
 		else if (type === 'chapter') {
-			return <div className='input-sm-title' id={content}>
+			return <div className='input-sm-title' id={link}>
 				{content}</div>
 		}
 		else if (type === 'text') {
@@ -45,7 +47,7 @@ const Reader = (props) => {
 		}
 	
 		else if (type === 'subchapter') {
-			return <div className='input-subchapter'id={content}>
+			return <div className='input-subchapter'id={link}>
 				{content}</div>
 		}
 		else if (type === 'powerpoint') {
