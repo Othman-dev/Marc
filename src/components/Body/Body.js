@@ -52,9 +52,9 @@ const Body = props => {
 						card.publier ?
                         <div key={i}>
 							{selected.length >=1 ?
-							<Card card={card} blue/>
+							<Card card={card}/>
                             :
-							<Card card={card} orange/>}
+							<Card card={card}/>}
 						</div>
 						:
 						<div key={i}/>

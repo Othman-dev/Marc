@@ -1,53 +1,64 @@
 import React from 'react';
 import './Reader.scss';
-import classNames from 'classnames';
 //api
 
+
+
 const Reader = (props) => {
+
+	
 
 
     const type = props.string.slice(0, props.string.indexOf('='))
 
 	const content = props.string.slice(props.string.indexOf('=') + 1)
 
+
 	function customDivCreator() {
 		if (type === 'title') {
-			return <div id={content}>
+			return <div className='input-big-title' id={content}>
 				{content}</div>
 		}
 		else if (type === 'chapter') {
-			return <div id={content}>
+			return <div className='input-sm-title' id={content}>
 				{content}</div>
 		}
 		else if (type === 'text') {
-			return <div>
+			return <div className='input-content'>
 				{content}</div>
 		}
 		else if (type === 'question') {
-			return <div>
+			return <div className='input-question'>
 				{content}</div>
 		}
 		else if (type === 'quotes') {
-			return <div>
+			return <div className='input-quote'>
 				{content}</div>
 		}
 		else if (type === 'separation') {
-			return <div>
+			return <div className='input-separation'>
 				{content}</div>
 		}
 		else if (type === 'image') {
-			return <div>
+			return <div className='input-image'>
 				{content}</div>
 		}
-		else if (type === 'content') {
-			return <div>
-				{content}</div>
-		}
+	
 		else if (type === 'subchapter') {
-			return <div id={content}>
+			return <div className='input-subchapter'id={content}>
 				{content}</div>
 		}
-    }
+		else if (type === 'powerpoint') {
+			const iframe = content;
+			return <div className='input-ppp'>
+			<div  dangerouslySetInnerHTML={{__html: iframe}}></div>
+
+			</div>
+			
+		}
+	}
+	
+	
 
     const customDiv = (
 		customDivCreator()

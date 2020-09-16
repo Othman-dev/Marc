@@ -1,19 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './InputBar.scss'
 
 const InputBar = props => {
 
-
 	const type = props.string.slice(0, props.string.indexOf('='))
-
 	const content = props.string.slice(props.string.indexOf('=') + 1)
+	// const link = content.replace(/\s/g, '')
 	const [imagePreviewUrl, setImagePreviewUrl] = useState('')
-	
 	const imageChange = e => {
 		setImagePreviewUrl(URL.createObjectURL(e.target.files[0]))
 	}
 
-
+	// console.log(link)
 	function inputDivCreator() {
 		if (type === 'title') {
 			return <div
@@ -30,9 +28,9 @@ const InputBar = props => {
 				suppressContentEditableWarning
 				data-text='Nom du chapitre'
 				className='input-sm-title'
-				
+				id={content}
 				onBlur={(event) => props.handleChange(event, type, props.index)}>
-				 {content}</div>
+				{content}</div>
 		}
 		else if (type === 'subchapter') {
 			return <div
@@ -40,9 +38,10 @@ const InputBar = props => {
 				suppressContentEditableWarning
 				data-text='Nom du sous-chapitre'
 				className='input-subchapter'
+				id={content}
 				onBlur={(event) => props.handleChange(event, type, props.index)}>
-				
-				 {content}</div>
+
+				{content}</div>
 		}
 		else if (type === 'text') {
 			return <div
@@ -58,6 +57,7 @@ const InputBar = props => {
 				contentEditable
 				suppressContentEditableWarning
 				data-text='Nouvelle Question'
+				onBlur={(event) => props.handleChange(event, type, props.index)}
 				className='input-question'>
 				{content}</div>
 		}
@@ -66,6 +66,7 @@ const InputBar = props => {
 				contentEditable
 				suppressContentEditableWarning
 				data-text='Citation'
+				onBlur={(event) => props.handleChange(event, type, props.index)}
 				className='input-quote'>
 				{content}</div>
 		}
@@ -77,38 +78,38 @@ const InputBar = props => {
 		}
 		else if (type === 'image') {
 			return <div
-				
+
 				className='input-image'>
-				<input type='file' onChange={e => imageChange(e)}/>
-				<img src={imagePreviewUrl} alt="cours d'histoire et de geographie"/>
-				 </div>
+				<input type='file' onChange={e => imageChange(e)} />
+				<img src={imagePreviewUrl} alt="cours d'histoire et de geographie" />
+			</div>
 		}
 		else if (type === 'powerpoint') {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
 				data-text='Inserer un <iframe>'
+				onBlur={(event) => props.handleChange(event, type, props.index)}
 				className='input-ppp'>
-				{content}</div>
+				{content}
+			</div>
 		}
-		
-	
-}
+	}
 
-const inputDiv = (
-	inputDivCreator()
-)
+	const inputDiv = (
+		inputDivCreator()
+	)
 
 
-	
-	
 
-return (
-	<div className='input-bar' >
-		{inputDiv}
 
-	</div>
-)
+
+	return (
+		<div className='input-bar' >
+			{inputDiv}
+
+		</div>
+	)
 }
 
 export default InputBar;

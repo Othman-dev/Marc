@@ -1,4 +1,5 @@
 @import "../../assets/_colors.scss";
+
 .search-bg {
     background-color: $dark;
     border-radius: 40px;
@@ -7,11 +8,10 @@
 
 .search-bar {
     text-align: center;
-    width: 340px;
-    height: 50px;
+    width: auto;
+    height: 25px;
     background-color: $dark;
     border-radius: 40px;
-    border: 1.5px solid $dark;
     color: $white;
     font-size: 20px;
 }
@@ -19,3 +19,12 @@
 .search-add {
 		color: white;
 }
+@media only screen and (min-width: 768px) {
+    .search-bar {
+        width: 340px;
+        height: 50px;
+        font-size: 20px;
+
+    }
+}
+

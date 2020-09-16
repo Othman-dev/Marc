@@ -27,19 +27,18 @@
 		display:flex;
 		// width:100vw;
 		justify-content: center;
+		flex-direction: column;
 		align-items: center;
 }
 
 .profilPic{
 		height: 50vh;
 		width: auto;
-		margin-right: 50px;
 }
 
 .profilTxt{
-		height: 50vh;
-		width: 30vw;
-		
+		height: auto;
+		width: 90%;
 }
 
 .contactContainer {
@@ -53,3 +52,23 @@
 		text-align: center;
 }
 
+@media only screen and (min-width: 768px) {
+	.profilContainer {
+		display:flex;
+		flex-direction: row;
+
+	}
+
+
+.profilPic{
+	height: 50vh;
+	width: auto;
+	margin-right: 50px;
+}
+
+.profilTxt{
+	height: 50vh;
+	width: 30vw;
+	
+}
+}

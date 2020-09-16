@@ -7,19 +7,25 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1.5px solid $gray;
+    border: 2px solid $gray;
     height: 350px;
     width: 250px;
     margin: 15px;
     border-radius: 20px;
-    transition: all 0.7s ease-in;
+    transition: all 0.2s ease-in;
 }
+
+
 
 .card h4 {
     color: $dark;
     transition: all 0.3s ease-in;
     text-align: center;
 }
+// .card:hover {
+//     color: $white;
+//     background-color: $red;
+// }
 
 .card-header {
     position: absolute;
@@ -27,6 +33,10 @@
     display: flex;
     max-width: 80%;
     max-height: 200px;
+}
+
+.card-header h2 {
+    text-transform: capitalize;
 }
 
 .card-body {
@@ -38,7 +48,7 @@
 //     transform: translateY(-5px);
 //     // transition: transform 0.3s ease-in-out;
 //     box-shadow: 5px -5px $gray;
-//     perspective: 500px;
+//     // perspective: 500px;
 // }
 
 .zoom-in {

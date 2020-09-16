@@ -7,23 +7,20 @@
     align-items: center;
     border-radius: 40px;
     background: $gray;
-    margin: 10px;
+    margin: 5px;
     border: 3px solid $gray;
 }
 
-.hashtag:hover {
-    background-color: $green;
-    border: 3px solid $green;
-}
+
 
 
 .hashtag h4 {
     display:flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 30px;
+    padding: 0px 20px;
 	margin: 0;
-	height: 60px
+	height: 40px
 }
 
 .active-hashtag {
@@ -36,8 +33,11 @@
     background-color: $orange;
 }
 
+
+
+
 .search-minus {
-    color: white;                                                                                                                                                                     
+    color: white;                        
     transform: translate(-50%,0%);
 }
 
@@ -57,4 +57,21 @@
     background-color: rgba(0,0,0,0);
 	border:0px;
 	z-index: 10;
+}
+
+@media only screen and (min-width: 768px) {
+    .hashtag {
+        margin: 10px;
+    }
+
+    .hashtag h4 {
+        height: 60px;
+        padding: 0px 30px;
+
+    }
+
+    .hashtag:hover {
+        background-color: $red;
+        border: 3px solid $red;
+    }
 }

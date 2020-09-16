@@ -11,7 +11,7 @@ const Card = props => {
 
     const handleClick = () => {
         setZoom(true)
-        setTimeout(() => history.push({pathname: `/page/${card.id}`, state:{card}}), 800)
+        setTimeout(() => history.push({pathname: `/page/${card.id}`, state:{card}}), 400)
     }
 
     const cardClasses = classNames({
@@ -19,17 +19,21 @@ const Card = props => {
         'blue': blue,
         'orange': orange,
         'yellow': yellow,
+        'light': true,
         'zoom-in': zoom
     })
     
     return (
         <div className={cardClasses} onClick={handleClick}>
             <div className='card-header'>
-                <h4>{card.course[0].slice(card.course[0].indexOf('=')+1)}</h4>
+                <h2>{card.course[0].slice(card.course[0].indexOf('=')+1)}</h2>
             </div>
 
             <div className='card-body'>
                 <h4>{card.trailer} </h4>
+            </div>
+            <div className='card-footer'>
+                
             </div>
         </div>
     )

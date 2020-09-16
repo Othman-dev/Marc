@@ -12,7 +12,7 @@ const Board = props => {
 	const history = useHistory();
     const [data, setData] =useState({id:generateId(), matiere:'', section:'', publier:false, type:'', trailer:''})
 
-	const [course, setCourse] = useState(['title=','chapter=','subchapter=','text=']);
+	const [course, setCourse] = useState(['title=','chapter=','subchapter=']);
 	
     function generateId() {
 		return `${new Date().getTime()}`;
@@ -96,7 +96,7 @@ const Board = props => {
 		} else {
 		    data.course = course
 		    firebase.firestore().collection('cards').doc(data.id).set(data)
-		    history.goBack();
+		    history.push('/');
 		    event.preventDefault()
 		}
 	}
