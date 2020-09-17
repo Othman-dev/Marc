@@ -15,6 +15,8 @@ const Reader = (props) => {
 
 	const content = props.string.slice(props.string.indexOf('=') + 1)
 
+	const link = content.replace(/\s/g, '')
+
 
 	function customDivCreator() {
 		if (type === 'title') {
