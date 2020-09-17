@@ -3,10 +3,11 @@
 .page {
 
     position: relative;
-    width: 100%;
+    max-width: 100vw;
     display: flex;
-    height: calc(100% - 60px);
+    min-height: calc(100vh - 60px);
     flex-direction: column;
+    align-items: center;
     padding-bottom: 60px;
 }
 
@@ -14,6 +15,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    font-size: x-large;
     margin: 20px;
 
 }

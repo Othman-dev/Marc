@@ -1,13 +1,12 @@
 @import "./assets/colors";
 
-* {
-  scroll-behavior: smooth;
-}
+// * {
+//   scroll-behavior: smooth;
+// }
 
 body {
   margin: 0;
-  font-family: 'Monserrat',
-    sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
@@ -36,6 +35,10 @@ code {
   background-color:#ebe1cc ;
 }
 
+// .light {
+//   background-image: linear-gradient(to right bottom, #d16b85, #d36090, #cf56a0, #c650b3, #b350c9, #936ae3, #6680f5, #0092ff, #00b1ff, #00cdff, #00e5fd, #5ffbf1);
+// }
+
 a {
   color: $dark;
   text-decoration: none;
@@ -46,8 +49,8 @@ h1, h2, h3, h4, p {
 }
 
 h1 {
-  font-family: 'Poller One', cursive;
-  font-weight: 300;
+  font-family: 'Anton', sans-serif;
+    // font-weight: 500;
 }
 
 h2, h3, h4, p, button {
@@ -71,7 +74,7 @@ input, textarea {
 
 button {
   // margin-top: 20px;
-  padding: 10px 20px 10px 20px;
+  padding: 10px;
   color: $dark;
   border-radius: 20px;
   border: solid 2px $creme;

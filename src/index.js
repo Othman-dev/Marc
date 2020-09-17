@@ -25,7 +25,7 @@ ReactDOM.render(
       <Router>
         <Switch >
           <Route path='/' exact component={App} />
-          <Route path='/page/:id' component={Page} />
+          <Route path='/page/:id' exact component={Page} />
           <Route path='/login' component={Login} />
           <Route path='/about' component={About} />
           <PrivateRoute path='/account' component={AccountLayout} />

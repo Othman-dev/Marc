@@ -32,6 +32,12 @@ const Board = props => {
 		setCourse([...course.slice(0,index),
 			type + '=' + event.currentTarget.textContent,
 			...course.slice(index+1)])
+
+			if(event.currentTarget.textContent === '') {
+				setCourse([...course.slice(0,index),
+					type + '=' + event.currentTarget.textContent,
+					...course.slice(index+1)])
+			}
 	}
 
     function deleteEntry(index){

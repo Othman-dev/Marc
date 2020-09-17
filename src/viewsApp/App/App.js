@@ -69,8 +69,7 @@ const App = (props) => {
       <HashtagProvider>
         <Navbar logo='LOGO' links={<Link to='/about'>About</Link>} />
         <Header />
-        <h1 style={{ textAlign: 'center' }}>*   *   *   </h1>
-        <h1 style={{ textAlign: 'center' }}>Les Cours</h1>
+      
         {
           act && <PhoneBar />
         }
@@ -82,10 +81,11 @@ const App = (props) => {
 
 
           <NavByHashtag />
+        
 
         </div>
-
         <Body />
+       
       </HashtagProvider>
 
 

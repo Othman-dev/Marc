@@ -1,11 +1,11 @@
 .nav-hashtag {
-    width: 100%;
+    width: auto;
 }
 
 
 @media only screen and (min-width: 768px) {
     .nav-hashtag {
-        width: 50%;
+        
         display: flex;
         justify-content: center;
         flex-wrap: wrap;

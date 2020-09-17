@@ -3,6 +3,7 @@
 .hashtag {
 
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
     border-radius: 40px;
@@ -19,8 +20,8 @@
     justify-content: center;
     align-items: center;
     padding: 0px 20px;
-	margin: 0;
-	height: 40px
+    margin: 0 20px 0 0;
+    height: 40px
 }
 
 .active-hashtag {
@@ -42,8 +43,10 @@
 }
 
 .custom-bg {
-    position: relative;
-	z-index: 10;
+    position: absolute;
+    z-index: 10;
+    right: 5px;
+    
 	width:10px;
 	background-color: rgba(0,0,0,0);
     border-radius: 40px;
@@ -52,7 +55,6 @@
 }
 
 .custom-bg:hover {
-	position: relative;
 	z-index: 10;
     background-color: rgba(0,0,0,0);
 	border:0px;
@@ -65,13 +67,13 @@
     }
 
     .hashtag h4 {
-        height: 60px;
+        height: 55px;
         padding: 0px 30px;
 
     }
 
-    .hashtag:hover {
-        background-color: $red;
-        border: 3px solid $red;
-    }
+    // .hashtag:hover {
+    //     background-color: $red;
+    //     border: 3px solid $red;
+    // }
 }

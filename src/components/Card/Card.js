@@ -19,7 +19,7 @@ const Card = props => {
         'blue': blue,
         'orange': orange,
         'yellow': yellow,
-        'light': true,
+        'creme': true,
         'zoom-in': zoom
     })
     

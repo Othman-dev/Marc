@@ -1,6 +1,8 @@
 import React from 'react';
 import './Reader.scss';
+import ReactHtmlParser from 'react-html-parser'
 //api
+
 
 
 
@@ -16,44 +18,44 @@ const Reader = (props) => {
 
 	function customDivCreator() {
 		if (type === 'title') {
-			return <div className='input-big-title' id={content}>
+			return <div className='input-big-title-reader' id={content}>
 				{content}</div>
 		}
 		else if (type === 'chapter') {
-			return <div className='input-sm-title' id={content}>
+			return <div className='input-sm-title-reader' id={content}>
 				{content}</div>
 		}
 		else if (type === 'text') {
-			return <div className='input-content'>
+			return <div className='input-content-reader'>
 				{content}</div>
 		}
 		else if (type === 'question') {
-			return <div className='input-question'>
+			return <div className='input-question-reader'>
 				{content}</div>
 		}
 		else if (type === 'quotes') {
-			return <div className='input-quote'>
+			return <div className='input-quote-reader'>
 				{content}</div>
 		}
 		else if (type === 'separation') {
-			return <div className='input-separation'>
+			return <div className='input-separation-reader'>
 				{content}</div>
 		}
 		else if (type === 'image') {
-			return <div className='input-image'>
+			return <div className='input-image-reader'>
 				{content}</div>
 		}
 	
 		else if (type === 'subchapter') {
-			return <div className='input-subchapter'id={content}>
+			return <div className='input-subchapter-reader'id={content}>
 				{content}</div>
 		}
 		else if (type === 'powerpoint') {
-			const iframe = content;
-			return <div className='input-ppp'>
-			<div  dangerouslySetInnerHTML={{__html: iframe}}></div>
+			const iframe = content
+			return <div className='input-ppp-reader'>
+			<div >{ ReactHtmlParser(iframe) }</div></div>
 
-			</div>
+		
 			
 		}
 	}
@@ -64,6 +66,8 @@ const Reader = (props) => {
 		customDivCreator()
 	)
 
+
+
     return (
 		<div>
 			{customDiv}
@@ -72,3 +76,5 @@ const Reader = (props) => {
 };
 
 export default Reader;
+
+

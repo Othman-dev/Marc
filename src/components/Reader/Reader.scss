@@ -1,92 +1,104 @@
 @import "../../assets/_colors.scss";
 
-.input-big-title {
+.input-big-title-reader {
     color: $dark;
     margin-top: 60px;
    text-transform: capitalize;
     font-family: Raleway;
     font-weight: bold;
-    font-size: 50px;
-justify-content: center;    letter-spacing: 2px;
+    font-size: 35px;
+    letter-spacing: 2px;
+    text-align: center;
 }
 
-.input-sm-title {
+.input-sm-title-reader {
     color: $dark;
     letter-spacing: 2px;
-
-    margin-top: 100px;
-    text-transform: uppercase;
-    font-family: Roboto;
-    font-weight: bold;
-    font-size: 40px;
-    justify-content: center;
-}
-
-.input-subchapter {
-    margin-top: 200px;
-    letter-spacing: 2px;
-    font-family: Roboto;
-    font-size: 40px;
-    font-weight: bold;
-    color: $orange;
-   
-
-}
-
-.input-quote {
-    
-    margin: 50px 0;
-    font-style: italic;
-    font-family: Roboto ;
-justify-content: center;    font-size: 30px;
-    letter-spacing: 1.9px;
-    color: $green;
-    border-right: $dark 1.5px solid;
-
-}
-
-
-.input-content {
-    color: $dark;
-    margin-top: 60px;
-    letter-spacing: 1.5px;
-    font-size: 30px;
-    text-align: justify;
-    line-height: 45px;
-}
-
-.input-question {
-    color: $dark;
     text-align: center;
 
     margin-top: 60px;
+    text-transform: uppercase;
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 25px;
+    justify-content: center;
+}
+
+.input-subchapter-reader {
+    margin-top: 60px;
+
+    letter-spacing: 2px;
+    font-family: Roboto;
+    font-size: 25px;
+    font-weight: bold;
+    color: $orange;
+}
+
+.input-quote-reader {
+    
+    margin: 30px 0;
+    font-style: italic;
+    font-family: Roboto ;
+    font-size: 20px;
+    letter-spacing: 1.9px;
+    color: $green;
+    border-right: none;
+    text-align: center;
+}
+
+
+.input-content-reader {
+    color: $dark;
+    margin-top: 60px;
     letter-spacing: 1.5px;
-    font-size: 30px;
-    text-align: justify;
+    font-size: 20px;
+    line-height: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; ;
+}
+
+.input-question-reader {
+    color: $dark;
+    text-align: center;
+    margin-top: 60px;
+    letter-spacing: 1.5px;
+    font-size: 20px;
     line-height: 45px;
 }
 
-.input-separation {
-    justify-content: center;
-    padding: 50px 0;
-    font-size: 25px;
+.input-separation-reader {
+    text-align: center;
+    font-size: 30px;
     color: $dark;
 }
 
-.input-ppp {
+
+
+.input-ppp-reader {
+    margin: 60px 0;
+    display: flex;
     justify-content: center;
-    margin: 50px 20px;
 }
-.input-image {
+
+.input-ppp-reader iframe {
+    max-width: 80vw;
+}
+.input-image-reader {
     display: flex;
     flex-direction: column;
    align-items: center;
     margin: 50px 20px;
 }
-.input-image img {
+.input-image-reader img {
     width: 80%;
     height: auto;
     border-radius: 20px;
     border: 3px solid $dark;
    
+}
+
+.reader {
+    width: auto;
+    margin: 0 !important;
+    padding: 0;
+    max-width: 80%
 }
