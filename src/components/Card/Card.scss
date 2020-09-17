@@ -12,7 +12,8 @@
     width: 250px;
     margin: 15px;
     border-radius: 20px;
-    transition: all 0.2s ease-in;
+    transition: all 1s ease-in;
+    background-color: $creme;
 }
 
 
@@ -33,10 +34,14 @@
     display: flex;
     max-width: 80%;
     max-height: 200px;
+   
+
 }
 
 .card-header h2 {
+   
     text-transform: capitalize;
+    color: dark;
 }
 
 .card-body {
@@ -54,7 +59,6 @@
 .zoom-in {
     position: relative;
     z-index: 200;
-    
     transform: scale(10)
 }
 

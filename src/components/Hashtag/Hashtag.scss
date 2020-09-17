@@ -20,17 +20,18 @@
     justify-content: center;
     align-items: center;
     padding: 0px 20px;
-    margin: 0 20px 0 0;
-    height: 40px
+    margin: 0 20px;
+    height: 40px;
+    color: $dark;
 }
 
 .active-hashtag {
-    border: 3px solid $green;
+    border: 3px solid $gray;
     background-color: $orange;
 }
 
 .active-hashtag:hover {
-    border: 3px solid $green;
+    border: 3px solid $gray;
     background-color: $orange;
 }
 
@@ -55,10 +56,10 @@
 }
 
 .custom-bg:hover {
-	z-index: 10;
+
     background-color: rgba(0,0,0,0);
-	border:0px;
-	z-index: 10;
+	border: none;
+
 }
 
 @media only screen and (min-width: 768px) {

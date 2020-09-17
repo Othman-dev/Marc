@@ -42,12 +42,12 @@ const Page = props => {
 
 
   return (
-    <div className='page light' >
+    <div className='page' >
       <Link to='/'> <i className="fas fa-times"></i> </Link>
 
 
       <ul className='reader' >{page.course.map((string, i) => <Reader key={i} string={string} />)}</ul>
-      <PhoneBar page={page} />
+   
 
     </div>
   )

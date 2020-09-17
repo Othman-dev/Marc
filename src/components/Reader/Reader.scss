@@ -48,12 +48,12 @@
 
 
 .input-content-reader {
-    color: $dark;
+    color: dark;
     margin-top: 60px;
     letter-spacing: 1.5px;
-    font-size: 20px;
-    line-height: 40px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif; ;
+    font-size: 14px;
+    line-height: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
 }
 
 .input-question-reader {
@@ -101,4 +101,16 @@
     margin: 0 !important;
     padding: 0;
     max-width: 80%
+}
+
+@media only screen and (min-width: 768px) {
+
+    .input-content-reader {
+      
+        letter-spacing: 1.5px;
+        font-size: 20px;
+        line-height: 40px;
+       
+    }
+    
 }

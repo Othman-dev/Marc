@@ -16,6 +16,8 @@ const PhoneBar = () => {
 
   const [open, setOpen] = useState(false)
 
+ 
+
   const barClasses = classNames({
     'phone-bar-close': open === false,
     'phone-bar-open': open
@@ -27,9 +29,17 @@ const PhoneBar = () => {
     <div className={barClasses}>
 
       <div className='phone-bar-header'>
-        <button className='touch' onClick={() => setOpen(!open)}>
-          #Hastags
+      {
+          open === false &&  <button className='touch' onClick={() => setOpen(!open)}>
+          Filtrer avec les #Hastags
       </button>
+        }
+        {
+          open &&  <button className='touch' onClick={() => setOpen(!open)}>
+          Fermer
+      </button>
+        }
+       
       </div>
 
       {
@@ -39,6 +49,10 @@ const PhoneBar = () => {
           <NavByHashtag />
         </div>
       }
+
+
+ 
+      
     </div>
   )
 }
@@ -73,8 +87,8 @@ const App = (props) => {
         {
           act && <PhoneBar />
         }
-        <div>
-          <h2 className='mt-large'>Utilisez les #Hashtags pour faire vos recherches. Selectionnez-en un ou plusieurs pour filtrer les cours. Vous pouvez également en ajouter. </h2>
+        <div className='advice'>
+          <h2>Utilisez les #Hashtags pour faire vos recherches. Selectionnez-en un ou plusieurs pour filtrer les cours. Vous pouvez également en ajouter. </h2>
         </div>
         <div className='navigation' id='nav'>
 

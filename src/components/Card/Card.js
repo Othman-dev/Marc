@@ -11,7 +11,7 @@ const Card = props => {
 
     const handleClick = () => {
         setZoom(true)
-        setTimeout(() => history.push({pathname: `/page/${card.id}`, state:{card}}), 400)
+        setTimeout(() => history.push({pathname: `/page/${card.id}`, state:{card}}), 1150)
     }
 
     const cardClasses = classNames({
@@ -19,7 +19,6 @@ const Card = props => {
         'blue': blue,
         'orange': orange,
         'yellow': yellow,
-        'creme': true,
         'zoom-in': zoom
     })
     
