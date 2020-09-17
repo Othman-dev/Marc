@@ -11,7 +11,7 @@ const About = (props) => {
 
 	return (
 		<div className='About'>
-			<Navbar logo='LOGO' links={<Link to='/'>Home</Link>} />
+			<Navbar logo='MARC BOURREAU' links={<Link to='/'>Home</Link>} />
 			<div className='head'>
 				<Title title="About" />
 			</div>

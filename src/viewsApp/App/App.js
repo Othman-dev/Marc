@@ -81,14 +81,15 @@ const App = (props) => {
   return (
     <div className="App" onScroll={onScroll}>
       <HashtagProvider>
-        <Navbar logo='LOGO' links={<Link to='/about'>About</Link>} />
+        <Navbar logo='MARC BOURREAU' links={<Link to='/about'>About</Link>} />
         <Header />
       
         {
           act && <PhoneBar />
         }
         <div className='advice'>
-          <h2>Utilisez les #Hashtags pour faire vos recherches. Selectionnez-en un ou plusieurs pour filtrer les cours. Vous pouvez également en ajouter. </h2>
+          <h2>Utilisez les #Hashtags pour faire vos recherches. Selectionnez-en un ou plusieurs pour filtrer les cours présentés. Vous pouvez également en ajouter. </h2>
+          <h4>Exemple: #SIXIEME + #GEOGRAPHIE affiche tous les cours de Géographie pour la section Sixième.</h4>
         </div>
         <div className='navigation' id='nav'>
 
