@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2.5px solid $dark;
+    border: 2.5px solid $blue;
     height: 350px;
     width: 250px;
     margin: 15px;
@@ -61,7 +61,7 @@
 .zoom-in {
     position: relative;
     z-index: 200;
-    transform: scale(10)
+    transform: scale(15)
 }
 
 .zoom-in h4 {

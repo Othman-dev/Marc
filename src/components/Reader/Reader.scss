@@ -1,7 +1,7 @@
 @import "../../assets/_colors.scss";
 
 .input-big-title-reader {
-    color: $dark;
+    color: $blue;
     margin-top: 60px;
    text-transform: capitalize;
     font-family: Raleway;
@@ -31,7 +31,7 @@
     font-family: Roboto;
     font-size: 25px;
     font-weight: bold;
-    color: $orange;
+    color: $blue;
 }
 
 .input-quote-reader {
@@ -48,10 +48,10 @@
 
 
 .input-content-reader {
-    color: dark;
-    margin-top: 60px;
+    color: $dark;
+    margin-top: 40px;
     letter-spacing: 1.5px;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
 }

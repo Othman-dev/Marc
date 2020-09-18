@@ -22,8 +22,8 @@ const SearchBar = props => {
     return (
 			<form>
 				<div className='search-bg'>
-				    <input name='search' className='search-bar' placeholder={props.placeholder} value={searchTemp} onChange={handleChange}/>
-				    <button className='search-bg' onClick={handleAdd}>
+				    <input name='search' className='search-bar'  placeholder={props.placeholder} value={searchTemp} onChange={handleChange}/>
+				    <button className='search-btn' onClick={handleAdd}>
 						<i className="fas fa-plus fa-lg search-add"></i>
 				    </button>
 				</div>

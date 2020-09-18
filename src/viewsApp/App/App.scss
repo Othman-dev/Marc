@@ -40,7 +40,7 @@
 .phone-bar-open {
     position: fixed;
     bottom: 0;
-    height: calc(100% - 10px);
+    height: 100%;
     width: 100%;
     z-index: 150;
     background-color: $blue;
