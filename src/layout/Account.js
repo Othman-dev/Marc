@@ -12,56 +12,39 @@ import routes from './routes';
 
 const routesBoard = [
     {
-        name: 'chapitre 1',
-        path: '#chapitre',
+        name: 'Retour au menu',
+        path: '',
         layout: '/account'
-    },
-    {
-        name: 'chapitre 1',
-        path: '#chapitre',
-        layout: '/account'
-
-    },
-    {
-        name: 'chapitre 1',
-        path: '#chapitre',
-        layout: '/account'
-
-    },
-    {
-        name: 'chapitre 1',
-        path: '#chapitre',
-        layout: '/account'
-
     }
 ]
 
 
 const Account = props => {
+    const hist = useHistory()
 
 
+    
 
 
-    const getRoutes = routes => {
-        return routes.map((prop, key) => {
-            if (prop.layout === "/account") {
-                return (
-                    <Route
+    // const getRoutes = routes => {
+    //     return routes.map((prop, key) => {
+    //         if (prop.layout === "/account") {
+    //             return (
+    //                 <Route
 
-                        path={prop.layout + prop.path}
-                        component={prop.component}
-                        key={key}
-                    />
-                );
-            } else {
-                return null;
-            }
-        });
-    };
+    //                     path={prop.layout + prop.path}
+    //                     component={prop.component}
+    //                     key={key}
+    //                 />
+    //             );
+    //         } else {
+    //             return null;
+    //         }
+    //     });
+    // };
 
     const SignOutBtn = () => <button style={{ marginRight: '40px' }} onClick={() => fire.auth().signOut()}>Deconnexion</button>
 
-    const hist = useHistory()
     return (
 
         <div className='account'>
@@ -85,10 +68,7 @@ const Account = props => {
                     <Link to='/' target='_blank'><h1>Welcome My Friend</h1></Link>
                 </div>
 
-                <Switch>
-                    {getRoutes(routes)}
-                    <Redirect from='/account' to='/account/sixieme/geography' />
-                </Switch>
+             
 
 
             </div>

@@ -1,7 +1,7 @@
-import Sixieme from '../viewsAccount/Sixieme/Sixieme';
-import Cinquieme from '../viewsAccount/Cinquieme/Cinquieme';
-import Quatrieme from '../viewsAccount/Quatrieme/Quatrieme';
-import Troisieme from '../viewsAccount/Troisieme/Troisieme';
+import Sixieme from '../viewsAccount/Sixieme/Sections/Geography';
+import Cinquieme from '../viewsAccount/Cinquieme/Sections/Geography';
+import Quatrieme from '../viewsAccount/Quatrieme/Sections/Geography';
+import Troisieme from '../viewsAccount/Troisieme/Sections/Geography';
 import Board from './Board';
 
 
@@ -12,7 +12,6 @@ let routes = [
         component: Board,
         layout: '/account'
     },
-
     {
         name: 'Sixieme',
         path: "/sixieme/geography",
