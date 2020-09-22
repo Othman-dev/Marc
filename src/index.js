@@ -9,7 +9,7 @@ import Page from './viewsApp/Page/Page';
 import Login from './viewsApp/Login/Login'
 import About from './viewsApp/About/About';
 //layout
-import AccountLayout from './layout/Account';
+import AccountLayout from './layout/LayoutRouting';
 //Private Route
 import PrivateRoute from './api/PrivateRoute'
 //context

@@ -29,7 +29,7 @@
 }
 
 .right-side-header {
-    margin: 35px;
+    margin: 6px;
     display: flex;
     justify-content: space-around;
 }
@@ -48,6 +48,37 @@
     flex-direction: column;
 }
 
+table {
+    margin-top: 100px;
+    width: 100%;
+}
+th {
+    height: 100px;
+  }
+  td {
+      width: 100%;
+  }
+  table h2 {
+      color: $blue;
+  }
+
+
+.active {
+    
+    padding: 10px;
+    background: $red;  
+    border-radius: 20px;
+    color: $white;
+}
+
+.active-sidebar {
+    background: $red;  
+    border-radius: 20px;
+    color: $white;
+}
+
+
+
 
 
 //************** Board **************//
@@ -58,8 +89,6 @@
     height: 100%;
     background: $creme;
     display: flex;
-    // justify-content: center;
-    // align-items: center;
     flex-direction: column;
     
     z-index: 100;
@@ -89,8 +118,10 @@
 
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin: 50px;
+    font-family: Futura;
 }
+
 
 .board-body {
     display: flex;
@@ -111,4 +142,31 @@
     padding: 30px;
     
 }
+
+
+//********* Sidebar *********//
+
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    background: $blue;
+    margin: 80px 30px 30px 30px;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.sidebar h4 {
+    color: $white;
+    padding: 10px;
+}
+
+.links {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+   
+};
 

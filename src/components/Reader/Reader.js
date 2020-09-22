@@ -41,7 +41,7 @@ const Reader = (props) => {
 		}
 		else if (type === 'separation') {
 			return <div className='input-separation-reader'>
-				{content}</div>
+				* * *</div>
 		}
 		else if (type === 'image') {
 			return <div className='input-image-reader'>

@@ -48,7 +48,7 @@ const Page = props => {
 
       <ul className='reader' >{page.course.map((string, i) => <Reader key={i} string={string} />)}</ul>
    
-
+    {/* <PhoneBar page={page} /> */}
     </div>
   )
 };
