@@ -1,21 +1,20 @@
 import {useState, useEffect} from 'react';
 import fire from './firebase-config';
-
+import Axios from 'axios';
 
 export function useCards() {
     const [cards, setCards] = useState([])
-    useEffect(() => {
-      fire
-        .firestore()
-        .collection("cards")
-        .onSnapshot(snapshot => {
-          const card = snapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data(),
-          }))
-          setCards(card)
-        })
-    }, [])
+   useEffect(() => {
+				Axios.get('http://localhost:4000/api/cards/')
+				.then(res => {
+				    console.log(res)
+				    setCards(res.data)
+				})
+				.catch(err => {
+						console.log(err)
+						})
+    },[])
+
 
    
     return cards;

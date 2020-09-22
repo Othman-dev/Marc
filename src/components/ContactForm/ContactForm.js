@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './ContactForm.scss';
-import firebase from '../../api/firebase-config';
+import Axios from 'axios';
 
 const ContactForm = (props) => {
 
@@ -18,23 +18,28 @@ const ContactForm = (props) => {
 		}
 
 		function handleSubmit(event) {
-				const temp = {
-						name:message.name,
-						email:message.email,
-						subject:message.subject,
-						content:message.content
-				}
-				firebase.firestore().collection('messages').doc(generateKey(message.name)).set(temp)
-				setMessage({...message,
-						sent:true,
-						disabled: true
-				})
 				event.preventDefault()
-		}
-
-		function generateKey(name) {
-				return `${name}_${new Date().getTime()}`;
-		}
+				Axios.post('http://localhost:4000/api/messages/', message)
+				.then(res => {
+				    if(res.data.success) {
+				        setMessage({...message,
+						    sent:true,
+						    disabled: true
+				        })
+						alert('message sent')
+				    }else{
+				        setMessage({...message,
+						    sent:false,
+						    disabled:false
+						})
+				}}).catch(err => {
+						console.log(err)
+				        setMessage({...message,
+						    sent:false,
+						    disabled:false
+						})
+				})
+				}
 
 		return (
 				<div id='contact' className='contactForm'>
