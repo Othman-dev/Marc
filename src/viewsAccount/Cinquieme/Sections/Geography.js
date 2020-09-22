@@ -44,6 +44,7 @@ const Geography = (props) => {
 		setResult(result)
 		setData(result)
 	}, [cards, setResult])
+		console.log(data)
 
 
 	const SignOutBtn = () => <button style={{ marginRight: '40px' }} onClick={() => fire.auth().signOut()}>Deconnexion</button>
