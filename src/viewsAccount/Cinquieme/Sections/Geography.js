@@ -6,9 +6,10 @@ import routesSidebar from '../../../layout/routes';
 import Header from '../../../components/Header/HeaderAccount'
 import { useCards } from '../../../api/useCards'
 import { Link } from 'react-router-dom'
-//fire
-import fire from '../../../api/firebase-config'
+import Axios from 'axios';
 import classNames from 'classnames'
+import {useHistory} from 'react-router-dom';
+import fire from '../../../api/firebase-config'
 
 
 
@@ -18,6 +19,7 @@ const Geography = (props) => {
 
 	const [data, setData] = useState([])
 
+    let history = useHistory()
 
 	const handleChange = e => {
 		e.preventDefault();
@@ -58,7 +60,8 @@ const Geography = (props) => {
 	
 		if(response === 'oui') {
 			alert(deleted)
-			fire.firestore().collection('cards').doc(id).delete()
+				Axios.delete(`http://localhost:4000/api/cards/${id}`)
+				history.goBack()
 		} else {
 			alert("Vous n'avez rien supprimé")
 
@@ -133,7 +136,7 @@ const Geography = (props) => {
 													</Link>
 												</td>
 												<td>
-													<button onClick={()=>handleClick(item.id)} >Supprimer</button>
+													<button onClick={()=>handleClick(item._id)} >Supprimer</button>
 												</td>
 											</div>
 

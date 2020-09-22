@@ -17,7 +17,6 @@ const HeaderAccount = props => {
 
     
 
-    console.log(props.active)
 
     return (
         <div className='header-account'>

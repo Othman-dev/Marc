@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom'
 
 //fire
 import fire from '../../../api/firebase-config'
+import Axios from 'axios';
 
 
 const History = (props) => {
@@ -73,7 +74,7 @@ const History = (props) => {
 	
 		if(response === 'oui') {
 			alert(deleted)
-			fire.firestore().collection('cards').doc(id).delete()
+				Axios.delete(`http://localhost:4000/api/cards/${id}`)
 		} else {
 			alert("Vous n'avez rien supprimé")
 
@@ -133,7 +134,7 @@ const History = (props) => {
 													</Link>
 												</td>
 												<td>
-												<button onClick={()=> handleClick(item.id)}>Supprimer</button>
+												<button onClick={()=> handleClick(item._id)}>Supprimer</button>
 												</td>
 											</div>
 

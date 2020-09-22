@@ -47,8 +47,8 @@ const LayoutRouting = () => {
                 <Route path='/account/quatrieme/qcm' component={Qcm_Four} />
                 <Route path='/account/troisieme/history' component={History_Three} />
                 <Route path='/account/troisieme/qcm' component={Qcm_Three} />
-                <Redirect from='/account' to='/account/sixieme/geography' />
-            </Router>
+			    <Redirect from='/account' to='/account/sixieme/geography' />
+			</Router>
 
         </Switch>
     )

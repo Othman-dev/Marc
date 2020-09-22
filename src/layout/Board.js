@@ -5,18 +5,14 @@ import './layout.scss';
 //components
 import InputBar from '../components/InputBar/InputBar'
 import Coktail from '../components/Coktail/Coktail'
-import firebase from '../api/firebase-config';
+import Axios from 'axios'
 
 
 const Board = props => {
 	const history = useHistory();
-	const [data, setData] = useState({ id: generateId(), matiere: '', section: '', publier: false, type: '', trailer: '' })
+	const [data, setData] = useState({ course:[], matiere: '', section: '', publier: false, type: '', trailer: '' })
 
 	const [course, setCourse] = useState(['title=', 'chapter=', 'subchapter=']);
-
-	function generateId() {
-		return `${new Date().getTime()}`;
-	}
 
 	function dataChange(event) {
 		if (event.target.name === 'publier') { setData({ ...data, [event.target.name]: !data.publier }) }
@@ -96,15 +92,21 @@ const Board = props => {
 	}
 
 	function handleSubmit(event) {
+			event.preventDefault()
 		if (data.section === '' || data.matiere === '') {
 			alert('You MUST pick a section and a matière')
-			event.preventDefault()
 		} else {
-			data.course = course
-			firebase.firestore().collection('cards').doc(data.id).set(data)
-			history.goBack();
-			event.preventDefault()
-		}
+		    if(data._id === undefined){
+					console.log('create')
+				data.course = course
+				Axios.post('http://localhost:4000/api/cards', data)
+				history.goBack();
+			}else{
+					console.log('update')
+				data.course = course
+				Axios.put(`http://localhost:4000/api/cards/${data._id}`, data)
+				history.goBack();
+			}}
 	}
 
 	useEffect(() => {
@@ -144,8 +146,8 @@ const Board = props => {
 		))
 	)
 
-	console.log(history)
-
+console.log(data)
+console.log(course)
 	return (
 		<div className='board'>
 			<div className='board-header'>

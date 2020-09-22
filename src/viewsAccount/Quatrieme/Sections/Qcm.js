@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom'
 
 //fire
 import fire from '../../../api/firebase-config'
+import Axios from 'axios';
 
 
 const Qcm = (props) => {
@@ -70,7 +71,7 @@ const Qcm = (props) => {
 	
 		if(response === 'oui') {
 			alert(deleted)
-			fire.firestore().collection('cards').doc(id).delete()
+				Axios.delete(`http://localhost:4000/api/cards/${id}`)
 		} else {
 			alert("Vous n'avez rien supprimé")
 
@@ -130,7 +131,7 @@ const Qcm = (props) => {
 													</Link>
 												</td>
 												<td>
-												<button onClick={()=> handleClick(item.id)}>Supprimer</button>												</td>
+												<button onClick={()=> handleClick(item._id)}>Supprimer</button>												</td>
 											</div>
 
 										)
