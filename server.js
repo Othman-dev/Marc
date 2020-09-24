@@ -38,7 +38,8 @@ app.use(function(err, req, res, next){
     res.status(400).json({success: false});
 });
 
-//listen for request
-// app.listen(process.env.port || 4000, function(){
-//    console.log('now listening for request');
-// });
+// listen for request
+app.listen(process.env.port || 4000, function(){
+   console.log('now listening for request');
+});
+
