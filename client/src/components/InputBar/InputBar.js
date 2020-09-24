@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './InputBar.scss'
+import './InputBar.scss';
+import fire from '../../api/firebase-config'
 
 const InputBar = props => {
 
@@ -9,6 +10,16 @@ const InputBar = props => {
 	const [imagePreviewUrl, setImagePreviewUrl] = useState('')
 	const imageChange = e => {
 		setImagePreviewUrl(URL.createObjectURL(e.target.files[0]))
+	}
+
+	const imageSubmit = () => {
+		fire
+      .storage()
+      .ref("images")
+      .child(filename)
+      .getDownloadURL()
+	  .then(url => setImagePreviewUrl(url));
+		props.addImage(props.index, imagePreviewUrl)
 	}
 
 	// console.log(link)
@@ -80,7 +91,14 @@ const InputBar = props => {
 			return <div
 
 				className='input-image'>
-				<input type='file' onChange={e => imageChange(e)} />
+				<form onSubmit={imageSubmit}>
+					<input type='file' onChange={e => imageChange(e)} />
+					{
+						imagePreviewUrl !== '' && <button type='submit'>Valider l'Image</button>
+					}
+					
+				</form>
+
 				<img src={imagePreviewUrl} alt="cours d'histoire et de geographie" />
 			</div>
 		}

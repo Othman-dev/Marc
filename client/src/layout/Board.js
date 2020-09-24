@@ -61,9 +61,9 @@ const Board = props => {
 		...course.slice(index + 1)])
 	}
 
-	function addImage(index) {
+	function addImage(index, url) {
 		setCourse([...course.slice(0, index + 1),
-			'image=',
+			'image=' + url,
 		...course.slice(index + 1)])
 	}
 
