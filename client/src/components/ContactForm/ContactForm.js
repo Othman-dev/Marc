@@ -19,7 +19,7 @@ const ContactForm = (props) => {
 
 		function handleSubmit(event) {
 				event.preventDefault()
-				Axios.post('http://localhost:4000/api/messages/', message)
+				Axios.post('https://stormy-shelf-35576.herokuapp.com/api/messages/', message)
 				.then(res => {
 				    if(res.data.success) {
 				        setMessage({...message,

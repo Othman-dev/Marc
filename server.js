@@ -39,6 +39,6 @@ app.use(function(err, req, res, next){
 });
 
 //listen for request
-app.listen(process.env.port || 4000, function(){
-   console.log('now listening for request');
-});
+// app.listen(process.env.port || 4000, function(){
+//    console.log('now listening for request');
+// });
