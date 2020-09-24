@@ -2,6 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
+const db = require('./config/keys').mongoURI;
+
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,7 +12,9 @@ app.use((req, res, next) => {
     next();
 });
 
-mongoose.connect('mongodb://localhost/marcDB', {useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify: true});
+mongoose.connect(db, {useNewUrlParser:true, useUnifiedTopology:true, useFindAndModify: true})
+		.then(() => console.log('mongoDB Connected...'))
+		.catch(err => console.log(err));
 mongoose.Promise = global.Promise;
 
 app.use(express.json())
@@ -18,7 +22,7 @@ app.use('/api', require('./routes/api'));
 
 //error handling
 app.use(function(err, req, res, next){
-    console.log(err); // to see properties of message in our console
+    console.log(err);
     res.status(400).send({error: err.message});
     res.status(400).json({success: false});
 });

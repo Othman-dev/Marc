@@ -4,7 +4,7 @@ const Card = require('../models/card');
 const Message = require('../models/message');
 
 
-//Cards CRUD
+//----------Cards CRUD
 router.get('/cards', function(req, res, next){
     Card.find({}).then(function(card){
 		res.send(card);
@@ -32,7 +32,7 @@ router.delete('/cards/:id', function(req, res, next){
 });
 
 
-//Messages CRUD
+//----------Messages CRUD
 router.get('/messages', function(req, res, next){
     Message.find({}).then(function(message){
 		res.send(message);
