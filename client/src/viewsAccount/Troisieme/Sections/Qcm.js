@@ -160,7 +160,7 @@ const Qcm = (props) => {
 													</Link>
 												</td>
 												<td>
-												<button onClick={()=> handleClick}>Supprimer</button>
+												<button onClick={()=> handleClick(item._id)}>Supprimer</button>
 												</td>
 											</div>
 
