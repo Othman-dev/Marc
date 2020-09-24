@@ -71,7 +71,7 @@ const Geography = (props) => {
 
 		if (response === 'oui') {
 			alert(deleted)
-				Axios.delete(`https://stormy-shelf-35576.herokuapp.com/api//cards/${id}`)
+				Axios.delete(`https://stormy-shelf-35576.herokuapp.com/api/cards/${id}`)
 		} else {
 			alert("Vous n'avez rien supprimé")
 
