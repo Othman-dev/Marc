@@ -99,12 +99,12 @@ const Board = props => {
 		    if(data._id === undefined){
 					console.log('create')
 				data.course = course
-				Axios.post('https://stormy-shelf-35576.herokuapp.com/api/cards', data)
+				Axios.post('https://radiant-shore-19271.herokuapp.com/api/cards', data)
 				history.goBack();
 			}else{
 					console.log('update')
 				data.course = course
-				Axios.put(`https://stormy-shelf-35576.herokuapp.com/api/cards/${data._id}`, data)
+				Axios.put(`https://radiant-shore-19271.herokuapp.com/api/cards/${data._id}`, data)
 				history.goBack();
 			}}
 	}

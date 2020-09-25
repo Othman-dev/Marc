@@ -61,7 +61,7 @@ const Geography = (props) => {
 	
 		if(response === 'oui') {
 			alert(deleted)
-				Axios.delete(`https://stormy-shelf-35576.herokuapp.com/api/cards/${id}`)
+				Axios.delete(`https://radiant-shore-19271.herokuapp.com/api/cards/${id}`)
 				history.goBack()
 		} else {
 			alert("Vous n'avez rien supprimé")
