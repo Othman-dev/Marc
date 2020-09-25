@@ -16,7 +16,7 @@ const InputBar = props => {
 		fire
       .storage()
       .ref("images")
-      .child(filename)
+      .child()
       .getDownloadURL()
 	  .then(url => setImagePreviewUrl(url));
 		props.addImage(props.index, imagePreviewUrl)
