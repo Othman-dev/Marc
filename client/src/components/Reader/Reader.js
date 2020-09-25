@@ -45,7 +45,7 @@ const Reader = (props) => {
 		}
 		else if (type === 'image') {
 			return <div className='input-image-reader'>
-				{content}</div>
+				<img src={content} alt='site de marc'/> </div>
 		}
 	
 		else if (type === 'subchapter') {
