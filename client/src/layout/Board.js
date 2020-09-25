@@ -10,7 +10,7 @@ import Axios from 'axios'
 
 const Board = props => {
 	const history = useHistory();
-	const [data, setData] = useState({ course:[], matiere: '', section: '', publier: false, type: '', trailer: '' })
+	const [data, setData] = useState({ course: [], matiere: '', section: '', publier: false, type: '', trailer: '' })
 
 	const [course, setCourse] = useState(['title=', 'chapter=', 'subchapter=']);
 
@@ -34,6 +34,13 @@ const Board = props => {
 			type + '=' + event.currentTarget.textContent,
 			...course.slice(index + 1)])
 		}
+	}
+
+	function handleImage(index, url) {
+		setCourse([...course.slice(0, index), 
+			'image=' + url, 
+			...course.slice(index + 1)]);
+		
 	}
 
 	function deleteEntry(index) {
@@ -61,9 +68,9 @@ const Board = props => {
 		...course.slice(index + 1)])
 	}
 
-	function addImage(index, url) {
+	function addImage(index) {
 		setCourse([...course.slice(0, index + 1),
-			'image=' + url,
+			'image=',
 		...course.slice(index + 1)])
 	}
 
@@ -92,21 +99,22 @@ const Board = props => {
 	}
 
 	function handleSubmit(event) {
-			event.preventDefault()
+		event.preventDefault()
 		if (data.section === '' || data.matiere === '') {
 			alert('You MUST pick a section and a matière')
 		} else {
-		    if(data._id === undefined){
-					console.log('create')
+			if (data._id === undefined) {
+				console.log('create')
 				data.course = course
 				Axios.post('https://radiant-shore-19271.herokuapp.com/api/cards', data)
 				history.goBack();
-			}else{
-					console.log('update')
+			} else {
+				console.log('update')
 				data.course = course
 				Axios.put(`https://radiant-shore-19271.herokuapp.com/api/cards/${data._id}`, data)
 				history.goBack();
-			}}
+			}
+		}
 	}
 
 	useEffect(() => {
@@ -125,6 +133,7 @@ const Board = props => {
 						index={index}
 						deleteEntry={deleteEntry}
 						handleChange={handleChange}
+						handleImage={handleImage}
 
 					/>
 
@@ -146,20 +155,20 @@ const Board = props => {
 		))
 	)
 
-console.log(data)
-console.log(course)
+	console.log(data)
+	console.log(course)
 	return (
 		<div className='board'>
 			<div className='board-header'>
 
 				<form onSubmit={handleSubmit}>
-			
-						<label>Publier</label>
-						<input type='checkbox' name='publier' onChange={dataChange} checked={data.publier ? true : false} />
-				
-						<label>Qcm</label>
-						<input type='checkbox' name='type' onChange={dataChange} checked={data.type === 'qcm' ? true : false} />
-					
+
+					<label>Publier</label>
+					<input type='checkbox' name='publier' onChange={dataChange} checked={data.publier ? true : false} />
+
+					<label>Qcm</label>
+					<input type='checkbox' name='type' onChange={dataChange} checked={data.type === 'qcm' ? true : false} />
+
 
 					<select name='section' onChange={dataChange} value={data.section !== '' ? data.section : undefined} required>
 						<option >--choix de la section--</option>

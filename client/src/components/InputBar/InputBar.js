@@ -1,27 +1,36 @@
 import React, { useState } from 'react';
 import './InputBar.scss';
 import fire from '../../api/firebase-config'
+import FileUploader from "react-firebase-file-uploader";
 
 const InputBar = props => {
 
 	const type = props.string.slice(0, props.string.indexOf('='))
 	const content = props.string.slice(props.string.indexOf('=') + 1)
 	// const link = content.replace(/\s/g, '')
-	const [imagePreviewUrl, setImagePreviewUrl] = useState('')
-	const imageChange = e => {
-		setImagePreviewUrl(URL.createObjectURL(e.target.files[0]))
+
+	const [imagePreviewUrl, setImagePreviewUrl] = useState('');
+
+
+	React.useLayoutEffect(() => {
+		if (type === 'image') {
+			setImagePreviewUrl(content)
+		}
+	})
+
+	const includeIntoCourse = url => {
+		setImagePreviewUrl(url);
+		props.handleImage(props.index, url)
 	}
 
-	const imageSubmit = () => {
+	const imageSubmit = filename => {
 		fire
-      .storage()
-      .ref("images")
-      .child()
-      .getDownloadURL()
-	  .then(url => setImagePreviewUrl(url));
-		props.addImage(props.index, imagePreviewUrl)
+			.storage()
+			.ref('images')
+			.child(filename)
+			.getDownloadURL()
+			.then(url => includeIntoCourse(url))
 	}
-
 	// console.log(link)
 	function inputDivCreator() {
 		if (type === 'title') {
@@ -91,13 +100,25 @@ const InputBar = props => {
 			return <div
 
 				className='input-image'>
-				<form onSubmit={imageSubmit}>
-					<input type='file' onChange={e => imageChange(e)} />
-					{
-						imagePreviewUrl !== '' && <button type='submit'>Valider l'Image</button>
-					}
-					
-				</form>
+				<label
+					style={{
+						backgroundColor: "steelblue",
+						color: "white",
+						padding: 10,
+						borderRadius: 4,
+						cursor: "pointer"
+					}}
+				>
+
+					Ajouter une image
+                              <FileUploader
+						hidden
+						accept="image/*"
+						name="image"
+						storageRef={fire.storage().ref("images")}
+						onUploadSuccess={imageSubmit}
+					/>
+				</label>
 
 				<img src={imagePreviewUrl} alt="cours d'histoire et de geographie" />
 			</div>
