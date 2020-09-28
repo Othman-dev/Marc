@@ -81,7 +81,7 @@ const App = (props) => {
   return (
     <div className="App" onScroll={onScroll}>
       <HashtagProvider>
-        <Navbar logo='MARC BOURREAU' links={<Link to='/about'>About</Link>} />
+        {/* <Navbar logo='MARC BOURREAU' links={<Link to='/about'>About</Link>} /> */}
         <Header />
       
         {

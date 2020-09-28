@@ -1,25 +1,27 @@
 import React from 'react';
 import './Header.scss'
+import { Link } from 'react-router-dom'
 //components
 import Title from '../Title/Title';
-import GoDown from '../GoDown/GoDown'
+import Navbar from '../../components/Navbar/Navbar';
 
 const Header = props => {
 
 
 
     return (
-        <div className='header'>
-            <div>
+        <div className='background'>
+            <Navbar logo='MARC BOURREAU' links={<Link to='/about'>About</Link>} whiteLinks />
+
+            <div className='header'>
                 <Title title="Trouvez tous les cours d'Histoire et de Geographie des sections collège" />
-                <img alt="" src='https://lh3.googleusercontent.com/EdrznbVa_EV1flSpEnA__oab0QpVW9h15iWP1BLOvVdwZ1ySw6JCQzYiu4eZA9f_FBHlIRsoURu5kjdOWhdunV0Ep7FIjc5QhPNc9Q=w1180-e365-rw-lo-l100' />
+                {/* <img alt="" src='https://lh3.googleusercontent.com/EdrznbVa_EV1flSpEnA__oab0QpVW9h15iWP1BLOvVdwZ1ySw6JCQzYiu4eZA9f_FBHlIRsoURu5kjdOWhdunV0Ep7FIjc5QhPNc9Q=w1180-e365-rw-lo-l100' /> */}
 
             </div>
-            <a href='#nav' >
-                <GoDown />
-            </a>
 
         </div>
+
+
     )
 };
 

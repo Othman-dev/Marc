@@ -1,4 +1,4 @@
-$gray: rgb(177, 176, 176);
+$gray: #b0b0b0;
 $green:  #398359;
 $dark: #35364F;
 $white: white;
@@ -7,5 +7,8 @@ $orange: #C1861B;
 $red: #C65A3D;
 $creme: #f5f0eb;
 $orange-light: #c1871b6f;
-$gradient: linear-gradient(to right top, #c1861b, #9a8b1e, #768c30, #568946, #398359);
+$gradient: linear-gradient(to bottom, #398359, #148576, #11848d, #3a8099, #5c7c9b);
 $gradient-light: linear-gradient(to top, #f5f0eb, #e4dfdc, #d3cfce, #c2bfbf, #b1b0b0);
+$gradient-creme: linear-gradient(to top, #398359, #7b9b6e, #afb490, #d8d0bb, #f5f0eb);
+$gradient-blue:   linear-gradient(to bottom, #5c7c9b, #6584a2, #6e8daa, #7795b1, #809eb9);
+$gradient-dark:  linear-gradient(to left top, #5c7c9b, #536a88, #495875, #3f4662, #35364f);

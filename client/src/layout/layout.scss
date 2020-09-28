@@ -6,7 +6,8 @@
 .account {
     position: relative;
     display: flex;
-    width: 100%;
+    height: 100vh;
+    margin-bottom: 50px;
 }
 
 .left-side {
@@ -17,6 +18,10 @@
     align-items: center;
     width: 310px;
     height: 100%;
+}
+
+.left-side button {
+    margin-top: 45px; 
 }
 
 .right-side {
@@ -40,12 +45,12 @@
     display: flex;
     width: 100%;
     height: 100%;
-    background: $orange-light;
+    background: $creme;
     border-radius: 20px;
     padding-bottom: 20px;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 30px;
 }
 
 table {
@@ -82,15 +87,24 @@ th {
 
 
 //************** Board **************//
+.board-container {
+    background: $gradient-dark;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 100px 100px 100px;
+    min-height: 100vh;
+}
+
 
 .board {
     
     width: 100%;
     height: 100%;
-    background: $creme;
+    background: $gray;
+    
     display: flex;
     flex-direction: column;
-    
+    border-radius: 20px;
     z-index: 100;
 }
 
@@ -99,9 +113,9 @@ th {
 }
 
 .hover:hover {
-  
-    border-right: $green solid 3px;
-    border-bottom: $green solid 3px;
+  background: rgba(255, 137, 137, 0.269);
+  border-radius: 20px;
+    // border: 3px solid $blue
 }
 
 .bar {
@@ -109,27 +123,63 @@ th {
 };
 
 
-
-// .board div {
-//     width: 80%;
-// }
-
 .board-header {
 
     display: flex;
-    justify-content: center;
-    margin: 50px;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 50px;
+    align-items: center;
     font-family: Futura;
+}
+
+.board-header form {
+    display: inherit;
+    align-items: center;
+}
+
+.save {
+    background: $green;
+    color: $creme;
+    border: none;
+}
+.save:hover, .goback:hover {
+    border: none
+}
+
+.goback {
+    background: $red;
+    color: $creme;
+    border: none;
+}
+
+.board-header label {
+    margin: 10px;
+    color: $creme;
+    font-size: 25px;
+}
+input[type=checkbox] {
+    transform: scale(2);
+}
+.board-header select, option {
+    margin: 10px;
+    padding: 10px;
+}
+
+.trailer {
+    margin-bottom: 50px;
+    border: none;
+    padding: 15px;
 }
 
 
 .board-body {
     display: flex;
+  
     flex-direction: column;
-    margin: 10px 5px 200px;
    background: white;
    border-radius: 20px;
-   padding-left: 5px;
+  
 }
 
 .file {
@@ -153,7 +203,7 @@ th {
     align-items: center;
     width: 250px;
     background: $blue;
-    margin: 80px 30px 30px 30px;
+    margin: 28px 30px 30px 30px;
     border-radius: 20px;
     height: 100%;
 }
@@ -167,6 +217,5 @@ th {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
-   
 };
 

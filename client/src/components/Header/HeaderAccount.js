@@ -23,7 +23,7 @@ const HeaderAccount = props => {
             <h2>
                 {props.title}
             </h2>
-            <Navbar logoOff={props.logoOff} logo={props.logo} links={props.links} />
+            <Navbar logoOff={props.logoOff} logo={props.logo} links={props.links} darkLinks/>
          
 
         </div>

@@ -37,7 +37,7 @@ const InputBar = props => {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
-				data-text='TITRE DU COURS/QCM'
+				data-text='Titre Du Cours'
 				className='input-big-title'
 				onBlur={(event) => props.handleChange(event, type, props.index)}>
 				{content}</div>

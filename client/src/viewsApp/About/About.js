@@ -11,7 +11,7 @@ const About = (props) => {
 
 	return (
 		<div className='About'>
-			<Navbar logo='MARC BOURREAU' links={<Link to='/'>Home</Link>} />
+			<Navbar logo='MARC BOURREAU' links={<Link to='/'>Home</Link>} whiteLinks />
 			<div className='head'>
 				<Title title="About" />
 			</div>
@@ -21,11 +21,7 @@ const About = (props) => {
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Cras fermentum odio eu feugiat pretium nibh ipsum. Nec feugiat nisl pretium fusce id. 
 								</h2>
 			</div>
-			<div className='arrow'>
-			<a href='#contact'>
-					<GoDown />
-				</a>
-			</div>
+			
 				
 			
 

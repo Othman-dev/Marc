@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './Card.scss';
 import classNames from 'classnames'
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 const Card = props => {
@@ -11,7 +11,7 @@ const Card = props => {
 
     const handleClick = () => {
         setZoom(true)
-        setTimeout(() => history.push({pathname: `/page/${card._id}`, state:{card}}), 1300)
+        setTimeout(() => history.push({ pathname: `/page/${card._id}`, state: { card } }), 1300)
     }
 
     const cardClasses = classNames({
@@ -21,20 +21,40 @@ const Card = props => {
         'yellow': yellow,
         'zoom-in': zoom
     })
-    
-    return (
+
+    const stickers = hashtag => (
+        <div className='sticker'>
+            <h4>#{hashtag}</h4>
+        </div>
+    )
+
+    const cards = (matiere, section) => (
+
+
         <div className={cardClasses} onClick={handleClick}>
             <div className='card-header'>
-                <h2>{card.course[0].slice(card.course[0].indexOf('=')+1)}</h2>
+                <h2>{card.course[0].slice(card.course[0].indexOf('=') + 1)}</h2>
             </div>
 
             <div className='card-body'>
                 <h4>{card.trailer} </h4>
             </div>
             <div className='card-footer'>
-                
+                    {stickers(matiere)}
+                    {stickers(section)}
+                    {
+                        card.qcm === 'qcm' && stickers('QCM')
+                    }
             </div>
         </div>
+    )
+
+    return (
+        <div>
+            {cards(card.matiere, card.section)}
+        </div>
+
+
     )
 };
 

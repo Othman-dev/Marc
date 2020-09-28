@@ -15,7 +15,7 @@ const Login = () => {
         
             <div className='login'>
 
-                <Navbar white={true} logo='logo' links={<Link to='/'>Home</Link>} />
+                <Navbar white={true} logo='logo' links={<Link to='/'>Home</Link>} whiteLinks/>
                 <Connect />
             </div>
        

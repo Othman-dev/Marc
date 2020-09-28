@@ -12,6 +12,15 @@
 
 }
 
+.background {
+    background-image: url('../../assets/img/desk.jpg');
+    background-repeat: no-repeat;
+    // background-attachment: fixed;
+    background-position: center top;
+    background-size: auto;
+    background-origin: content-box;
+}
+
 .header div {
     display: flex;
     flex-direction: column-reverse;

@@ -37,10 +37,10 @@ const Board = props => {
 	}
 
 	function handleImage(index, url) {
-		setCourse([...course.slice(0, index), 
-			'image=' + url, 
-			...course.slice(index + 1)]);
-		
+		setCourse([...course.slice(0, index),
+		'image=' + url,
+		...course.slice(index + 1)]);
+
 	}
 
 	function deleteEntry(index) {
@@ -99,22 +99,28 @@ const Board = props => {
 	}
 
 	function handleSubmit(event) {
+		
 		event.preventDefault()
+
 		if (data.section === '' || data.matiere === '') {
-			alert('You MUST pick a section and a matière')
+			alert('Attention! Vous devez choisir une MATIERE et une SECTION!')
 		} else {
 			if (data._id === undefined) {
 				console.log('create')
 				data.course = course
 				Axios.post('https://radiant-shore-19271.herokuapp.com/api/cards', data)
-				history.goBack();
+				
 			} else {
 				console.log('update')
 				data.course = course
 				Axios.put(`https://radiant-shore-19271.herokuapp.com/api/cards/${data._id}`, data)
-				history.goBack();
+				
 			}
+			alert('Le cours à été sauvegardé!')
+			history.goBack();
 		}
+
+		
 	}
 
 	useEffect(() => {
@@ -155,10 +161,23 @@ const Board = props => {
 		))
 	)
 
-	console.log(data)
-	console.log(course)
+
+
+	const previous = () => {
+	
+		const res = window.confirm('Voulez-vous vraiment quitter la page? Vous perdrez la totalité des modifications si vous ne sauvegardez pas! Appuyez sur Annuler pour ne pas quitter.')
+
+		if(res===true) {
+			history.goBack()
+		} else {
+			alert("Ouf, vous pouvez rester sur cette page! Vous n'avez rien perdu!")
+		}
+	}
+
+
 	return (
-		<div className='board'>
+		<div className='board-container'>
+			<h1 style={{textAlign: 'center', marginBottom:'50px'}} >Création d'un Cours</h1>
 			<div className='board-header'>
 
 				<form onSubmit={handleSubmit}>
@@ -182,16 +201,20 @@ const Board = props => {
 						<option value='geographie'>Géographie</option>
 						<option value='histoire'>Histoire</option>
 					</select>
-					<button type='submit'>Sauvegarder</button>
+					<button className='save' type='submit'>Sauvegarder</button>
 
 				</form>
-				<button onClick={() => history.goBack()}>Retour</button>
+				<button className='goback' onClick={() => previous()}>Retour</button>
 			</div>
-			<textarea rows='2' placeholder='trailer' name='trailer' onChange={dataChange} defaultValue={data.trailer} />
-			<div className='board-body'>
-				{boardBody}
+			<textarea className='trailer' rows='2' placeholder='trailer' name='trailer' onChange={dataChange} defaultValue={data.trailer} />
+			<div className='board'>
+
+				<div className='board-body'>
+					{boardBody}
+				</div>
 			</div>
 		</div>
+
 	)
 };
 

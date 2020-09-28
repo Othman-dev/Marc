@@ -8,7 +8,7 @@ const CardSchema = new Schema({
 		publier: {type:Boolean},
 		section: {type:String},
 		trailer: {type:String},
-		categorie: {type:String},
+		type: {type:String},
 });
 
 const Card = mongoose.model('card', CardSchema);
