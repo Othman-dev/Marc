@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import './Hashtag.scss'
+
 import classNames from 'classnames';
 //hooks
 import { HashtagContext } from '../../assets/context/HashtagContext';
@@ -10,6 +11,9 @@ const Hashtag = (props) => {
 	const { index } = props;
 
 	const { tags, dispatchTags, dispatchSelected } = useContext(HashtagContext)
+
+
+	
 
 	const hashtagClick = () => {
 		dispatchTags({ type: 'tagSelected', index: index })
@@ -43,14 +47,14 @@ const Hashtag = (props) => {
 	return (
 		tags[index].custom ?
 			<div className={hashtagClasses} >
-				<h4 onClick={hashtagClick} >#{tags[index].name} </h4>
+				<h4 onClick={hashtagClick} ><span>#</span>{tags[index].name} </h4>
 				<button className='custom-bg' onClick={handleRemove}>
 					<i className="fas fa-minus fa-lg search-minus"></i>
 				</button>
 			</div>
 			:
 			<div className={hashtagClasses} onClick={hashtagClick} >
-				<h4>#{tags[index].name} </h4>
+				<h4><span>#</span> {tags[index].name} </h4>
 			</div>
 	)
 };

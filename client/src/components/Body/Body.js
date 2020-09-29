@@ -1,5 +1,6 @@
 import React, {useContext, useState, useEffect, useCallback} from 'react';
 import './Body.scss'
+
 //components
 import Card from '../Card/Card'
 import {HashtagContext} from '../../assets/context/HashtagContext';
@@ -45,6 +46,8 @@ const Body = props => {
 		}
 	}, [cards, selected, setResult])
 
+	
+
     return (
             <div className='body' >
 				<div className='body-container'>
@@ -52,7 +55,8 @@ const Body = props => {
 						card.publier ?
                         <div key={i}>
 							{selected.length >=1 ?
-							<Card card={card}/>
+							
+							<Card selected card={card}/>
                             :
 							<Card card={card}/>}
 						</div>

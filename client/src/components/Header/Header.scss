@@ -13,12 +13,16 @@
 }
 
 .background {
-    background-image: url('../../assets/img/desk.jpg');
+    background: url('../../assets/img/desk.jpg') ;
+    background-color: #5c7c9bbb;
+    background-blend-mode: multiply;
     background-repeat: no-repeat;
     // background-attachment: fixed;
     background-position: center top;
     background-size: auto;
     background-origin: content-box;
+
+
 }
 
 .header div {

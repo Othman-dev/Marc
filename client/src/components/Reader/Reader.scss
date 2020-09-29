@@ -1,7 +1,7 @@
 @import "../../assets/_colors.scss";
 
 .input-big-title-reader {
-    color: $blue;
+    color: $red;
     margin-top: 60px;
    text-transform: capitalize;
     font-family: Raleway;
@@ -12,7 +12,7 @@
 }
 
 .input-sm-title-reader {
-    color: $dark;
+    color: $blue;
     letter-spacing: 2px;
     text-align: center;
 
@@ -50,9 +50,9 @@
 .input-content-reader {
     color: $dark;
     margin-top: 40px;
-    letter-spacing: 1.5px;
-    font-size: 15px;
-    line-height: 30px;
+    letter-spacing: 1.3px;
+    font-size: 16px;
+    line-height: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
 }
 
@@ -80,19 +80,22 @@
 }
 
 .input-ppp-reader iframe {
-    max-width: 80vw;
+    max-width: 100%;
+    box-shadow: -1px -1px 48px 16px $gray;
+    border-radius: 20px;
 }
 .input-image-reader {
     display: flex;
     flex-direction: column;
    align-items: center;
-    margin: 50px 20px;
+    margin: 50px 0px;
 }
 .input-image-reader img {
-    width: 80%;
+    width: 100%;
     height: auto;
     border-radius: 20px;
-    border: 3px solid $dark;
+    box-shadow: -1px -1px 48px 16px $gray
+    
    
 }
 
@@ -100,15 +103,17 @@
     width: auto;
     margin: 0 !important;
     padding: 0;
-    max-width: 80%
+    max-width: 95%
 }
 
 @media only screen and (min-width: 768px) {
-
+    .reader {
+        max-width: 70%;
+    }
     .input-content-reader {
       
         letter-spacing: 1.5px;
-        font-size: 20px;
+        font-size: 17px;
         line-height: 40px;
        
     }

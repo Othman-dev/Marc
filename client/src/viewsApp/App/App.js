@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
 //css
 import './App.scss';
 import classNames from 'classnames';
 //components
-import Navbar from '../../components/Navbar/Navbar';
 import Header from '../../components/Header/Header';
 import Body from '../../components/Body/Body';
 import NavByHashtag from '../../components/NavByHashtag/NavByHashtag';
@@ -77,6 +75,7 @@ const App = (props) => {
     }
   }
 
+
   console.log(act)
   return (
     <div className="App" onScroll={onScroll}>
@@ -88,8 +87,11 @@ const App = (props) => {
           act && <PhoneBar />
         }
         <div className='advice'>
-          <h2>Utilisez les #Hashtags pour faire vos recherches. Selectionnez-en un ou plusieurs pour filtrer les cours présentés. Vous pouvez également en ajouter. </h2>
-          <h4>Exemple: #SIXIEME + #GEOGRAPHIE affiche tous les cours de Géographie pour la section Sixième.</h4>
+          <h2>Utilise les #Hashtags pour faire tes recherches. Selectionnes-en un ou plusieurs pour filtrer les cours présentés. Tu peux également en ajouter. </h2>
+          <div style={{width: '60%'}}>
+          <h4>Exemple: #SIXIEME + #GEOGRAPHIE affiche tous les cours de Géographie pour la section Sixième. Attention, lorsque tu ajoutes un hashtag, il est important de ne pas faire de fautes d'ortographe, et d'ajouter les accents!</h4>
+          </div>
+          
         </div>
         <div className='navigation' id='nav'>
 

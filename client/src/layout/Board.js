@@ -206,7 +206,7 @@ const Board = props => {
 				</form>
 				<button className='goback' onClick={() => previous()}>Retour</button>
 			</div>
-			<textarea className='trailer' rows='2' placeholder='trailer' name='trailer' onChange={dataChange} defaultValue={data.trailer} />
+			<textarea className='trailer' rows='2' placeholder='Résumez en quelques mots le contenu du cours ou du QCM... ' name='trailer' onChange={dataChange} defaultValue={data.trailer} />
 			<div className='board'>
 
 				<div className='board-body'>
