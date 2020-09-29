@@ -29,7 +29,7 @@
 
 }
 .selected {
-    background: $gradient-orange;
+    background: $gradient-red;
     animation: selected 0.45s ease;
 }
 
@@ -77,8 +77,8 @@
 
 .zoom-in {
     position: relative;
-    z-index: 200;
-    transform: scale(14)
+    z-index: 100;
+    transform: scale(15)
 }
 
 .zoom-in h4 {
@@ -110,4 +110,7 @@
     padding: 5px;
     margin: 2px;
     text-transform: uppercase;
+}
+.selected .sticker {
+    background: $red;
 }

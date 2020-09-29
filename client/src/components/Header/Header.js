@@ -14,7 +14,7 @@ const Header = props => {
             <Navbar logo='MARC BOURREAU' links={<Link to='/about'>About</Link>} whiteLinks />
 
             <div className='header'>
-                <Title title="Trouves Ici Tous Les Cours d'Histoire Et De Géographie Des Sections Collège" />
+                <Title title="Trouves ici tous les cours d'Histoire et de Géographie des sections Collège." />
                 {/* <img alt="" src='https://lh3.googleusercontent.com/EdrznbVa_EV1flSpEnA__oab0QpVW9h15iWP1BLOvVdwZ1ySw6JCQzYiu4eZA9f_FBHlIRsoURu5kjdOWhdunV0Ep7FIjc5QhPNc9Q=w1180-e365-rw-lo-l100' /> */}
 
             </div>

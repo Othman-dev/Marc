@@ -75,6 +75,9 @@
     justify-content: center;
     flex-direction: column;
 }
+.note {
+    width: 100%
+}
 
 .advice  h2 {
     color: white;
@@ -89,6 +92,10 @@
 @media only screen and (min-width: 768px) {
     .phone-bar-close {
         display: none;
+    }
+
+    .note {
+        width: 60%;
     }
 
     .phone-bar-open {

@@ -34,7 +34,9 @@
 .profilPic{
 		height: 50vh;
 		width: auto;
-		border-radius: 40px;
+		background-size: 100%;
+		overflow: hidden;
+		border-radius: 400px;
 }
 
 .profilTxt{

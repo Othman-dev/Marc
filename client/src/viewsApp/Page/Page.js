@@ -43,7 +43,7 @@ const Page = props => {
 
   return (
     <div className='page' >
-      <Link to='/'> <i className="fas fa-times"></i> </Link>
+      <Link to={''}> <i className="fas fa-times"></i> </Link>
 
       <div className='course'>
         <ul className='reader' >{page.course.map((string, i) => <Reader key={i} string={string} />)}</ul>

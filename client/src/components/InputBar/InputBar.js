@@ -37,7 +37,7 @@ const InputBar = props => {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
-				data-text='Titre Du Cours'
+				data-text='Titre... à modifer'
 				className='input-big-title'
 				onBlur={(event) => props.handleChange(event, type, props.index)}>
 				{content}</div>
@@ -46,7 +46,7 @@ const InputBar = props => {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
-				data-text='Nom du chapitre'
+				data-text='Nom du chapitre... à modifer'
 				className='input-sm-title'
 				id={content}
 				onBlur={(event) => props.handleChange(event, type, props.index)}>
@@ -56,7 +56,7 @@ const InputBar = props => {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
-				data-text='Nom du sous-chapitre'
+				data-text='Nom du sous-chapitre... à modifer'
 				className='input-subchapter'
 				id={content}
 				onBlur={(event) => props.handleChange(event, type, props.index)}>
@@ -67,8 +67,8 @@ const InputBar = props => {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
-				data-text='Texte'
-				className='input-content'
+				data-text='Texte... à modifer'
+				className='input-content '
 				onBlur={(event) => props.handleChange(event, type, props.index)}>
 				{content}</div>
 		}
@@ -76,7 +76,7 @@ const InputBar = props => {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
-				data-text='Nouvelle Question'
+				data-text='Nouvelle Question... à modifer'
 				onBlur={(event) => props.handleChange(event, type, props.index)}
 				className='input-question'>
 				{content}</div>
@@ -85,7 +85,7 @@ const InputBar = props => {
 			return <div
 				contentEditable
 				suppressContentEditableWarning
-				data-text='Citation'
+				data-text='Citation... à modifer'
 				onBlur={(event) => props.handleChange(event, type, props.index)}
 				className='input-quote'>
 				{content}</div>
@@ -94,7 +94,7 @@ const InputBar = props => {
 			return <div
 
 				className='input-separation'>
-				* * * </div>
+				. . . . . . . </div>
 		}
 		else if (type === 'image') {
 			return <div

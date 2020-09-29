@@ -17,18 +17,23 @@ import { AuthContextProvider } from './assets/context/AuthContext';
 //
 import * as serviceWorker from './serviceWorker';
 
+import { createBrowserHistory } from "history";
+
+
+const history = createBrowserHistory();
 
 ReactDOM.render(
 
   <React.StrictMode>
     <AuthContextProvider>
-      <Router>
+      <Router history={history}>
         <Switch >
           <Route path='/' exact component={App} />
           <Route path='/page/:id' exact component={Page} />
-          <Route path='/login' component={Login} />
-          <Route path='/about' component={About} />
-          <PrivateRoute path='/account/' component={AccountLayout} />
+          <Route path='/login' exact component={Login} />
+          <Route path='/about' exact component={About} />
+          <PrivateRoute path='/account' component={AccountLayout} />
+          
 
         </Switch>
       </Router>

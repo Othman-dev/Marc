@@ -88,7 +88,7 @@ const App = (props) => {
         }
         <div className='advice'>
           <h2>Utilise les #Hashtags pour faire tes recherches. Selectionnes-en un ou plusieurs pour filtrer les cours présentés. Tu peux également en ajouter. </h2>
-          <div style={{width: '60%'}}>
+          <div className='note' >
           <h4>Exemple: #SIXIEME + #GEOGRAPHIE affiche tous les cours de Géographie pour la section Sixième. Attention, lorsque tu ajoutes un hashtag, il est important de ne pas faire de fautes d'ortographe, et d'ajouter les accents!</h4>
           </div>
           
