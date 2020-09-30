@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 60px;
-    background: url('../../assets/img/library.jpg') no-repeat fixed center;  
+    background: $gradient-dark;  
     background-size: cover;
     background-blend-mode: multiply;
 }
