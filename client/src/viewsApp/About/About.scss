@@ -1,11 +1,8 @@
 @import "../../assets/_colors";
 
-.about {
-		position: relative;
-		display:flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+.About {
+		height: 100%;
+		background: $gradient-light;
 }
 
 .arrow { 
@@ -15,11 +12,31 @@
 
 .head {
 		display:flex;
+		flex-direction: column;
+		min-height: 100vh;
 		// width:100vw;
-		margin-top: 5vh;
 		justify-content: center;
 		align-items: center;
 		margin-bottom:2vh;
+		background: url('../../assets/img/desk.jpg') ;
+		background-color: #c1871baa;
+		background-blend-mode: multiply;
+		background-repeat: no-repeat;
+		// background-attachment: fixed;
+		background-position: center top;
+		background-size: cover;
+		background-origin: content-box;
+}
+
+
+.head-nav {
+    position: absolute;
+    top: 0;
+    display: flex;
+	width: 100%;
+}
+.head-nav .nav {
+	width: 100%;
 }
 
 

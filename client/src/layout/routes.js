@@ -2,6 +2,7 @@ import Sixieme from '../viewsAccount/Sixieme/Sections/Geography';
 import Cinquieme from '../viewsAccount/Cinquieme/Sections/Geography';
 import Quatrieme from '../viewsAccount/Quatrieme/Sections/Geography';
 import Troisieme from '../viewsAccount/Troisieme/Sections/Geography';
+import Messages from '../viewsAccount/Messages/Messages';
 import Board from './Board';
 
 
@@ -35,6 +36,12 @@ let routes = [
         name: 'Troisieme',
         path: "/troisieme/geography",
         component: Troisieme,
+        layout: '/account'
+    },
+    {
+        name: 'Messages',
+        path: '/messages',
+        component: Messages,
         layout: '/account'
     }
     

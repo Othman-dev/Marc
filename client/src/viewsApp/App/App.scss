@@ -87,6 +87,18 @@
     text-align: center;
 }
 
+.title-nav {
+    background: $gradient-red;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+.title-nav span {
+    background: $dark;
+       -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 
 @media only screen and (min-width: 768px) {
@@ -106,6 +118,7 @@
         flex-direction: column;
         align-items: center;
     }
+    
 }
 
 

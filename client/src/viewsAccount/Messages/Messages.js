@@ -1,71 +1,57 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 //routes
-import routes from  '../routes'
-import routesSidebar from '../../../layout/routes';
+import routes from './routes'
+import routesSidebar from '../../layout/routes';
 //components
-import Header from '../../../components/Header/HeaderAccount'
-import {useCards} from '../../../api/useCards'
-import {Link} from 'react-router-dom'
-//fire
-import fire from '../../../api/firebase-config'
+import Header from '../../components/Header/HeaderAccount'
+import { useMessages } from '../../api/useMessages'
+import { Link } from 'react-router-dom'
 import Axios from 'axios';
+import classNames from 'classnames'
+import {useHistory} from 'react-router-dom';
+import fire from '../../api/firebase-config'
 
 
 
+const Messages = (props) => {
 
-const History = (props) => {
+	const cards = useMessages()
 
-    const cards =useCards()
+	const [data, setData] = useState([])
 
-    const [data, setData] = useState([])
- 
-    const handleChange = e => {
-        e.preventDefault();
-    }
+    let history = useHistory()
 
-    const setResult = useCallback((result) => {
+	const handleChange = e => {
+		e.preventDefault();
+	}
+
+	const setResult = useCallback((result) => {
 		let search = cards.map(card => Object.values(card))
 		search.forEach((card, index) => {
-		    let validation = []
-		    card.forEach((course, index) => Array.isArray(course) 
-				? card[index]='' : course)
-		    if((card.toString().toLowerCase().replace(/,/g , ' ').indexOf('histoire') >= 0)
-		    && (card.toString().toLowerCase().replace(/,/g , ' ').indexOf('cinquieme') >= 0)
-		    && (card.toString().toLowerCase().replace(/,/g , ' ').indexOf('qcm') < 0))
-			
-				{validation.push(1)}
-			else {validation.push(0)}
-		
-		    if(validation.indexOf(0) === -1)
-				{result.push(cards[index])}
+			let validation = []
+			card.forEach((course, index) => Array.isArray(course)
+				? card[index] = '' : course)
+			if ((card.toString().toLowerCase().replace(/,/g, ' ').indexOf('geographie') >= 0)
+				&& (card.toString().toLowerCase().replace(/,/g, ' ').indexOf('cinquieme') >= 0)
+				&& (card.toString().toLowerCase().replace(/,/g, ' ').indexOf('qcm') < 0)) { validation.push(1) }
+			else { validation.push(0) }
+
+			if (validation.indexOf(0) === -1) { result.push(cards[index]) }
 		})
 		return result
-}, [cards])
+	}, [cards])
 
-  useEffect(() => {
+	useEffect(() => {
 		let result = []
 		setResult(result)
 		setData(result)
 	}, [cards, setResult])
+		console.log(data)
 
 
 	const SignOutBtn = () => <button style={{ marginRight: '40px' }} onClick={() => fire.auth().signOut()}>Deconnexion</button>
 
-	const getLinks = (routes) => {
-
-    
-        return (
-            routes.map((prop, key) => 
-            prop.name === 'Histoire' ? 
-    <Link className='active' to={prop.path} key={key} >{prop.name} </Link> : 
-	<Link  to={prop.path} key={key} >{prop.name} </Link>
-                
-            )
-           
-        )
-	}
 	
-		
 
 	const handleClick = id => {
 		
@@ -75,26 +61,42 @@ const History = (props) => {
 	
 		if(response === 'oui') {
 			alert(deleted)
-				Axios.delete(`https://radiant-shore-19271.herokuapp.com/api/cards/${id}`)
+				Axios.delete(`https://radiant-shore-19271.herokuapp.com/api/message/${id}`)
+				history.goBack()
 		} else {
 			alert("Vous n'avez rien supprimé")
 
 	}}
 
-    return (
+
+
+	const getLinks = (routes) => {
+
+
+		return (
+			routes.map((prop, key) =>
+				prop.name === 'Messages non lu' ?
+					<Link className='active' to={prop.path} key={key} >{prop.name} </Link> :
+					<Link to={prop.path} key={key} >{prop.name} </Link>
+
+			)
+
+		)
+	}
+
+	return (
 
 		<div className='account'>
 
 
+			<div className='left-side'>
+				<SignOutBtn />
 
-		<div className='left-side'>
-			<SignOutBtn />
-
-			<div className='sidebar'>
+				<div className='sidebar'>
 					<div className='links'>
 						{
 							routesSidebar.map((prop, key) =>
-								prop.name === 'Cinquieme' ?
+								prop.name === 'Messages' ?
 									<Link className='link ' to={prop.layout + prop.path} key={key}> <h4 className='active-sidebar'>{prop.name} </h4> </Link> :
 									<Link className='link' to={prop.layout + prop.path} key={key}> <h4>{prop.name} </h4> </Link>
 							)
@@ -104,21 +106,22 @@ const History = (props) => {
 
 				</div>
 
-		</div>
 
-		<div className='right-side'>
-			<div className='right-side-header'>
-				<Link to='/' target='_blank'><h1>Histoire | Section Cinquième</h1></Link>
 			</div>
 
-			<div className='content'>
-            <Header logoOff  links={getLinks(routes)} handleChange={handleChange}/>
-		    <div>
+			<div className='right-side'>
+				<div className='right-side-header'>
+					<Link to='/' target='_blank'><h1>Les Messages</h1></Link>
+				</div>
+
+				<div className='content'>
+					<Header logoOff  links={getLinks(routes)} handleChange={handleChange} />
+					<div>
 						<table>
 							<thead>
 								<tr>
 									<th colSpan='2'>
-									<h2>Cours Publiés</h2>	
+										<h2>Cours Publiés</h2>
 									</th>
 								</tr>
 							</thead>
@@ -134,7 +137,7 @@ const History = (props) => {
 													</Link>
 												</td>
 												<td>
-												<button onClick={()=> handleClick(item._id)}>Supprimer</button>
+													<button onClick={()=>handleClick(item._id)} >Supprimer</button>
 												</td>
 											</div>
 
@@ -143,11 +146,11 @@ const History = (props) => {
 								</tr>
 
 							</tbody></table>
-							<table>
+						<table>
 							<thead>
 								<tr>
 									<th colSpan='2'>
-									<h2>Brouillons</h2>	
+										<h2>Brouillons</h2>
 									</th>
 								</tr>
 							</thead>
@@ -173,17 +176,17 @@ const History = (props) => {
 							</tbody></table>
 					</div>
 
-        </div>
+				</div>
+
+
+			</div>
+
 
 
 		</div>
 
 
-
-	</div>
-
-
-    )
+	)
 };
 
-export default History;
+export default Messages;

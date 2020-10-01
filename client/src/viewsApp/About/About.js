@@ -11,19 +11,23 @@ const About = (props) => {
 
 	return (
 		<div className='About'>
-			<Navbar logo='MARC BOURREAU' links={<Link to='/'>Home</Link>} whiteLinks />
 			<div className='head'>
+				<div className='head-nav'>
+					<Navbar logo='MARC BOURREAU' links={<Link to='/'>Home</Link>} whiteLinks />
+				</div>
+
+
 				<Title title="About" />
-			</div>
-			<div className='profilContainer'>
-				<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/African_Bush_Elephant.jpg/1200px-African_Bush_Elephant.jpg' alt='about' className='profilPic' />
-				<h2 className='profilTxt'>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Cras fermentum odio eu feugiat pretium nibh ipsum. Nec feugiat nisl pretium fusce id. 
+
+				<div className='profilContainer'>
+					<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/African_Bush_Elephant.jpg/1200px-African_Bush_Elephant.jpg' alt='about' className='profilPic' />
+					<h2 className='profilTxt'>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Cras fermentum odio eu feugiat pretium nibh ipsum. Nec feugiat nisl pretium fusce id.
 								</h2>
+				</div>
+
 			</div>
-			
-				
-			
+
 
 			<ContactForm />
 		</div>

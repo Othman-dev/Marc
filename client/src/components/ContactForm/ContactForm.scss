@@ -6,9 +6,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
+padding-bottom: 100px;
+}
+
+#contact h1 {
+    color: $dark;
+    margin-bottom: 0px;
+    padding-bottom: 0;
+}
+
+#contact h3 {
+    color: gray;
     margin-bottom: 50px;
 }
+
+#contact button {
+    background: $green;
+    color: white
+}
+#contact button:hover {
+background: $blue;
+}
+
+
 
 
 

@@ -18,3 +18,24 @@
     padding-bottom: 60px;
 }
 
+.oups {
+    padding: 60px;
+    display: flex;
+   align-items: center;
+    flex-direction: column;
+}
+.oups i {
+    color: $gray;
+    font-size: 100px;
+}
+.oups h1 {
+    color: $gray;
+    text-align: center;
+}
+
+.oups h3 {
+ text-align: center;
+ color: $gray;
+
+}
+

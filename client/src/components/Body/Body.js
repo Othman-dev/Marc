@@ -47,11 +47,14 @@ const Body = props => {
 	}, [cards, selected, setResult])
 
 	
-
+console.log(data)
     return (
             <div className='body' >
 				<div className='body-container'>
-                    {data.map((card, i) => (
+					{
+						data.length !== 0 ?
+					
+					data.map((card, i) => (
 						card.publier ?
                         <div key={i}>
 							{selected.length >=1 ?
@@ -59,10 +62,14 @@ const Body = props => {
 							<Card selected card={card}/>
                             :
 							<Card card={card}/>}
-						</div>
-						:
-						<div key={i}/>
-                    ))}
+						</div> : null
+						
+						
+                    )) : <div className='oups' >
+						<i class="far fa-laugh-beam"></i>
+					<h1>... Oups, il semble qu'il n'y ai pas de cours corespondant à ta recherche ...</h1> <br/>
+					<h3>Vérifie les hashtags sélectionnés. Petit conseil, si tu fais ta recherche avec un hashtag personnalisé, essaye de rajouter les accents! ;)</h3>
+							</div> }
 				</div>
 		    </div>
     )

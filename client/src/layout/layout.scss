@@ -55,16 +55,31 @@
 
 table {
     margin-top: 100px;
-    width: 100%;
+    width: 50vw;
+    border-collapse: collapse;
+
+
+}
+table button {
+    font-size: 13px;
 }
 th {
     height: 100px;
+    width: 100%;
+    border-bottom: 1px solid $gray;
+
   }
   td {
       width: 100%;
+      
   }
   table h2 {
       color: $blue;
+      text-align: start;
+  }
+
+  td {
+    border-bottom: 1px solid $gray;
   }
 
 
@@ -81,7 +96,10 @@ th {
     border-radius: 20px;
     color: $white;
 }
-
+.sidebar .link {
+    margin: 0;
+    padding: 0
+}
 
 
 

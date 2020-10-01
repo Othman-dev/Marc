@@ -14,7 +14,7 @@ const PhoneBar = () => {
 
   const [open, setOpen] = useState(false)
 
- 
+
 
   const barClasses = classNames({
     'phone-bar-close': open === false,
@@ -27,17 +27,17 @@ const PhoneBar = () => {
     <div className={barClasses}>
 
       <div className='phone-bar-header'>
-      {
-          open === false &&  <button className='touch' onClick={() => setOpen(!open)}>
-          Filtrer avec les #Hastags
+        {
+          open === false && <button className='touch' onClick={() => setOpen(!open)}>
+            Filtrer avec les #Hastags
       </button>
         }
         {
-          open &&  <button className='touch' onClick={() => setOpen(!open)}>
-          Fermer
+          open && <button className='touch' onClick={() => setOpen(!open)}>
+            Fermer
       </button>
         }
-       
+
       </div>
 
       {
@@ -49,8 +49,8 @@ const PhoneBar = () => {
       }
 
 
- 
-      
+
+
     </div>
   )
 }
@@ -82,27 +82,28 @@ const App = (props) => {
       <HashtagProvider>
         {/* <Navbar logo='MARC BOURREAU' links={<Link to='/about'>About</Link>} /> */}
         <Header />
-      
+
         {
           act && <PhoneBar />
         }
         <div className='advice'>
           <h2>Utilise les #Hashtags pour faire tes recherches. Selectionnes-en un ou plusieurs pour filtrer les cours présentés. Tu peux également en ajouter. </h2>
           <div className='note' >
-          <h4>Exemple: #SIXIEME + #GEOGRAPHIE affiche tous les cours de Géographie pour la section Sixième. Attention, lorsque tu ajoutes un hashtag, il est important de ne pas faire de fautes d'ortographe, et d'ajouter les accents!</h4>
+            <h4>Exemple: #SIXIEME + #GEOGRAPHIE affiche tous les cours de Géographie pour la section Sixième.</h4>
           </div>
-          
+
         </div>
+        <h1 className='title-nav'>Les Cours par <span>#</span>Hashtag</h1>
         <div className='navigation' id='nav'>
 
 
 
           <NavByHashtag />
-        
+
 
         </div>
         <Body />
-       
+
       </HashtagProvider>
 
 

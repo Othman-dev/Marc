@@ -43,7 +43,8 @@ const ContactForm = (props) => {
 
 		return (
 				<div id='contact' className='contactForm'>
-						<h1>Contact</h1>
+						<h1 >Contact</h1>
+						<h3>N'hésite pas à me contacter pour me faire partager un détail que j'aurais oublié dans mes cours.</h3>
 						<form onSubmit={handleSubmit}>
 								<input type='text' name='name' placeholder='Nom' onChange={handleChange} required/>
 								<br/>

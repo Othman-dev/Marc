@@ -109,11 +109,11 @@ const History = (props) => {
 
 		<div className='right-side'>
 			<div className='right-side-header'>
-				<Link to='/' target='_blank'><h1>Welcome My Friend</h1></Link>
+				<Link to='/' target='_blank'><h1>Histoire | Section Quatrième</h1></Link>
 			</div>
 
 			<div className='content'>
-            <Header logoOff title="Les Cours d'Histoire | Section 4ème" links={getLinks(routes)} handleChange={handleChange}/>
+            <Header logoOff  links={getLinks(routes)} handleChange={handleChange}/>
 		    <div>
 						<table>
 							<thead>
