@@ -162,7 +162,7 @@ const History = (props) => {
 													</Link>
 												</td>
 												<td>
-												<button onClick={()=> handleClick(item._id)}>Supprimer</button>
+												<button onClick={()=> handleClick(item.id)}>Supprimer</button>
 												</td>
 											</div>
 

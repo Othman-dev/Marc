@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 //routes
-import routes from './routes'
 import routesSidebar from '../../layout/routes';
-//components
-import Header from '../../components/Header/HeaderAccount'
 import { useMessages } from '../../api/useMessages'
 import { Link } from 'react-router-dom'
-import classNames from 'classnames'
-import { useHistory } from 'react-router-dom';
+
 import fire from '../../api/firebase-config'
 
 
@@ -18,32 +14,27 @@ const Messages = (props) => {
 	console.log(messages)
 
 
-	let history = useHistory()
+	
 
 
 	const SignOutBtn = () => <button style={{ marginRight: '40px' }} onClick={() => fire.auth().signOut()}>Deconnexion</button>
 
 
 
-	const handleClick = id => {
+	// const handleClick = id => {
 
-		const message = `Voulez-vous vraiment supprimer ce cours? Tapez "oui" pour le supprimer.`
-		const deleted = `Le cours vient d'être supprimé`
-		const response = prompt(message)
+	// 	const message = `Voulez-vous vraiment supprimer ce cours? Tapez "oui" pour le supprimer.`
+	// 	const deleted = `Le cours vient d'être supprimé`
+	// 	const response = prompt(message)
 
-		if (response === 'oui') {
-			alert(deleted)
-<<<<<<< HEAD:client/src/viewsAccount/Messages/Messages.js
-			Axios.delete(`https://radiant-shore-19271.herokuapp.com/api/message/${id}`)
-			history.goBack()
-=======
-				fire.firestore().collection("messages").doc(id).delete();
->>>>>>> abcb9fab48e66ea448d07db96a70d8a97adf6797:src/viewsAccount/Messages/Messages.js
-		} else {
-			alert("Vous n'avez rien supprimé")
+	// 	if (response === 'oui') {
+	// 		alert(deleted)
+	// 			fire.firestore().collection("messages").doc(id).delete();
+	// 	} else {
+	// 		alert("Vous n'avez rien supprimé")
 
-		}
-	}
+	// 	}
+	// }
 
 
 
@@ -89,7 +80,6 @@ const Messages = (props) => {
 								</tr>
 							</thead>
 							<tbody>
-<<<<<<< HEAD:client/src/viewsAccount/Messages/Messages.js
 
 								{
 									messages.map((msg, i) => <tr key={i}>
@@ -101,26 +91,6 @@ const Messages = (props) => {
 									)
 								}
 
-=======
-								<tr>
-									{
-										data.map((item, index) =>
-											item.publier === true &&
-											<div key={index}>
-												<td >
-													<Link className='link' to={{ pathname: '/account/board', state: item }}>
-														{item.course[0].slice(item.course[0].indexOf('=') + 1)}
-													</Link>
-												</td>
-												<td>
-													<button onClick={()=>handleClick(item.id)} >Supprimer</button>
-												</td>
-											</div>
-
-										)
-									}
-								</tr>
->>>>>>> abcb9fab48e66ea448d07db96a70d8a97adf6797:src/viewsAccount/Messages/Messages.js
 
 							</tbody></table>
 						<table>

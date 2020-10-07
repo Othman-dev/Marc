@@ -19,34 +19,11 @@ const ContactForm = (props) => {
 
 		function handleSubmit(event) {
 				event.preventDefault()
-<<<<<<< HEAD:client/src/components/ContactForm/ContactForm.js
-				Axios.post('https://radiant-shore-19271.herokuapp.com/api/messages/', message)
-				.then(res => {
-				    if(res.data.success) {
-				        setMessage({...message,
-						    sent:true,
-						    disabled: true
-				        })
-						alert('message sent')
-				    }else{
-				        setMessage({...message,
-						    sent:false,
-						    disabled:false
-						})
-				}}).catch(err => {
-						console.log(err)
-				        setMessage({...message,
-						    sent:false,
-						    disabled:false
-						})
-				})
-=======
 				const temp = {
 						name:message.name,
 						email:message.email,
 						subject:message.subject,
 						content:message.content
->>>>>>> abcb9fab48e66ea448d07db96a70d8a97adf6797:src/components/ContactForm/ContactForm.js
 				}
 				fire.firestore().collection('messages').doc(generateKey(message.name)).set(temp)
 				setMessage({...message,

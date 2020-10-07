@@ -6,8 +6,6 @@ import routesSidebar from '../../../layout/routes';
 import Header from '../../../components/Header/HeaderAccount'
 import { useCards } from '../../../api/useCards'
 import { Link } from 'react-router-dom'
-import classNames from 'classnames'
-import { useHistory } from 'react-router-dom';
 import fire from '../../../api/firebase-config'
 
 
@@ -18,7 +16,6 @@ const Geography = (props) => {
 
 	const [data, setData] = useState([])
 
-	let history = useHistory()
 
 	const handleChange = e => {
 		e.preventDefault();
@@ -60,22 +57,12 @@ const Geography = (props) => {
 
 		if (response === 'oui') {
 			alert(deleted)
-<<<<<<< HEAD:client/src/viewsAccount/Cinquieme/Sections/Geography.js
-			Axios.delete(`https://radiant-shore-19271.herokuapp.com/api/cards/${id}`)
-			history.goBack()
-		} else {
-			alert("Vous n'avez rien supprimé")
-
-		}
-	}
-=======
 		    fire.firestore().collection("cards").doc(id).delete();
 		} else {
 			alert("Vous n'avez rien supprimé")
 	}}
 
 
->>>>>>> abcb9fab48e66ea448d07db96a70d8a97adf6797:src/viewsAccount/Cinquieme/Sections/Geography.js
 
 	const getLinks = (routes) => {
 		return (
@@ -142,11 +129,7 @@ const Geography = (props) => {
 													</Link>
 												</td>
 												<td>
-<<<<<<< HEAD:client/src/viewsAccount/Cinquieme/Sections/Geography.js
-													<button onClick={() => handleClick(item._id)} >Supprimer</button>
-=======
 													<button onClick={()=>handleClick(item.id)} >Supprimer</button>
->>>>>>> abcb9fab48e66ea448d07db96a70d8a97adf6797:src/viewsAccount/Cinquieme/Sections/Geography.js
 												</td>
 											</div>
 
