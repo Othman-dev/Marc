@@ -1,5 +1,29 @@
 @import "../../assets/_colors.scss";
 
+.chapter-link h3 {
+    font-weight: lighter;
+    font-size: 14px;
+    margin: 0;
+}
+
+.title-link h3{
+    background: $orange;
+    margin: 0;
+
+}
+
+.subchapter-link {
+    font-weight: lighter;
+    font-size: 14px;
+}
+.subchapter-link h4 {
+    margin: 0;
+
+    margin-left: 50px;
+    text-decoration: underline dotted;
+    background: transparent;
+}
+
 .input-big-title-reader {
     color: white;
     background: $blue;

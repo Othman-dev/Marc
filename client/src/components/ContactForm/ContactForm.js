@@ -9,7 +9,7 @@ const ContactForm = (props) => {
 				email:'',
 				subject:'',
 				content:'',
-				sent:null,
+				sent:false,
 				disabled:false
 		})
 
@@ -19,7 +19,7 @@ const ContactForm = (props) => {
 
 		function handleSubmit(event) {
 				event.preventDefault()
-				Axios.post('https://stormy-shelf-35576.herokuapp.com/api/messages/', message)
+				Axios.post('https://radiant-shore-19271.herokuapp.com/api/messages/', message)
 				.then(res => {
 				    if(res.data.success) {
 				        setMessage({...message,
@@ -41,6 +41,8 @@ const ContactForm = (props) => {
 				})
 				}
 
+				console.log(message)
+
 		return (
 				<div id='contact' className='contactForm'>
 						<h1 >Contact</h1>
@@ -56,8 +58,8 @@ const ContactForm = (props) => {
 								<textarea className='formContent'rows='15' name='content' placeholder='Tapez votre message ici...' onChange={handleChange} required/>
 								<br/>
 								<br/>
-								<button type='submit' disabled={message.disabled}>Envoyer</button>
-								{message.sent === true && 'message sent'}
+								<button style={{marginRight: '20px'}} type='submit' disabled={message.disabled}>Envoyer</button>
+						{message.sent === true && 'Message envoyé'}
 						</form>
 				</div>
 		)

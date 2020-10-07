@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './index.scss';
 //views
 import App from './viewsApp/App/App';
-import Page from './viewsApp/Page/Page';
+import Page from './viewsApp/Page/PageTest';
 import Login from './viewsApp/Login/Login'
 import About from './viewsApp/About/About';
 //layout

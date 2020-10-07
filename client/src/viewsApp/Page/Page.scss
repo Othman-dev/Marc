@@ -11,14 +11,16 @@
     background: $gradient-dark;  
     background-size: cover;
     background-blend-mode: multiply;
+    
 }
 
-.page i {
-    position: absolute;
+.cross {
+    position: fixed;
     top: 0;
     right: 0;
-    font-size: x-large;
-    margin: 20px;
+    font-size: 50px;
+    padding: 0;
+    margin-right: 20px;
     color: $creme
 }
 
@@ -54,15 +56,43 @@
     top: 5px;
 }
 
+.transparent {
+   opacity: 0;
+   transition: opacity 0.3s;
+}
+.show-chapter {
+    opacity: 1;
+    transition: opacity .7s;;
+}
+
+
 .chapter {
+    max-width: 20%;
     padding: 0;
+    position: fixed;
+    top: 11%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: start;
+    align-items: start;
+    background: $blue;
+    // border: 10px solid $blue;
+    border-radius: 10px;
+    padding: 0 15px;
+    min-height: 70%;
+    width: 30%;
 }
 
 .chapter h3 {
     color: $creme;
-    text-decoration: underline;
-
+    font-weight: bold;
+    background-color: $dark;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
+
+
 
 
 
@@ -82,16 +112,49 @@
     display: flex;
     justify-content: center;
     animation: reveal 1s ease;
-    box-shadow: -3px -3px 33px -2px $dark
+    box-shadow: -3px -3px 33px -2px $dark;
 }
 
-@keyframes reveal {
-    0%{
-        opacity: 0;
-        transform: translate3d(0%, 20%, 0);
-        transition: opacity .7s, transform 1s;
-    }
+.discover {
+    transform: translate3d(30%, 0, 0) ;
+    transition: transform 0.29s
 }
+
+.hide {
+    transform: translate3d(0,0,0);
+    transition: transform 0.29s
+}
+.chapterBtn {
+    position: fixed;
+    left: 0;
+    top: 0%;
+    margin: 15px;
+    background: transparent;
+    border: none;
+}
+.chapterBtn i {
+    font-size: 50px;
+    color: $blue
+}
+.chapterBtn i:hover {
+    color: $gray
+}
+
+.chapterBtn:hover {
+    background: transparent;
+    border: none;
+    
+}
+
+
+
+// @keyframes reveal {
+//     0%{
+//         opacity: 0;
+//         transform: translate3d(0%, 10%, 0);
+//         transition: opacity .7s, transform 1s;
+//     }
+// }
 
 @media only screen and (min-width: 768px) {
     .course {

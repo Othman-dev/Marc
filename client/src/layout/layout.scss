@@ -70,17 +70,15 @@ th {
 
   }
   td {
-      width: 100%;
-      
+      width: 5%;
+      border-bottom: 1px solid $gray;
   }
+
   table h2 {
       color: $blue;
       text-align: start;
   }
 
-  td {
-    border-bottom: 1px solid $gray;
-  }
 
 
 .active {

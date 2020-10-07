@@ -20,11 +20,11 @@ const Reader = (props) => {
 
 	function customDivCreator() {
 		if (type === 'title') {
-			return <div className='input-big-title-reader' id={content}>
+			return <div className='input-big-title-reader' id={link}>
 				{content}</div>
 		}
 		else if (type === 'chapter') {
-			return <div className='input-sm-title-reader' id={content}>
+			return <div className='input-sm-title-reader' id={link}>
 				{content}</div>
 		}
 		else if (type === 'text') {
@@ -49,7 +49,7 @@ const Reader = (props) => {
 		}
 	
 		else if (type === 'subchapter') {
-			return <div className='input-subchapter-reader'id={content}>
+			return <div className='input-subchapter-reader'id={link}>
 				{content}</div>
 		}
 		else if (type === 'powerpoint') {

@@ -16,7 +16,7 @@ const InputBar = props => {
 		if (type === 'image') {
 			setImagePreviewUrl(content)
 		}
-	}, [imagePreviewUrl])
+	}, [imagePreviewUrl, content, type])
 
 	const includeIntoCourse = url => {
 		setImagePreviewUrl(url);

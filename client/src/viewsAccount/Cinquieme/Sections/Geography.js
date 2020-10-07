@@ -8,7 +8,7 @@ import { useCards } from '../../../api/useCards'
 import { Link } from 'react-router-dom'
 import Axios from 'axios';
 import classNames from 'classnames'
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import fire from '../../../api/firebase-config'
 
 
@@ -19,7 +19,7 @@ const Geography = (props) => {
 
 	const [data, setData] = useState([])
 
-    let history = useHistory()
+	let history = useHistory()
 
 	const handleChange = e => {
 		e.preventDefault();
@@ -46,43 +46,40 @@ const Geography = (props) => {
 		setResult(result)
 		setData(result)
 	}, [cards, setResult])
-		console.log(data)
+	console.log(data)
 
 
 	const SignOutBtn = () => <button style={{ marginRight: '40px' }} onClick={() => fire.auth().signOut()}>Deconnexion</button>
 
-	
+
 
 	const handleClick = id => {
-		
+
 		const message = `Voulez-vous vraiment supprimer ce cours? Tapez "oui" pour le supprimer.`
 		const deleted = `Le cours vient d'être supprimé`
 		const response = prompt(message)
-	
-		if(response === 'oui') {
+
+		if (response === 'oui') {
 			alert(deleted)
-				Axios.delete(`https://radiant-shore-19271.herokuapp.com/api/cards/${id}`)
-				history.goBack()
+			Axios.delete(`https://radiant-shore-19271.herokuapp.com/api/cards/${id}`)
+			history.goBack()
 		} else {
 			alert("Vous n'avez rien supprimé")
 
-	}}
-
-
+		}
+	}
 
 	const getLinks = (routes) => {
-
-
 		return (
 			routes.map((prop, key) =>
 				prop.name === 'Geographie' ?
 					<Link className='active' to={prop.path} key={key} >{prop.name} </Link> :
 					<Link to={prop.path} key={key} >{prop.name} </Link>
-
 			)
-
 		)
 	}
+
+	console.log(data)
 
 	return (
 
@@ -115,7 +112,7 @@ const Geography = (props) => {
 				</div>
 
 				<div className='content'>
-					<Header logoOff  links={getLinks(routes)} handleChange={handleChange} />
+					<Header logoOff links={getLinks(routes)} handleChange={handleChange} />
 					<div>
 						<table>
 							<thead>
@@ -137,7 +134,7 @@ const Geography = (props) => {
 													</Link>
 												</td>
 												<td>
-													<button onClick={()=>handleClick(item._id)} >Supprimer</button>
+													<button onClick={() => handleClick(item._id)} >Supprimer</button>
 												</td>
 											</div>
 
@@ -158,6 +155,7 @@ const Geography = (props) => {
 								<tr>
 									{
 										data.map((item, index) =>
+											console.log(item) &&
 											item.publier === false &&
 											<div key={index}>
 												<td >
@@ -166,7 +164,8 @@ const Geography = (props) => {
 													</Link>
 												</td>
 												<td>
-												<button onClick={()=> handleClick(item._id)}>Supprimer</button>												</td>
+													<button onClick={() => handleClick(item._id)}>Supprimer</button>
+												</td>
 											</div>
 
 										)

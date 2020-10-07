@@ -6,7 +6,7 @@ import {useHistory} from 'react-router-dom'
 
 const Chapter = (props) => {
 
-    const card = props.page
+    const card = props.board
 
     let history = useHistory()
 
@@ -16,30 +16,28 @@ const Chapter = (props) => {
 
 	const link = content.replace(/\s/g, '')
 
-    const handleClick = () => {
-		history.push({pathname: `/${card.id}#${link}`, state:{card}})
-	}
+    
 
 	function customDivCreator() {
 	
 		if (type === 'chapter') {
-			return <a href={{pathname:`/${card.id}#${link}`, state:{card}}}>
+			return <a className='chapter-link' href={`/page/${props.id}#${link}`}>
 				<h3>{content}</h3> </a>
 		}
 		else if (type === 'subchapter') {
-			return <div onClick={handleClick}>
-				<h3>{content}</h3> </div>
+			return <a className='subchapter-link' href={`/page/${props.id}#${link}`}>
+			<h4>{content}</h4> </a>
 		}
 		else if (type === 'title') {
-			return <Link href={{pathname:`/${card.id}#${link}`, state:{card}}}>
-				<h3>{content}</h3> </Link>
+			return <a className='title-link' href={`/page/${props.id}#${link}`}>
+			<h3>{content}</h3> </a>
 		}
     }
     const customDiv = (
 		customDivCreator()
 	)
     return (
-		<div>
+		<div className='chapter-container'>
 			{customDiv}
 		</div>
 	)

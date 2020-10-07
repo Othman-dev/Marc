@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom'
 import './Page.scss';
 import classNames from 'classnames'
@@ -39,14 +39,16 @@ const Page = props => {
     window.scrollTo(0, 0)
   }, [])
 
-
+console.log(props.history)
 
   return (
     <div className='page' >
       <Link to={''}> <i className="fas fa-times"></i> </Link>
 
       <div className='course'>
-        <ul className='reader' >{page.course.map((string, i) => <Reader key={i} string={string} />)}</ul>
+          <div className='reader' >
+            {page.course.map((string, i) => <Reader key={i} string={string} />)}</div>
+        
       </div>
 
 
